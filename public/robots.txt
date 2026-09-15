@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://il90il90.github.io/TrustApk-Website/sitemap.xml
+Sitemap: https://trustapk.app/sitemap.xml

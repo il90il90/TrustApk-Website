@@ -54,23 +54,28 @@ The workflow triggers on pushes to `main` and to `claude/adoring-brown-t5azpu`. 
 different branch, add it under `on.push.branches` in `.github/workflows/deploy.yml`, or set that
 branch as the repo's default.
 
-## Custom domain (later)
+## Custom domain — `trustapk.app`
 
 The build uses a relative asset base (`base: './'` in `vite.config.js`), so it works both at the
-project-pages path and at a root custom domain — no rebuild needed.
+project-pages path and at the root custom domain. `public/CNAME` already contains `trustapk.app`,
+and the absolute URLs in `index.html`, `public/robots.txt` and `public/sitemap.xml` point at it.
 
-1. `Settings → Pages → Custom domain` → enter your domain and save (this creates a `CNAME` on the
-   Pages branch).
-2. Add a file `public/CNAME` containing just your domain (e.g. `trustapk.app`) so the domain
-   survives future deploys.
-3. DNS at your registrar:
-   - Apex domain (`example.com`): four `A` records to GitHub Pages
-     (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`), or an `ALIAS`/`ANAME` to `il90il90.github.io`.
-   - Subdomain (`www.` or `app.`): a `CNAME` record to `il90il90.github.io`.
-4. After DNS propagates, tick **Enforce HTTPS** in the Pages settings.
+**DNS (Cloudflare — set every record to “DNS only” / grey cloud):**
 
-Then update the absolute URLs in `index.html` (canonical + `og:image` + `og:url`), `public/robots.txt`
-and `public/sitemap.xml` to your custom domain.
+| Type  | Name  | Value               |
+|-------|-------|---------------------|
+| A     | `@`   | `185.199.108.153`   |
+| A     | `@`   | `185.199.109.153`   |
+| A     | `@`   | `185.199.110.153`   |
+| A     | `@`   | `185.199.111.153`   |
+| CNAME | `www` | `il90il90.github.io`|
+
+Grey cloud (unproxied) matters: `.app` is HSTS-preloaded, so GitHub must see the domain directly to
+issue its Let's Encrypt certificate — a proxied (orange) record blocks that. You can switch to
+proxied later with SSL/TLS mode **Full**.
+
+**GitHub:** `Settings → Pages → Custom domain` → `trustapk.app` → Save, then tick **Enforce HTTPS**
+once the certificate is issued (can take a few minutes to ~24h).
 
 ## Contact form
 
