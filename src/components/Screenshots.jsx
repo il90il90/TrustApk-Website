@@ -37,7 +37,7 @@ const shots = [
   {
     src: './shots/proxy-cert.jpg',
     title: 'Per-app CA trust',
-    desc: 'Point at your proxy’s CA once; TrustAPK writes it inside the patched APK so that one app trusts your proxy - no system-wide CA install (managed-device compatibility depends on your org’s policy).',
+    desc: 'Select your proxy’s CA certificate once; TrustAPK writes it inside the patched APK so that one app trusts your proxy - no system-wide CA install (managed-device compatibility depends on your org’s policy).',
   },
   {
     src: './shots/app-info.jpg',

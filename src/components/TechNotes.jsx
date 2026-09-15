@@ -5,7 +5,7 @@ const notes = [
   {
     icon: Cpu,
     title: 'No Gradle, framework APIs only',
-    text: 'The app is linked by hand so the build stays fully offline and reproducible - no Android SDK, Android Studio or Gradle needed. Docker is the only host requirement.',
+    text: 'The app is linked by hand against the framework APIs, with no Android SDK, Android Studio or Gradle in the mix. (Building it from source needs only Docker on the host - a developer detail, not something you install to run it.)',
   },
   {
     icon: Code,
@@ -24,10 +24,10 @@ export default function TechNotes() {
     <Section id="tech">
       <div className="text-center max-w-2xl mx-auto">
         <Kicker>Under the hood</Kicker>
-        <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Engineered to run anywhere, offline</h2>
+        <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Built for on-device inspection</h2>
         <p className="mt-4 text-muted-c">
-          The parts that make on-device patching possible - built from the raw formats up, with no
-          server and no toolchain to install.
+          The parts that make on-device patching possible - built from the raw formats up, so editing
+          and re-signing happen on the phone with no desktop toolchain to install.
         </p>
       </div>
 

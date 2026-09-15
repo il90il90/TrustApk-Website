@@ -16,7 +16,7 @@ const steps = [
     label: 'Trust proxy',
     img: './shots/proxy-cert.jpg',
     title: '2 · Trust your proxy',
-    body: 'Point at your proxy’s CA (Reqable / mitmproxy / Burp / Charles). TrustAPK writes it inside the patched APK, so that one app trusts your proxy - no system-wide CA install (managed-device compatibility depends on your org’s policy).',
+    body: 'Select your proxy’s CA certificate (Reqable / mitmproxy / Burp / Charles). TrustAPK writes it inside the patched APK, so that one app trusts your proxy - no system-wide CA install (managed-device compatibility depends on your org’s policy).',
     log: ['> import mitmproxy-ca.pem', '> write network_security_config.xml', '> per-app trust only'],
   },
   {
