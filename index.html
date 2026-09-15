@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0f16" />
 
-    <title>TrustAPK — On-device Android APK patcher for HTTPS inspection</title>
-    <meta name="description" content="TrustAPK is a fully on-device Android APK patcher for HTTPS inspection, app analysis and reverse-engineering. Trust your proxy's CA, strip certificate pinning, inspect and decompile — no server, no root, nothing uploaded." />
-    <meta name="keywords" content="TrustAPK, APK patcher, HTTPS inspection, certificate pinning, mitmproxy, Burp, Reqable, Android reverse engineering, on-device, no root, dex decompiler, smali, jadx" />
+    <title>TrustAPK — On-device APK toolkit for mobile app pentesting</title>
+    <meta name="description" content="TrustAPK is an on-device Android APK toolkit for mobile app pentesting: intercept HTTPS, strip certificate pinning, inspect endpoints and secrets, and decompile to Java — right on the phone. No server, no root, no laptop, nothing uploaded." />
+    <meta name="keywords" content="TrustAPK, mobile pentesting, Android pentest, APK patcher, HTTPS inspection, certificate pinning bypass, Frida gadget, unpinning, mitmproxy, Burp Suite, Reqable, bug bounty, mobile security, reverse engineering, on-device, no root, dex decompiler, smali, jadx" />
     <meta name="author" content="Israel Cohen" />
     <link rel="canonical" href="https://il90il90.github.io/TrustApk-Website/" />
 
@@ -18,8 +18,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TrustAPK" />
-    <meta property="og:title" content="TrustAPK — On-device Android APK patcher for HTTPS inspection" />
-    <meta property="og:description" content="Trust your proxy's CA, strip certificate pinning, inspect and decompile Android apps — all on-device, no server, nothing uploaded. The app's own code is never modified." />
+    <meta property="og:title" content="TrustAPK — On-device APK toolkit for mobile app pentesting" />
+    <meta property="og:description" content="Intercept HTTPS, strip certificate pinning, inspect endpoints and secrets, and decompile Android apps for a pentest — all on the phone. No server, no root, no laptop. The app's own code is never modified." />
     <meta property="og:url" content="https://il90il90.github.io/TrustApk-Website/" />
     <meta property="og:image" content="https://il90il90.github.io/TrustApk-Website/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -27,8 +27,8 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="TrustAPK — On-device Android APK patcher for HTTPS inspection" />
-    <meta name="twitter:description" content="Trust your proxy's CA, strip certificate pinning, inspect and decompile Android apps — all on-device, no server, nothing uploaded." />
+    <meta name="twitter:title" content="TrustAPK — On-device APK toolkit for mobile app pentesting" />
+    <meta name="twitter:description" content="Intercept HTTPS, strip pinning, inspect and decompile Android apps for a pentest — all on the phone. No server, no root, no laptop." />
     <meta name="twitter:image" content="https://il90il90.github.io/TrustApk-Website/og-image.png" />
 
     <!-- Fonts -->
@@ -39,10 +39,10 @@
     <!-- No-flash theme init: set dark/light class before paint -->
     <script>
       (function () {
+        // Dark is the default aesthetic; light only when the visitor toggled it.
         try {
           var stored = localStorage.getItem('trustapk-theme');
-          var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-          var theme = stored || (prefersLight ? 'light' : 'dark');
+          var theme = stored || 'dark';
           document.documentElement.classList.toggle('dark', theme !== 'light');
         } catch (e) {
           document.documentElement.classList.add('dark');
@@ -58,7 +58,7 @@
         "name": "TrustAPK",
         "operatingSystem": "Android 8.0+",
         "applicationCategory": "SecurityApplication",
-        "description": "A fully on-device Android APK patcher for HTTPS inspection, app analysis and reverse-engineering — no server, nothing uploaded.",
+        "description": "An on-device Android APK toolkit for mobile app pentesting — intercept HTTPS, strip certificate pinning, inspect endpoints and secrets, and decompile to Java. No server, no root, nothing uploaded.",
         "softwareVersion": "1.7.19",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "author": { "@type": "Person", "name": "Israel Cohen", "url": "https://t.me/IsraelCohen" }

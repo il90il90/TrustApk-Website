@@ -1,7 +1,7 @@
 import { Download, ArrowDown, Github, Check } from './Icons.jsx'
 import { VERSION, DOWNLOAD_URL, SOURCE_REPO } from '../lib/constants.js'
 
-const chips = ['No server', 'No root', 'Nothing uploaded', 'Code untouched']
+const chips = ['No server', 'No root', 'No laptop', 'Nothing uploaded']
 
 export default function Hero() {
   return (
@@ -15,18 +15,18 @@ export default function Hero() {
       <div className="relative mx-auto max-w-6xl px-4 text-center">
         <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-base bg-panel px-3 py-1 text-xs text-muted-c mb-6">
           <span className="h-2 w-2 rounded-full bg-brand animate-pulse-glow" />
-          v{VERSION} · Made with ❤️ from Israel
+          v{VERSION} · The field pentester's APK toolkit
         </div>
 
         <h1 className="animate-fade-up text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
-          On-device Android <span className="text-gradient">APK patcher</span>
-          <br className="hidden sm:block" /> for HTTPS inspection
+          On-device APK toolkit
+          <br className="hidden sm:block" /> for <span className="text-gradient">mobile app pentesting</span>
         </h1>
 
         <p className="animate-fade-up mx-auto mt-6 max-w-2xl text-base sm:text-lg text-muted-c">
-          Take an app that's already on your phone, make its HTTPS traffic readable by your
-          proxy, strip certificate pinning, inspect and decompile it — then re-sign and install.
-          <span className="text-base-c font-medium"> All locally on the device. Nothing is uploaded, ever.</span>
+          Intercept any app's HTTPS, strip certificate pinning, inspect endpoints and secrets, and
+          decompile to Java — right on the phone, in the field.
+          <span className="text-base-c font-medium"> No server, no root, no laptop. Nothing is uploaded, ever.</span>
         </p>
 
         <div className="animate-fade-up mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">

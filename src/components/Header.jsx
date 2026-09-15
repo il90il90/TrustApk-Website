@@ -3,10 +3,10 @@ import { Shield, Github, Sun, Moon, Download, Menu, Close } from './Icons.jsx'
 import { SOURCE_REPO, DOWNLOAD_URL } from '../lib/constants.js'
 
 const links = [
+  { href: '#pentest', label: 'Who it’s for' },
   { href: '#how', label: 'How it works' },
   { href: '#demo', label: 'Demo' },
   { href: '#features', label: 'Features' },
-  { href: '#screens', label: 'Screens' },
   { href: '#download', label: 'Download' },
   { href: '#contact', label: 'Contact' },
 ]
