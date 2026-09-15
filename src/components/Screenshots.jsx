@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Section, Kicker } from './Section.jsx'
 import { Close } from './Icons.jsx'
 import PhoneFrame from './PhoneFrame.jsx'
@@ -48,17 +48,57 @@ const shots = [
 
 export default function Screenshots() {
   const [active, setActive] = useState(null)
+  const openerRef = useRef(null)
+  const dialogRef = useRef(null)
+  const closeBtnRef = useRef(null)
+
+  const close = useCallback(() => {
+    setActive(null)
+    // Return focus to the thumbnail that opened the lightbox.
+    openerRef.current?.focus()
+    openerRef.current = null
+  }, [])
+
+  const open = (idx, e) => {
+    openerRef.current = e.currentTarget
+    setActive(idx)
+  }
 
   useEffect(() => {
     if (active === null) return
-    const onKey = (e) => e.key === 'Escape' && setActive(null)
-    window.addEventListener('keydown', onKey)
+    const prevOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
+    // Move focus into the dialog.
+    closeBtnRef.current?.focus()
+
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        close()
+        return
+      }
+      if (e.key === 'Tab') {
+        // Trap focus among the dialog's focusable elements.
+        const nodes = dialogRef.current?.querySelectorAll(
+          'button, [href], img[tabindex], [tabindex]:not([tabindex="-1"])'
+        )
+        if (!nodes || nodes.length === 0) return
+        const first = nodes[0]
+        const last = nodes[nodes.length - 1]
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+    window.addEventListener('keydown', onKey)
     return () => {
       window.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
+      document.body.style.overflow = prevOverflow
     }
-  }, [active])
+  }, [active, close])
 
   return (
     <Section id="screens" soft>
@@ -72,8 +112,13 @@ export default function Screenshots() {
 
       <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
         {shots.map((s, idx) => (
-          <div key={s.title} className="flex flex-col">
-            <button onClick={() => setActive(idx)} className="group text-left focus:outline-none">
+          <div key={s.title} className="flex flex-col min-w-0">
+            <button
+              onClick={(e) => open(idx, e)}
+              aria-haspopup="dialog"
+              aria-label={`Enlarge screenshot: ${s.title}`}
+              className="group text-left rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg-soft)]"
+            >
               <div className="transition-transform duration-300 group-hover:-translate-y-1.5">
                 <PhoneFrame src={s.src} alt={s.title} glow={idx === 0} />
               </div>
@@ -93,24 +138,30 @@ export default function Screenshots() {
 
       {active !== null && (
         <div
+          ref={dialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="lightbox-title"
           className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
-          onClick={() => setActive(null)}
+          onClick={close}
         >
           <button
-            aria-label="Close"
-            className="absolute top-4 right-4 p-2 rounded-lg bg-white/10 text-white hover:bg-white/20"
-            onClick={() => setActive(null)}
+            ref={closeBtnRef}
+            aria-label="Close screenshot"
+            className="absolute top-4 right-4 p-2 rounded-lg bg-white/10 text-white hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            onClick={close}
           >
             <Close width={22} height={22} />
           </button>
-          <figure className="flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
+          <figure className="flex flex-col items-center max-h-full" onClick={(e) => e.stopPropagation()}>
             <img
               src={shots[active].src}
               alt={shots[active].title}
-              className="max-h-[80vh] w-auto rounded-2xl shadow-2xl"
+              className="max-h-[78vh] w-auto max-w-full rounded-2xl shadow-2xl"
             />
-            <figcaption className="mt-4 max-w-lg text-center text-sm text-white/80">
-              <span className="font-semibold text-white">{shots[active].title}.</span> {shots[active].desc}
+            <figcaption className="mt-4 max-w-lg text-center text-sm text-white/80 overflow-y-auto">
+              <span id="lightbox-title" className="font-semibold text-white">{shots[active].title}.</span>{' '}
+              {shots[active].desc}
             </figcaption>
           </figure>
         </div>

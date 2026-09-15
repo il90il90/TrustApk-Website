@@ -10,6 +10,14 @@
   --text: #e6edf3;
   --text-muted: #93a4b8;
   --brand: #22d3aa;
+  /* Split brand tokens: -rgb is the text/icon/link hue (must pass contrast on
+     the page background); -surface-rgb is the button fill (dark ink sits on it). */
+  --brand-rgb: 34 211 170;
+  --brand-surface-rgb: 34 211 170;
+  /* Headline / logo gradient, per theme. */
+  --grad-from: #5eead4;
+  --grad-mid: #22d3aa;
+  --grad-to: #a78bfa;
 }
 
 :root:not(.dark) {
@@ -19,7 +27,14 @@
   --border: #e2e8f0;
   --text: #0d1b2a;
   --text-muted: #52657a;
-  --brand: #0d9c7e;
+  --brand: #0a7d63;
+  /* #0a7d63 = 5.1:1 on white for text/links; #0d9c7e stays vivid as a button
+     fill (dark ink on it is 5.5:1). */
+  --brand-rgb: 10 125 99;
+  --brand-surface-rgb: 13 156 110;
+  --grad-from: #0d9c7e;
+  --grad-mid: #0a7d63;
+  --grad-to: #6d28d9;
 }
 
 html {
@@ -39,23 +54,33 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-/* Utility helpers driven by CSS vars so both themes stay in sync */
-.bg-base { background-color: var(--bg); }
-.bg-soft { background-color: var(--bg-soft); }
-.bg-panel { background-color: var(--panel); }
-/* Semi-transparent header background (opacity modifiers don't work on the
-   custom color utilities above, so this is a dedicated token). */
-.bg-header { background-color: color-mix(in srgb, var(--bg) 88%, transparent); }
-.bg-panel-soft { background-color: color-mix(in srgb, var(--panel) 45%, transparent); }
-.text-base-c { color: var(--text); }
-.text-muted-c { color: var(--text-muted); }
-.border-base { border-color: var(--border); }
+/* Utility helpers driven by CSS vars so both themes stay in sync. Kept in
+   @layer utilities so hover:/focus: variants (e.g. hover:text-base-c) compile. */
+@layer utilities {
+  .bg-base { background-color: var(--bg); }
+  .bg-soft { background-color: var(--bg-soft); }
+  .bg-panel { background-color: var(--panel); }
+  /* Semi-transparent header background (opacity modifiers don't work on the
+     custom color utilities above, so this is a dedicated token). */
+  .bg-header { background-color: color-mix(in srgb, var(--bg) 88%, transparent); }
+  .bg-panel-soft { background-color: color-mix(in srgb, var(--panel) 45%, transparent); }
+  .text-base-c { color: var(--text); }
+  .text-muted-c { color: var(--text-muted); }
+  .border-base { border-color: var(--border); }
+}
 
 .text-gradient {
-  background: linear-gradient(120deg, #5eead4 0%, #22d3aa 45%, #7c5cff 100%);
+  background: linear-gradient(120deg, var(--grad-from) 0%, var(--grad-mid) 45%, var(--grad-to) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

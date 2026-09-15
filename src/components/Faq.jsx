@@ -36,22 +36,35 @@ const faqs = [
   },
 ]
 
-function Item({ q, a, open, onClick }) {
+function Item({ q, a, open, onClick, id }) {
+  const btnId = `faq-q-${id}`
+  const panelId = `faq-a-${id}`
   return (
     <div className="border-b border-base">
       <button
+        id={btnId}
         onClick={onClick}
         className="w-full flex items-center justify-between gap-4 py-5 text-left"
         aria-expanded={open}
+        aria-controls={panelId}
       >
         <span className="font-medium">{q}</span>
-        <span className={`flex-shrink-0 text-brand transition-transform duration-200 ${open ? 'rotate-45' : ''}`}>
+        <span
+          aria-hidden="true"
+          className={`flex-shrink-0 text-brand transition-transform duration-200 ${open ? 'rotate-45' : ''}`}
+        >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M12 5v14M5 12h14" />
           </svg>
         </span>
       </button>
-      <div className={`grid transition-all duration-200 ${open ? 'grid-rows-[1fr] pb-5' : 'grid-rows-[0fr]'}`}>
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={btnId}
+        aria-hidden={!open}
+        className={`grid transition-all duration-200 ${open ? 'grid-rows-[1fr] pb-5' : 'grid-rows-[0fr]'}`}
+      >
         <div className="overflow-hidden">
           <p className="text-sm text-muted-c leading-relaxed pr-8">{a}</p>
         </div>
@@ -75,7 +88,7 @@ export default function Faq() {
         </div>
         <div>
           {faqs.map((f, i) => (
-            <Item key={f.q} {...f} open={open === i} onClick={() => setOpen(open === i ? -1 : i)} />
+            <Item key={f.q} {...f} id={i} open={open === i} onClick={() => setOpen(open === i ? -1 : i)} />
           ))}
         </div>
       </div>

@@ -6,8 +6,10 @@ export default {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#22d3aa',
-          dark: '#0d9c7e',
+          // Text/icon/link hue - contrast-safe per theme (see index.css vars).
+          DEFAULT: 'rgb(var(--brand-rgb) / <alpha-value>)',
+          // Button/active fill - stays vivid so dark ink on it reads well.
+          surface: 'rgb(var(--brand-surface-rgb) / <alpha-value>)',
           glow: '#5eead4',
         },
         accent: '#7c5cff',

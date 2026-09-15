@@ -34,7 +34,7 @@ export default function Hero() {
             href={DOWNLOAD_URL}
             target="_blank"
             rel="noreferrer noopener"
-            className="glow inline-flex items-center gap-2 rounded-xl bg-brand text-[#04140f] font-semibold px-6 py-3.5 hover:brightness-110 transition"
+            className="glow inline-flex items-center gap-2 rounded-xl bg-brand-surface text-[#04140f] font-semibold px-6 py-3.5 hover:brightness-110 transition"
           >
             <Download width={20} height={20} /> Download latest APK
           </a>

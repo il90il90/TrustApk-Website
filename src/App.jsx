@@ -22,8 +22,14 @@ export default function App() {
   const { theme, toggle } = useTheme()
   return (
     <div className="bg-base text-base-c min-h-screen">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-lg focus:bg-brand-surface focus:px-4 focus:py-2 focus:text-[#04140f] focus:font-semibold"
+      >
+        Skip to main content
+      </a>
       <Header theme={theme} toggleTheme={toggle} />
-      <main>
+      <main id="main">
         <Hero />
         <ValueProps />
         <Audience />

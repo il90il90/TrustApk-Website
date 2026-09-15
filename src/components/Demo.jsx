@@ -74,9 +74,10 @@ export default function Demo() {
           <button
             key={s.label}
             onClick={() => setI(idx)}
+            aria-current={idx === i ? 'step' : undefined}
             className={`rounded-full px-4 py-1.5 text-sm font-medium border transition ${
               idx === i
-                ? 'bg-brand text-[#04140f] border-brand'
+                ? 'bg-brand-surface text-[#04140f] border-brand'
                 : 'border-base bg-panel text-muted-c hover:text-base-c'
             }`}
           >
@@ -84,6 +85,10 @@ export default function Demo() {
           </button>
         ))}
       </div>
+
+      <p className="sr-only" aria-live="polite">
+        Step {i + 1} of {steps.length}: {step.title}
+      </p>
 
       <div className="mt-10 grid lg:grid-cols-2 gap-10 items-center">
         <PhoneFrame src={step.img} alt={step.title} scanning={step.scanning} />
@@ -120,7 +125,7 @@ export default function Demo() {
             </button>
             <button
               onClick={() => setI((n) => (isLast ? 0 : Math.min(steps.length - 1, n + 1)))}
-              className="rounded-lg bg-brand text-[#04140f] px-5 py-2 text-sm font-semibold hover:brightness-110 transition"
+              className="rounded-lg bg-brand-surface text-[#04140f] px-5 py-2 text-sm font-semibold hover:brightness-110 transition"
             >
               {isLast ? 'Restart walkthrough' : 'Next step'}
             </button>
