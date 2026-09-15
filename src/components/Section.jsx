@@ -11,6 +11,7 @@ export function Kicker({ children }) {
     <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand">
       <span className="h-px w-6 bg-brand/60" />
       {children}
+      <span className="h-px w-6 bg-brand/60" />
     </span>
   )
 }

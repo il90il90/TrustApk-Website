@@ -60,11 +60,6 @@ export default function Audience() {
           </div>
         ))}
       </div>
-
-      <p className="mt-8 text-center text-xs text-muted-c max-w-2xl mx-auto">
-        For authorised testing only - use TrustAPK on apps you own or have explicit written permission
-        to assess. Everything runs locally; no APK ever leaves the device.
-      </p>
     </Section>
   )
 }

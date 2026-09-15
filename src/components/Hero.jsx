@@ -26,7 +26,6 @@ export default function Hero() {
         <p className="animate-fade-up mx-auto mt-6 max-w-2xl text-base sm:text-lg text-muted-c">
           Intercept any app's HTTPS, strip certificate pinning, inspect endpoints and secrets, and
           decompile to Java - right on the phone, in the field.
-          <span className="text-base-c font-medium"> No server, no root, no laptop. Nothing is uploaded, ever.</span>
         </p>
 
         <div className="animate-fade-up mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
