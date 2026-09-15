@@ -1,10 +1,11 @@
 import { Section, Kicker } from './Section.jsx'
 import {
   Certificate, Unlock, KeyPerm, Search, Code, Logs, Webhook,
-  Stethoscope, Sliders, NoAds, Install,
+  Stethoscope, Sliders, NoAds, Install, Sparkle,
 } from './Icons.jsx'
 
 const features = [
+  { icon: Sparkle, title: 'AI assistant, everywhere', text: 'Ask AI about the links and secrets you find, generate a replacement app icon by describing it, or run a full AI penetration test - with ChatGPT, Gemini, Claude, Grok or your own prompt.' },
   { icon: Certificate, title: 'Trust your proxy CA', text: 'Writes a network-security config and can bundle your proxy certificate right inside the APK - pick it once, reused for every future patch.' },
   { icon: Unlock, title: 'Remove certificate pinning', text: 'On by default. Detects and neutralises pinning and reports exactly which domains were unpinned. Turn it off to leave the app untouched.' },
   { icon: KeyPerm, title: 'Permissions manager', text: 'Every permission with a plain-language note and a SENSITIVE flag. Untick to strip, or bulk-remove sensitive ones. See what changed after patching.' },

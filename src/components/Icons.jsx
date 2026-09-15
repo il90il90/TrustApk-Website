@@ -29,4 +29,5 @@ export const Lock = (p) => (<svg {...base} {...p}><rect x="4" y="11" width="16" 
 export const Cpu = (p) => (<svg {...base} {...p}><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 2v3M14 2v3M10 19v3M14 19v3M2 10h3M2 14h3M19 10h3M19 14h3"/></svg>)
 export const Menu = (p) => (<svg {...base} {...p}><path d="M4 7h16M4 12h16M4 17h16"/></svg>)
 export const Close = (p) => (<svg {...base} {...p}><path d="M6 6l12 12M18 6L6 18"/></svg>)
+export const Sparkle = (p) => (<svg {...base} {...p}><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg>)
 export const Warning = (p) => (<svg {...base} {...p}><path d="M12 3l9 16H3l9-16z"/><path d="M12 10v4M12 17h.01"/></svg>)

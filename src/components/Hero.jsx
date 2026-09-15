@@ -20,7 +20,7 @@ export default function Hero() {
 
         <h1 className="animate-fade-up text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
           On-device APK toolkit
-          <br className="hidden sm:block" /> for <span className="text-gradient">mobile app pentesting</span>
+          <br className="hidden sm:block" /> for <span className="text-gradient">AI-powered pentesting</span>
         </h1>
 
         <p className="animate-fade-up mx-auto mt-6 max-w-2xl text-base sm:text-lg text-muted-c">

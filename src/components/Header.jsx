@@ -6,6 +6,7 @@ const links = [
   { href: '#pentest', label: 'Who it’s for' },
   { href: '#how', label: 'How it works' },
   { href: '#demo', label: 'Demo' },
+  { href: '#ai', label: 'AI pentest' },
   { href: '#features', label: 'Features' },
   { href: '#faq', label: 'FAQ' },
   { href: '#download', label: 'Download' },

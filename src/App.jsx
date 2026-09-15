@@ -27,13 +27,13 @@ export default function App() {
         <Hero />
         <ValueProps />
         <Audience />
+        <WhyItExists />
         <HowItWorks />
         <Demo />
         <AiPentest />
         <Features />
         <Compatibility />
         <Screenshots />
-        <WhyItExists />
         <TechNotes />
         <Comparison />
         <Limitations />

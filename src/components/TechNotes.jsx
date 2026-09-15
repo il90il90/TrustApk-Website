@@ -1,5 +1,5 @@
 import { Section, Kicker } from './Section.jsx'
-import { Cpu, Code, Shield, Check } from './Icons.jsx'
+import { Cpu, Code, Shield } from './Icons.jsx'
 
 const notes = [
   {
@@ -17,11 +17,6 @@ const notes = [
     title: 'Pure-Java, vendored',
     text: 'dexlib2 / baksmali and jadx (decompilation), Guava, and XZ are vendored in-repo - all pure Java, so they run on Android’s ART with nothing fetched at runtime.',
   },
-  {
-    icon: Check,
-    title: 'Your app’s code is never touched',
-    text: 'Only the manifest, resources and network-security config are edited; companions are added as new files. Every classes*.dex stays byte-for-byte identical to the original.',
-  },
 ]
 
 export default function TechNotes() {
@@ -36,7 +31,7 @@ export default function TechNotes() {
         </p>
       </div>
 
-      <div className="mt-12 grid sm:grid-cols-2 gap-5">
+      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {notes.map(({ icon: Icon, title, text }) => (
           <div key={title} className="flex gap-4 rounded-2xl border border-base bg-panel p-6">
             <span className="flex-shrink-0 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">

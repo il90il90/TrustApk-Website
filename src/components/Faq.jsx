@@ -27,6 +27,10 @@ const faqs = [
     a: 'No APK ever leaves the device during patching, signing or installing. The app requests INTERNET only for the optional ad-block hosts list and a log webhook you configure yourself.',
   },
   {
+    q: 'Which AI does it use, and what does it see?',
+    a: 'Your own. Pick ChatGPT, Gemini, Claude or Grok, or set a custom prompt. You tick exactly which artefacts to include - the app identity is always in, everything else is optional - and nothing is gathered or sent until you tap Run pentest.',
+  },
+  {
     q: 'Is it free?',
     a: 'Yes. Download the signed APK from GitHub Releases at no cost, and the in-app updater keeps it current automatically.',
   },
