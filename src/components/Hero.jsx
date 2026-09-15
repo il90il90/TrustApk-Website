@@ -32,6 +32,8 @@ export default function Hero() {
         <div className="animate-fade-up mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
             href={DOWNLOAD_URL}
+            target="_blank"
+            rel="noreferrer noopener"
             className="glow inline-flex items-center gap-2 rounded-xl bg-brand text-[#04140f] font-semibold px-6 py-3.5 hover:brightness-110 transition"
           >
             <Download width={20} height={20} /> Download latest APK
@@ -55,7 +57,14 @@ export default function Hero() {
         <div className="animate-fade-up mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-c">
           {chips.map((c) => (
             <span key={c} className="inline-flex items-center gap-1.5">
-              <span className="text-brand"><Check width={16} height={16} /></span> {c}
+              <span className="text-brand"><Check width={16} height={16} /></span>{' '}
+              {c === 'No root' ? (
+                <span className="font-semibold text-base-c underline decoration-brand decoration-2 underline-offset-4">
+                  {c}
+                </span>
+              ) : (
+                c
+              )}
             </span>
           ))}
         </div>

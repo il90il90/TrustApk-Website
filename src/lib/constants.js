@@ -1,6 +1,6 @@
 // Central place for the product's real facts and links.
-export const VERSION = '1.7.19'
-export const BUILD = 35
+export const VERSION = '1.7.615'
+export const BUILD = 1615
 
 export const SOURCE_REPO = 'https://github.com/il90il90/trust-apk'
 export const RELEASES_REPO = 'https://github.com/il90il90/trust-apk-releases'

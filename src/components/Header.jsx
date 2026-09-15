@@ -61,6 +61,8 @@ export default function Header({ theme, toggleTheme }) {
           </a>
           <a
             href={DOWNLOAD_URL}
+            target="_blank"
+            rel="noreferrer noopener"
             className="hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-brand text-[#04140f] font-semibold text-sm px-3.5 py-2 hover:brightness-110 transition"
           >
             <Download width={16} height={16} /> Download
@@ -90,6 +92,8 @@ export default function Header({ theme, toggleTheme }) {
             ))}
             <a
               href={DOWNLOAD_URL}
+              target="_blank"
+              rel="noreferrer noopener"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-lg bg-brand text-[#04140f] font-semibold px-4 py-2.5"
             >
