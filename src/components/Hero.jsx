@@ -1,7 +1,7 @@
 import { Download, ArrowDown, Check } from './Icons.jsx'
 import { VERSION, DOWNLOAD_URL } from '../lib/constants.js'
 
-const chips = ['No server', 'No root', 'No laptop', 'Nothing uploaded']
+const chips = ['No server', 'No root', 'No laptop', 'Nothing uploaded', 'Built-in AI pentest']
 
 export default function Hero() {
   return (
@@ -15,7 +15,7 @@ export default function Hero() {
       <div className="relative mx-auto max-w-6xl px-4 text-center">
         <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-base bg-panel px-3 py-1 text-xs text-muted-c mb-6">
           <span className="h-2 w-2 rounded-full bg-brand animate-pulse-glow" />
-          v{VERSION} · The field pentester's APK toolkit
+          v{VERSION} · AI-assisted pentesting, on-device
         </div>
 
         <h1 className="animate-fade-up text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
@@ -24,8 +24,9 @@ export default function Hero() {
         </h1>
 
         <p className="animate-fade-up mx-auto mt-6 max-w-2xl text-base sm:text-lg text-muted-c">
-          Intercept any app's HTTPS, strip certificate pinning, inspect endpoints and secrets, and
-          decompile to Java - right on the phone, in the field.
+          Intercept any app's HTTPS, strip certificate pinning, inspect endpoints and secrets,
+          decompile to Java - then hand the whole picture to your AI for a full penetration test.
+          Right on the phone, in the field.
         </p>
 
         <div className="animate-fade-up mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
