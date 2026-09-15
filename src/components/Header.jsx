@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Shield, Github, Sun, Moon, Download, Menu, Close } from './Icons.jsx'
-import { RELEASES_PAGE, DOWNLOAD_URL } from '../lib/constants.js'
+import { Shield, Sun, Moon, Download, Menu, Close } from './Icons.jsx'
+import { DOWNLOAD_URL } from '../lib/constants.js'
 
 const links = [
   { href: '#pentest', label: 'Who it’s for' },
@@ -51,15 +51,6 @@ export default function Header({ theme, toggleTheme }) {
           >
             {theme === 'light' ? <Moon width={18} height={18} /> : <Sun width={18} height={18} />}
           </button>
-          <a
-            href={RELEASES_PAGE}
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label="Releases on GitHub"
-            className="hidden sm:inline-flex p-2 rounded-lg border border-base bg-panel hover:text-brand transition-colors"
-          >
-            <Github width={18} height={18} />
-          </a>
           <a
             href={DOWNLOAD_URL}
             target="_blank"

@@ -4,17 +4,17 @@ const problems = [
   {
     n: '1',
     title: 'Apps ignore user CAs',
-    text: 'Since Android 7, apps only trust the system CA store by default - so pointing your phone at a proxy shows empty or broken traffic.',
+    text: 'Apps targeting Android 7.0 (API 24)+ don’t trust user-added CAs by default unless configured otherwise - so pointing your phone at a proxy often shows empty or broken traffic.',
   },
   {
     n: '2',
     title: 'Installing a system CA is intrusive',
-    text: 'It shows a scary security warning, affects every app, and is often forbidden on managed / work devices.',
+    text: 'It applies device-wide, prompts a security warning, and is often restricted on managed / work devices.',
   },
   {
     n: '3',
     title: 'Certificate pinning goes further',
-    text: 'Even a trusted CA is rejected, because the app only accepts specific certificates baked into its own code.',
+    text: 'Even a trusted CA is rejected: the app only accepts specific certificates or public keys it was built to expect - configured per app or domain.',
   },
 ]
 

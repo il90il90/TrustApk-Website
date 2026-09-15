@@ -1,15 +1,16 @@
 import { Cpu, Cloud, Code, Lock } from './Icons.jsx'
 
 const items = [
-  { icon: Cpu, title: 'Fully on-device', text: 'Patching, signing and installing all happen on the phone. No desktop, no Gradle, no root.' },
-  { icon: Cloud, title: 'Nothing uploaded', text: 'No APK ever leaves the device during patching. Your apps and data stay with you.' },
-  { icon: Code, title: 'Code untouched', text: "The app's own classes*.dex stay byte-for-byte identical. Only the manifest & resources change." },
-  { icon: Lock, title: 'Per-app CA trust', text: 'Trust your proxy inside one app - no system-wide CA, no scary warning, works on MDM devices.' },
+  { icon: Cpu, title: 'Fully on-device', text: 'Patching, inspection, signing and installing run on the phone - no desktop, no Gradle, no root.' },
+  { icon: Cloud, title: 'Local by default', text: 'Nothing leaves the device while you patch and inspect. Exporting evidence, sharing it with an AI app or forwarding logs is your choice.' },
+  { icon: Code, title: 'Code preserved', text: "In the default and most modes, the app's original classes*.dex are kept byte-for-byte - only the manifest and resources are edited and new files added." },
+  { icon: Lock, title: 'Per-app CA trust', text: 'Trust your proxy inside one app - no system-wide CA install. Managed-device compatibility depends on your org’s install policy.' },
 ]
 
 export default function ValueProps() {
   return (
-    <section className="relative border-y border-base bg-soft">
+    <section className="relative border-y border-base bg-soft" aria-labelledby="valueprops-heading">
+      <h2 id="valueprops-heading" className="sr-only">At a glance</h2>
       <div className="mx-auto max-w-6xl px-4 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {items.map(({ icon: Icon, title, text }) => (
           <div key={title} className="flex flex-col gap-3">

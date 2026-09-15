@@ -16,7 +16,7 @@ const steps = [
     label: 'Trust proxy',
     img: './shots/proxy-cert.jpg',
     title: '2 · Trust your proxy',
-    body: 'Point at your proxy’s CA (Reqable / mitmproxy / Burp / Charles). TrustAPK writes it inside the patched APK, so that one app trusts your proxy - no system CA, no security warning, works on MDM devices.',
+    body: 'Point at your proxy’s CA (Reqable / mitmproxy / Burp / Charles). TrustAPK writes it inside the patched APK, so that one app trusts your proxy - no system-wide CA install (managed-device compatibility depends on your org’s policy).',
     log: ['> import mitmproxy-ca.pem', '> write network_security_config.xml', '> per-app trust only'],
   },
   {
@@ -31,24 +31,24 @@ const steps = [
     label: 'Map surface',
     img: './shots/components.jpg',
     title: '4 · Map the attack surface',
-    body: 'Pull every host and URL, then enumerate activities, services, receivers and providers flagged Exported / Unguarded / Reachable - the entry points worth probing.',
+    body: 'Extract hosts and URLs, then enumerate activities, services, receivers and providers flagged Exported / Unguarded / Reachable - starting points worth probing (a flag isn’t a confirmed finding).',
     log: ['> 139 hosts / 729 URLs', '> 75 components - 31 exported, 27 unguarded', '> intent actions + deep-link schemes'],
   },
   {
     label: 'Dig in',
     img: './shots/app-data.jpg',
     title: '5 · Dig into data & logs',
-    body: 'Browse the app’s private sandbox - shared_prefs, databases and files - stream its logcat live over localhost, and export the captured flows for your report.',
-    log: ['> shared_prefs / databases / files', '> files/trustapk_flows.jsonl (3.4 MB)', '> classes*.dex unchanged ✓'],
+    body: 'Browse the patched app’s own sandbox - shared_prefs, databases and files - stream its logcat live over localhost, and export the captured flows for your report.',
+    log: ['> shared_prefs / databases / files', '> files/trustapk_flows.jsonl (3.4 MB)', '> original classes*.dex preserved'],
   },
 ]
 
 const resultRows = [
-  '406 HTTPS requests decrypted',
+  '406 HTTPS requests captured',
   '139 hosts, 729 URLs mapped',
   '31 exported components flagged',
   'App sandbox data browsed',
-  'classes*.dex identical to original',
+  'Original classes*.dex preserved',
   'Flows exported for the report',
 ]
 
@@ -63,8 +63,8 @@ export default function Demo() {
         <Kicker>Interactive walkthrough</Kicker>
         <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Walk through an assessment</h2>
         <p className="mt-4 text-muted-c">
-          Click through the five steps of a real on-device assessment, on the actual screens. Nothing
-          here talks to a server - it mirrors what happens entirely on your phone.
+          Click through the five steps of an on-device assessment, on the actual screens. This
+          walkthrough uses sample data - it doesn’t run a live test.
         </p>
       </div>
 
@@ -119,11 +119,10 @@ export default function Demo() {
               Back
             </button>
             <button
-              onClick={() => setI((n) => Math.min(steps.length - 1, n + 1))}
-              disabled={isLast}
-              className="rounded-lg bg-brand text-[#04140f] px-5 py-2 text-sm font-semibold disabled:opacity-40 hover:brightness-110 transition"
+              onClick={() => setI((n) => (isLast ? 0 : Math.min(steps.length - 1, n + 1)))}
+              className="rounded-lg bg-brand text-[#04140f] px-5 py-2 text-sm font-semibold hover:brightness-110 transition"
             >
-              {isLast ? 'Done' : 'Next step'}
+              {isLast ? 'Restart walkthrough' : 'Next step'}
             </button>
             <span className="ml-auto text-xs text-muted-c font-mono">v{VERSION}</span>
           </div>

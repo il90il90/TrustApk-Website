@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0f16" />
 
-    <title>TrustAPK - On-device APK toolkit for AI-powered mobile pentesting</title>
-    <meta name="description" content="TrustAPK is an on-device Android APK toolkit for AI-powered mobile pentesting: intercept HTTPS, strip certificate pinning, inspect endpoints and secrets, decompile to Java, then hand it all to your AI for a full penetration test - right on the phone. No server, no root, no laptop." />
+    <title>TrustAPK - On-device APK toolkit for AI-assisted mobile pentesting</title>
+    <meta name="description" content="TrustAPK is an on-device Android APK toolkit for AI-assisted mobile pentesting: inspect HTTPS traffic, strip certificate pinning, surface endpoints and secrets, and decompile to Java, then export the evidence to your AI assistant. Runs on the phone - no root, no laptop." />
     <meta name="keywords" content="TrustAPK, AI pentest, AI-powered mobile pentesting, mobile pentesting, Android pentest, APK patcher, HTTPS inspection, certificate pinning bypass, Frida gadget, unpinning, mitmproxy, Burp Suite, Reqable, bug bounty, mobile security, reverse engineering, on-device, no root, dex decompiler, smali, jadx" />
     <meta name="author" content="Israel Cohen" />
     <link rel="canonical" href="https://trustapk.app/" />
@@ -18,8 +18,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TrustAPK" />
-    <meta property="og:title" content="TrustAPK - On-device APK toolkit for AI-powered mobile pentesting" />
-    <meta property="og:description" content="Intercept HTTPS, strip pinning, inspect endpoints and secrets, decompile Android apps, then hand it all to your AI for a full penetration test - all on the phone. No server, no root, no laptop." />
+    <meta property="og:title" content="TrustAPK - On-device APK toolkit for AI-assisted mobile pentesting" />
+    <meta property="og:description" content="Inspect HTTPS traffic, strip pinning, surface endpoints and secrets, decompile Android apps, then export the evidence to your AI assistant - all on the phone. No root, no laptop." />
     <meta property="og:url" content="https://trustapk.app/" />
     <meta property="og:image" content="https://trustapk.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -27,8 +27,8 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="TrustAPK - On-device APK toolkit for AI-powered mobile pentesting" />
-    <meta name="twitter:description" content="Intercept HTTPS, strip pinning, inspect and decompile Android apps, then hand it to your AI for a full pentest - all on the phone. No server, no root, no laptop." />
+    <meta name="twitter:title" content="TrustAPK - On-device APK toolkit for AI-assisted mobile pentesting" />
+    <meta name="twitter:description" content="Inspect HTTPS traffic, strip pinning, inspect and decompile Android apps, then export the evidence to your AI assistant - all on the phone. No root, no laptop." />
     <meta name="twitter:image" content="https://trustapk.app/og-image.png" />
 
     <!-- Fonts -->
@@ -58,9 +58,8 @@
         "name": "TrustAPK",
         "operatingSystem": "Android 8.0+",
         "applicationCategory": "SecurityApplication",
-        "description": "An on-device Android APK toolkit for AI-powered mobile pentesting - intercept HTTPS, strip certificate pinning, inspect endpoints and secrets, decompile to Java, then hand it all to your AI for a full penetration test. No server, no root, no laptop.",
+        "description": "An on-device Android APK toolkit for AI-assisted mobile app pentesting - inspect HTTPS traffic, strip certificate pinning, surface endpoints and secrets, and decompile to Java, then export the evidence to your AI assistant. Runs on the phone; no root. Free to download; use requires a paid license.",
         "softwareVersion": "1.7.615",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "author": { "@type": "Person", "name": "Israel Cohen", "url": "https://t.me/IsraelCohen" }
       }
     </script>
@@ -72,9 +71,9 @@
           { "@type": "Question", "name": "Do I need a rooted phone?", "acceptedAnswer": { "@type": "Answer", "text": "No. TrustAPK re-signs and installs the patched app through Android's normal package installer - no root, no custom ROM, no desktop, on a stock phone (Android 8.0+)." } },
           { "@type": "Question", "name": "Which proxies does it work with?", "acceptedAnswer": { "@type": "Answer", "text": "Any intercepting proxy that exports a CA certificate - Reqable, mitmproxy, Burp Suite, Charles, Fiddler. You export the CA once and it is bundled inside the patched app." } },
           { "@type": "Question", "name": "What about certificate pinning?", "acceptedAnswer": { "@type": "Answer", "text": "Pinning in the network-security config and common setups is stripped by default. For native or OkHttp pinning, add the bundled Frida gadget with an unpinning script or use the runtime bypass - no desktop Frida required." } },
-          { "@type": "Question", "name": "Does anything leave my device?", "acceptedAnswer": { "@type": "Answer", "text": "No APK ever leaves the device during patching, signing or installing. INTERNET is used only for the optional ad-block hosts list and a log webhook you configure." } },
-          { "@type": "Question", "name": "Which AI does it use, and what does it see?", "acceptedAnswer": { "@type": "Answer", "text": "Your own. Pick ChatGPT, Gemini, Claude or Grok, or set a custom prompt. You tick exactly which artefacts to include - the app identity is always in, everything else is optional - and nothing is gathered or sent until you tap Run pentest." } },
-          { "@type": "Question", "name": "Is it free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Download the signed APK from GitHub Releases at no cost, and the in-app updater keeps it current automatically." } }
+          { "@type": "Question", "name": "What uses the network?", "acceptedAnswer": { "@type": "Answer", "text": "Patching and local inspection do not need the network. The app does reach out for license validation, update checks, the optional ad-block hosts list, an optional Frida-gadget download, any log webhook you configure, and the live traffic it proxies for the app under test. Sharing evidence to an AI assistant is handed to that app by Android, not uploaded by TrustAPK." } },
+          { "@type": "Question", "name": "Which AI does it use, and what does it see?", "acceptedAnswer": { "@type": "Answer", "text": "Your own. TrustAPK has no built-in AI model - it shares a bundle into a chat app you have installed (ChatGPT, Gemini, Claude, Grok) via Android's share sheet, and you can add a custom prompt. You choose which evidence to include; that bundle can contain sensitive data such as captured traffic, logs, decompiled code or the APK." } },
+          { "@type": "Question", "name": "Is it free?", "acceptedAnswer": { "@type": "Answer", "text": "The APK is free to download from GitHub Releases, but using it requires a paid license. Message the developer on Telegram to get a key." } }
         ]
       }
     </script>

@@ -17,7 +17,7 @@ const shots = [
   {
     src: './shots/links.jpg',
     title: 'Endpoint recon',
-    desc: 'Every host and URL the app can reach, pulled statically: 139 hosts and 729 URLs across 124 domains. Filter instantly, flag ad/tracker hosts to block, and see which come from bundled SDKs.',
+    desc: 'Hosts and URLs found in the APK, pulled statically: 139 hosts and 729 URLs across 124 domains. Filter instantly, flag ad/tracker hosts to block, and see which come from bundled SDKs.',
   },
   {
     src: './shots/components.jpg',
@@ -32,17 +32,17 @@ const shots = [
   {
     src: './shots/app-data.jpg',
     title: 'Data at rest',
-    desc: 'Browse the app’s private sandbox on-device: shared_prefs, databases and files with sizes and timestamps. Read Firebase prefs and Google measurement DBs, or export the captured flows.',
+    desc: 'Browse the patched app’s own sandbox on-device: shared_prefs, databases and files with sizes and timestamps. Read Firebase prefs and Google measurement DBs, or export the captured flows.',
   },
   {
     src: './shots/proxy-cert.jpg',
     title: 'Per-app CA trust',
-    desc: 'Point at your proxy’s CA once; TrustAPK writes it inside the patched APK so that one app trusts your proxy - no system CA, no security warning, and it works on locked-down / MDM devices.',
+    desc: 'Point at your proxy’s CA once; TrustAPK writes it inside the patched APK so that one app trusts your proxy - no system-wide CA install (managed-device compatibility depends on your org’s policy).',
   },
   {
     src: './shots/app-info.jpg',
     title: 'Fingerprint the build',
-    desc: 'Know what you’re up against: framework (React Native / Hermes), language, SDK levels, install source, split APKs and entry point - plus a one-tap “Full AI penetration test”.',
+    desc: 'Know what you’re up against: framework (React Native / Hermes), language, SDK levels, install source, split APKs and entry point - and the app’s one-tap AI review that shares the evidence to your assistant.',
   },
 ]
 

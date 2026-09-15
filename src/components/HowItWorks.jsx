@@ -45,9 +45,15 @@ export default function HowItWorks() {
 
       <div className="mt-8 rounded-2xl border border-brand/30 bg-brand/[0.06] p-6 text-center">
         <p className="text-base sm:text-lg">
-          <span className="font-semibold text-brand">The golden rule:</span>{' '}
-          TrustAPK never modifies the app&rsquo;s own code. After patching, every
-          <span className="font-mono text-sm"> classes*.dex</span> is byte-for-byte identical to the original.
+          <span className="font-semibold text-brand">The default rule:</span>{' '}
+          in the default patch and most modes, the app&rsquo;s own
+          <span className="font-mono text-sm"> classes*.dex</span> are kept byte-for-byte - only the
+          manifest and resources are edited and new files added.
+        </p>
+        <p className="mt-3 text-sm text-muted-c">
+          Three opt-in code-level features - in-code unpinning, license bypass, and traffic capture on
+          code-pinned apps - deliberately rewrite the affected dex, and the result screen reports how
+          many methods changed.
         </p>
       </div>
     </Section>

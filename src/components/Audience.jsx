@@ -17,12 +17,12 @@ const cases = [
   {
     icon: Search,
     title: 'Recon endpoints, secrets & code',
-    text: 'Pull every host and URL, surface API keys and tokens (redacted), and decompile the dex to smali or Java for a static review - all on-device.',
+    text: 'Extract hosts and URLs, surface API keys and tokens (values redacted), and decompile the dex to smali or Java for a static review - all on-device.',
   },
   {
     icon: Cpu,
-    title: 'Work on locked-down / MDM devices',
-    text: 'Where installing a system CA is blocked or too noisy, per-app CA trust and on-device re-signing let you test without a rooted phone or a laptop in the room.',
+    title: 'Avoid a device-wide CA',
+    text: 'Per-app CA trust and on-device re-signing let you test without a rooted phone or a laptop, and without a system-wide CA - though installing apps may still be governed by your org’s policy.',
   },
 ]
 

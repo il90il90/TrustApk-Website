@@ -1,5 +1,5 @@
-import { Shield, Github, Telegram, Warning } from './Icons.jsx'
-import { RELEASES_REPO, RELEASES_PAGE, TELEGRAM, VERSION } from '../lib/constants.js'
+import { Shield, Telegram, Warning } from './Icons.jsx'
+import { TELEGRAM, VERSION } from '../lib/constants.js'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -10,8 +10,8 @@ export default function Footer() {
           <span className="text-amber-400/90 mt-0.5"><Warning width={18} height={18} /></span>
           <p className="text-sm text-muted-c">
             <span className="font-semibold text-base-c">Use responsibly.</span> TrustAPK is for apps
-            you own or are explicitly authorised to test. Everything happens on your device -
-            nothing is uploaded anywhere.
+            you own or are explicitly authorised to test. Patching and inspection run on your device;
+            you choose what to export or share.
           </p>
         </div>
 
@@ -22,8 +22,8 @@ export default function Footer() {
               <span>Trust<span className="text-gradient">APK</span></span>
             </a>
             <p className="mt-3 text-sm text-muted-c max-w-md">
-              A fully on-device Android APK patcher for HTTPS inspection, app analysis and
-              reverse-engineering. No server, no Gradle, nothing uploaded.
+              An on-device Android APK toolkit for HTTPS inspection, app analysis and
+              reverse-engineering. No Gradle, no desktop - local by default.
             </p>
             <p className="mt-3 text-xs text-muted-c">
               Made with ❤️ from Israel · by{' '}
@@ -35,17 +35,14 @@ export default function Footer() {
 
           <div className="flex flex-col sm:items-end gap-3">
             <div className="flex gap-3">
-              <a href={RELEASES_REPO} target="_blank" rel="noreferrer noopener" aria-label="Releases on GitHub" className="p-2.5 rounded-lg border border-base bg-panel hover:text-brand transition">
-                <Github width={18} height={18} />
-              </a>
               <a href={TELEGRAM} target="_blank" rel="noreferrer noopener" aria-label="Telegram" className="p-2.5 rounded-lg border border-base bg-panel hover:text-brand transition">
                 <Telegram width={18} height={18} />
               </a>
             </div>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-c sm:justify-end">
               <a href="#features" className="hover:text-base-c">Features</a>
+              <a href="#faq" className="hover:text-base-c">FAQ</a>
               <a href="#download" className="hover:text-base-c">Download</a>
-              <a href={RELEASES_PAGE} target="_blank" rel="noreferrer noopener" className="hover:text-base-c">Releases</a>
               <a href="#contact" className="hover:text-base-c">Contact</a>
             </div>
           </div>

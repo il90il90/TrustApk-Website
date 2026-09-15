@@ -1,6 +1,6 @@
 import { Section, Kicker } from './Section.jsx'
-import { Download as DownloadIcon, Check } from './Icons.jsx'
-import { VERSION, DOWNLOAD_URL, RELEASES_PAGE } from '../lib/constants.js'
+import { Download as DownloadIcon, Check, Telegram } from './Icons.jsx'
+import { VERSION, DOWNLOAD_URL, RELEASES_PAGE, TELEGRAM } from '../lib/constants.js'
 
 const quickstart = [
   'Install TrustAPK and allow it to install unknown apps when asked.',
@@ -22,8 +22,8 @@ export default function Download() {
               Download &amp; patch your first app
             </h2>
             <p className="mt-4 text-muted-c leading-relaxed">
-              Grab the signed APK from GitHub Releases. It&rsquo;s free, and the in-app updater keeps
-              it current from the public releases repo.
+              The signed APK is free to download from GitHub Releases and the in-app updater keeps it
+              current. Using it requires a paid license - message the developer on Telegram to get a key.
             </p>
 
             <div className="mt-7 flex flex-col sm:flex-row gap-3">
@@ -36,14 +36,22 @@ export default function Download() {
                 <DownloadIcon width={20} height={20} /> Download v{VERSION}
               </a>
               <a
-                href={RELEASES_PAGE}
+                href={TELEGRAM}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-base bg-panel px-6 py-3.5 font-medium hover:text-brand transition"
               >
-                All releases
+                <Telegram width={18} height={18} /> Get a license
               </a>
             </div>
+            <a
+              href={RELEASES_PAGE}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="mt-3 inline-block text-sm text-muted-c hover:text-brand transition"
+            >
+              All releases
+            </a>
 
             <div className="mt-8 flex items-start gap-2 rounded-xl border border-base bg-panel p-4 text-xs text-muted-c">
               <span className="text-brand mt-0.5"><Check width={14} height={14} /></span>
@@ -66,7 +74,9 @@ export default function Download() {
             </ol>
             <div className="mt-6 flex items-start gap-2 text-xs text-muted-c">
               <span className="text-brand mt-0.5"><Check width={14} height={14} /></span>
-              Android 8.0+ (min SDK 26). INTERNET is only used for the optional ad-block list and your log webhook.
+              Android 8.0+ (min SDK 26). Patching and inspection run locally; the network is used for
+              license validation, update checks, the optional ad-block list and Frida download, and any
+              webhook you set.
             </div>
           </div>
         </div>
