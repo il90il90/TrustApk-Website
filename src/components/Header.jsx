@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Shield, Github, Sun, Moon, Download, Menu, Close } from './Icons.jsx'
-import { SOURCE_REPO, DOWNLOAD_URL } from '../lib/constants.js'
+import { RELEASES_PAGE, DOWNLOAD_URL } from '../lib/constants.js'
 
 const links = [
   { href: '#pentest', label: 'Who it’s for' },
@@ -25,7 +25,7 @@ export default function Header({ theme, toggleTheme }) {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-base/85 backdrop-blur-md border-b border-base' : 'border-b border-transparent'
+        scrolled ? 'bg-header backdrop-blur-md border-b border-base' : 'border-b border-transparent'
       }`}
     >
       <div className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between gap-4">
@@ -51,10 +51,10 @@ export default function Header({ theme, toggleTheme }) {
             {theme === 'light' ? <Moon width={18} height={18} /> : <Sun width={18} height={18} />}
           </button>
           <a
-            href={SOURCE_REPO}
+            href={RELEASES_PAGE}
             target="_blank"
             rel="noreferrer noopener"
-            aria-label="View source on GitHub"
+            aria-label="Releases on GitHub"
             className="hidden sm:inline-flex p-2 rounded-lg border border-base bg-panel hover:text-brand transition-colors"
           >
             <Github width={18} height={18} />
@@ -78,7 +78,7 @@ export default function Header({ theme, toggleTheme }) {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-base bg-base/95 backdrop-blur">
+        <div className="md:hidden border-t border-base bg-base shadow-xl">
           <nav className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-1">
             {links.map((l) => (
               <a

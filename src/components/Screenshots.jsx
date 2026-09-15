@@ -7,12 +7,12 @@ const shots = [
   {
     src: './shots/dashboard.jpg',
     title: 'The target dashboard',
-    desc: 'Load any installed app or APK and get one control room — Inspect (Links, Secrets, Files, Components, Security scan, App settings), live App data, Live traffic and Capture logs, then Patch this APK. Here: a shipping app of 174.8 MB, base + 6 splits.',
+    desc: 'Load any installed app or APK and get one control room - Inspect (Links, Secrets, Files, Components, Security scan, App settings), live App data, Live traffic and Capture logs, then Patch this APK. Here: a shipping app of 174.8 MB, base + 6 splits.',
   },
   {
     src: './shots/live-traffic.jpg',
     title: 'Decrypted HTTPS, live',
-    desc: 'After patching, the app’s own TLS is readable in the built-in inspector — 406 requests captured across the app’s analytics, backend APIs, Firebase and more. Tap any request to read its headers and body.',
+    desc: 'After patching, the app’s own TLS is readable in the built-in inspector - 406 requests captured across the app’s analytics, backend APIs, Firebase and more. Tap any request to read its headers and body.',
   },
   {
     src: './shots/links.jpg',
@@ -22,12 +22,12 @@ const shots = [
   {
     src: './shots/components.jpg',
     title: 'Attack-surface map',
-    desc: 'Enumerate every activity, service, receiver and provider — flagged Exported / Unguarded / Reachable. 75 components, 31 exported, 27 unguarded, with the intent actions and deep-link schemes that reach them.',
+    desc: 'Enumerate every activity, service, receiver and provider - flagged Exported / Unguarded / Reachable. 75 components, 31 exported, 27 unguarded, with the intent actions and deep-link schemes that reach them.',
   },
   {
     src: './shots/logs.jpg',
     title: 'Live logcat over localhost',
-    desc: 'A companion component streams the app’s own logs to TrustAPK without touching its code — watch the interception happen in real time (CONNECT …:443 mitm=true, TLS client-side ok).',
+    desc: 'A companion component streams the app’s own logs to TrustAPK without touching its code - watch the interception happen in real time (CONNECT ...:443 mitm=true, TLS client-side ok).',
   },
   {
     src: './shots/app-data.jpg',
@@ -37,12 +37,12 @@ const shots = [
   {
     src: './shots/proxy-cert.jpg',
     title: 'Per-app CA trust',
-    desc: 'Point at your proxy’s CA once; TrustAPK writes it inside the patched APK so that one app trusts your proxy — no system CA, no security warning, and it works on locked-down / MDM devices.',
+    desc: 'Point at your proxy’s CA once; TrustAPK writes it inside the patched APK so that one app trusts your proxy - no system CA, no security warning, and it works on locked-down / MDM devices.',
   },
   {
     src: './shots/app-info.jpg',
     title: 'Fingerprint the build',
-    desc: 'Know what you’re up against: framework (React Native / Hermes), language, SDK levels, install source, split APKs and entry point — plus a one-tap “Full AI penetration test”.',
+    desc: 'Know what you’re up against: framework (React Native / Hermes), language, SDK levels, install source, split APKs and entry point - plus a one-tap “Full AI penetration test”.',
   },
 ]
 

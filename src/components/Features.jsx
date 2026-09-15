@@ -5,12 +5,12 @@ import {
 } from './Icons.jsx'
 
 const features = [
-  { icon: Certificate, title: 'Trust your proxy CA', text: 'Writes a network-security config and can bundle your proxy certificate right inside the APK — pick it once, reused for every future patch.' },
+  { icon: Certificate, title: 'Trust your proxy CA', text: 'Writes a network-security config and can bundle your proxy certificate right inside the APK - pick it once, reused for every future patch.' },
   { icon: Unlock, title: 'Remove certificate pinning', text: 'On by default. Detects and neutralises pinning and reports exactly which domains were unpinned. Turn it off to leave the app untouched.' },
   { icon: KeyPerm, title: 'Permissions manager', text: 'Every permission with a plain-language note and a SENSITIVE flag. Untick to strip, or bulk-remove sensitive ones. See what changed after patching.' },
-  { icon: Search, title: 'Inspect: links, secrets & files', text: 'Pull every host & URL, surface API keys and tokens (redacted), and browse every file inside the APK — search names and contents.' },
-  { icon: Code, title: 'Dex decompiler — smali & Java', text: 'Read the app’s code on the device: an expandable package tree, search across names and contents, smali with highlighting or Java via jadx.' },
-  { icon: Logs, title: 'Capture logs', text: 'Adds a tiny companion so TrustAPK can read the app’s own logcat live over localhost — the app’s code stays untouched.' },
+  { icon: Search, title: 'Inspect: links, secrets & files', text: 'Pull every host & URL, surface API keys and tokens (redacted), and browse every file inside the APK - search names and contents.' },
+  { icon: Code, title: 'Dex decompiler - smali & Java', text: 'Read the app’s code on the device: an expandable package tree, search across names and contents, smali with highlighting or Java via jadx.' },
+  { icon: Logs, title: 'Capture logs', text: 'Adds a tiny companion so TrustAPK can read the app’s own logcat live over localhost - the app’s code stays untouched.' },
   { icon: Webhook, title: 'Webhook forwarding', text: 'Forward captured logs to an HTTP webhook you configure. A foreground service keeps forwarding in the background, resuming after reboot.' },
   { icon: Stethoscope, title: 'Diagnose', text: 'A downloadable report combining static checks, cross-references and a runtime log scan to explain why a patched app might misbehave.' },
   { icon: Sliders, title: 'Advanced & Frida', text: 'Debuggable, cleartext, extractNativeLibs, allowBackup, WebView debugging, screenshots, crash/ANR catcher, Frida gadget & runtime unpinning.' },
@@ -25,7 +25,7 @@ export default function Features() {
         <Kicker>Everything it does</Kicker>
         <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Features in full</h2>
         <p className="mt-4 text-muted-c">
-          A complete toolkit for inspecting and reverse-engineering apps you own — the intercept
+          A complete toolkit for inspecting and reverse-engineering apps you own - the intercept
           proxy work, plus a full on-device APK explorer and decompiler.
         </p>
       </div>

@@ -7,17 +7,17 @@ const cases = [
   {
     icon: Unlock,
     title: 'Intercept a target on engagement',
-    text: 'Make a client app’s HTTPS readable in Burp / mitmproxy without touching the device’s system CA store — bundle your CA inside that one app.',
+    text: 'Make a client app’s HTTPS readable in Burp / mitmproxy without touching the device’s system CA store - bundle your CA inside that one app.',
   },
   {
     icon: Shield,
     title: 'Beat pinning on a bounty target',
-    text: 'Strip network-security-config pinning, and drop a Frida gadget with an unpinning script for apps that pin in native / OkHttp code — no desktop Frida attached.',
+    text: 'Strip network-security-config pinning, and drop a Frida gadget with an unpinning script for apps that pin in native / OkHttp code - no desktop Frida attached.',
   },
   {
     icon: Search,
     title: 'Recon endpoints, secrets & code',
-    text: 'Pull every host and URL, surface API keys and tokens (redacted), and decompile the dex to smali or Java for a static review — all on-device.',
+    text: 'Pull every host and URL, surface API keys and tokens (redacted), and decompile the dex to smali or Java for a static review - all on-device.',
   },
   {
     icon: Cpu,
@@ -61,8 +61,8 @@ export default function Audience() {
         ))}
       </div>
 
-      <p className="mt-8 text-center text-xs text-muted-c/80 max-w-2xl mx-auto">
-        For authorised testing only — use TrustAPK on apps you own or have explicit written permission
+      <p className="mt-8 text-center text-xs text-muted-c max-w-2xl mx-auto">
+        For authorised testing only - use TrustAPK on apps you own or have explicit written permission
         to assess. Everything runs locally; no APK ever leaves the device.
       </p>
     </Section>

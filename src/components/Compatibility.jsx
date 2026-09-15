@@ -17,7 +17,7 @@ export default function Compatibility() {
         <Kicker>Compatibility</Kicker>
         <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Works with your kit</h2>
         <p className="mt-4 text-muted-c">
-          Bring the proxy you already use and the APK in whatever shape you have it — TrustAPK handles
+          Bring the proxy you already use and the APK in whatever shape you have it - TrustAPK handles
           the rest on the device.
         </p>
       </div>

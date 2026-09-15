@@ -4,31 +4,31 @@ import { Section, Kicker } from './Section.jsx'
 const faqs = [
   {
     q: 'Is this legal to use?',
-    a: 'TrustAPK is for apps you own or are explicitly authorised to test — the same rule as any pentest tool. It doesn’t bypass licensing or DRM; it makes an app you’re assessing trust your proxy so you can inspect its own traffic. Everything happens on your device and nothing is uploaded.',
+    a: 'TrustAPK is for apps you own or are explicitly authorised to test - the same rule as any pentest tool. It doesn’t bypass licensing or DRM; it makes an app you’re assessing trust your proxy so you can inspect its own traffic. Everything happens on your device and nothing is uploaded.',
   },
   {
     q: 'Do I need a rooted phone?',
-    a: 'No. TrustAPK re-signs and installs the patched app through Android’s normal package installer. No root, no custom ROM, no desktop — it runs on a stock phone (Android 8.0+).',
+    a: 'No. TrustAPK re-signs and installs the patched app through Android’s normal package installer. No root, no custom ROM, no desktop - it runs on a stock phone (Android 8.0+).',
   },
   {
     q: 'Which proxies does it work with?',
-    a: 'Any intercepting proxy that exports a CA certificate — Reqable, mitmproxy, Burp Suite, Charles, Fiddler. You export the CA once, pick it in TrustAPK, and it’s bundled inside the patched app.',
+    a: 'Any intercepting proxy that exports a CA certificate - Reqable, mitmproxy, Burp Suite, Charles, Fiddler. You export the CA once, pick it in TrustAPK, and it’s bundled inside the patched app.',
   },
   {
     q: 'What about certificate pinning?',
-    a: 'Pinning declared in the network-security config and common setups is stripped by default (you can see which domains were unpinned). For apps that pin in native or OkHttp code, add the bundled Frida gadget with the unpinning script, or use the runtime bypass — no desktop Frida required.',
+    a: 'Pinning declared in the network-security config and common setups is stripped by default (you can see which domains were unpinned). For apps that pin in native or OkHttp code, add the bundled Frida gadget with the unpinning script, or use the runtime bypass - no desktop Frida required.',
   },
   {
     q: 'Will every app work after patching?',
-    a: 'Most do. Because the APK is re-signed with your key, apps with server-side signature or Play-Integrity checks (many banking and large apps) may refuse to talk to their backend. That’s how Android’s signature model works and isn’t fixable by patching — it’s an honest limitation, not a bug.',
+    a: 'Most do. Because the APK is re-signed with your key, apps with server-side signature or Play-Integrity checks (many banking and large apps) may refuse to talk to their backend. That’s how Android’s signature model works and isn’t fixable by patching - it’s an honest limitation, not a bug.',
   },
   {
     q: 'Does anything leave my device?',
     a: 'No APK ever leaves the device during patching, signing or installing. The app requests INTERNET only for the optional ad-block hosts list and a log webhook you configure yourself.',
   },
   {
-    q: 'Is it free and open source?',
-    a: 'Yes. Download the signed APK from GitHub Releases, or build it yourself from source with Docker — no JDK, SDK, Android Studio or Gradle required.',
+    q: 'Is it free?',
+    a: 'Yes. Download the signed APK from GitHub Releases at no cost, and the in-app updater keeps it current automatically.',
   },
 ]
 

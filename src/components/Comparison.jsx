@@ -15,7 +15,7 @@ const rows = [
 function Cell({ v }) {
   if (v === true) return <span className="inline-flex text-brand"><Check width={20} height={20} /></span>
   if (v === 'partial') return <span className="text-amber-400/90 text-xs font-medium">varies</span>
-  return <span className="inline-flex text-muted-c/50"><Close width={18} height={18} /></span>
+  return <span className="inline-flex text-muted-c opacity-50"><Close width={18} height={18} /></span>
 }
 
 export default function Comparison() {
@@ -41,7 +41,7 @@ export default function Comparison() {
           </thead>
           <tbody>
             {rows.map(([label, a, b], i) => (
-              <tr key={label} className={i % 2 ? 'bg-panel/40' : ''}>
+              <tr key={label} className={i % 2 ? 'bg-panel-soft' : ''}>
                 <td className="px-4 sm:px-6 py-3.5 text-base-c border-t border-base">{label}</td>
                 <td className="px-3 py-3.5 text-center border-t border-base bg-brand/[0.04]"><Cell v={a} /></td>
                 <td className="px-3 py-3.5 text-center border-t border-base"><Cell v={b} /></td>
@@ -51,7 +51,7 @@ export default function Comparison() {
         </table>
       </div>
       <p className="mt-4 text-center text-xs text-muted-c">
-        Trade-off: re-signing with your own key breaks server-side integrity checks (see limitations) —
+        Trade-off: re-signing with your own key breaks server-side integrity checks (see limitations) -
         the classic setups avoid that but cost you a rooted device and a laptop.
       </p>
     </Section>

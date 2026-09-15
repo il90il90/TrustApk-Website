@@ -4,12 +4,12 @@ const steps = [
   {
     n: '01',
     title: 'Edit only the wrapper',
-    text: "Rewrites the manifest (AndroidManifest.xml), the compiled resources (resources.arsc) and the network-security config — the parts that decide who the app trusts.",
+    text: "Rewrites the manifest (AndroidManifest.xml), the compiled resources (resources.arsc) and the network-security config - the parts that decide who the app trusts.",
   },
   {
     n: '02',
     title: 'Add, never rewrite',
-    text: 'Adds a network-security config, bundles your proxy certificate, and optionally adds companion dex (logs/debug) or native libs (Frida gadget) — as new files beside the originals.',
+    text: 'Adds a network-security config, bundles your proxy certificate, and optionally adds companion dex (logs/debug) or native libs (Frida gadget) - as new files beside the originals.',
   },
   {
     n: '03',
@@ -27,7 +27,7 @@ export default function HowItWorks() {
           Three edits. One golden rule.
         </h2>
         <p className="mt-4 text-muted-c">
-          Everything is implemented from scratch against the raw formats — binary XML,
+          Everything is implemented from scratch against the raw formats - binary XML,
           <span className="font-mono text-sm"> resources.arsc</span> chunks, the ZIP/APK container,
           and the v2/v3 signature schemes. No Gradle, no AndroidX at build time.
         </p>

@@ -1,5 +1,5 @@
 import { Shield, Github, Telegram, Warning } from './Icons.jsx'
-import { SOURCE_REPO, RELEASES_PAGE, TELEGRAM, VERSION } from '../lib/constants.js'
+import { RELEASES_REPO, RELEASES_PAGE, TELEGRAM, VERSION } from '../lib/constants.js'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -10,7 +10,7 @@ export default function Footer() {
           <span className="text-amber-400/90 mt-0.5"><Warning width={18} height={18} /></span>
           <p className="text-sm text-muted-c">
             <span className="font-semibold text-base-c">Use responsibly.</span> TrustAPK is for apps
-            you own or are explicitly authorised to test. Everything happens on your device —
+            you own or are explicitly authorised to test. Everything happens on your device -
             nothing is uploaded anywhere.
           </p>
         </div>
@@ -35,7 +35,7 @@ export default function Footer() {
 
           <div className="flex flex-col sm:items-end gap-3">
             <div className="flex gap-3">
-              <a href={SOURCE_REPO} target="_blank" rel="noreferrer noopener" aria-label="Source on GitHub" className="p-2.5 rounded-lg border border-base bg-panel hover:text-brand transition">
+              <a href={RELEASES_REPO} target="_blank" rel="noreferrer noopener" aria-label="Releases on GitHub" className="p-2.5 rounded-lg border border-base bg-panel hover:text-brand transition">
                 <Github width={18} height={18} />
               </a>
               <a href={TELEGRAM} target="_blank" rel="noreferrer noopener" aria-label="Telegram" className="p-2.5 rounded-lg border border-base bg-panel hover:text-brand transition">

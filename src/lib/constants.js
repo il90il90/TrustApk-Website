@@ -2,7 +2,6 @@
 export const VERSION = '1.7.615'
 export const BUILD = 1615
 
-export const SOURCE_REPO = 'https://github.com/il90il90/trust-apk'
 export const RELEASES_REPO = 'https://github.com/il90il90/trust-apk-releases'
 export const RELEASES_PAGE = 'https://github.com/il90il90/trust-apk-releases/releases'
 // Stable redirect that always points to the latest release's signed APK asset.

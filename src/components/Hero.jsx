@@ -1,5 +1,5 @@
-import { Download, ArrowDown, Github, Check } from './Icons.jsx'
-import { VERSION, DOWNLOAD_URL, SOURCE_REPO } from '../lib/constants.js'
+import { Download, ArrowDown, Check } from './Icons.jsx'
+import { VERSION, DOWNLOAD_URL } from '../lib/constants.js'
 
 const chips = ['No server', 'No root', 'No laptop', 'Nothing uploaded']
 
@@ -25,7 +25,7 @@ export default function Hero() {
 
         <p className="animate-fade-up mx-auto mt-6 max-w-2xl text-base sm:text-lg text-muted-c">
           Intercept any app's HTTPS, strip certificate pinning, inspect endpoints and secrets, and
-          decompile to Java — right on the phone, in the field.
+          decompile to Java - right on the phone, in the field.
           <span className="text-base-c font-medium"> No server, no root, no laptop. Nothing is uploaded, ever.</span>
         </p>
 
@@ -44,14 +44,6 @@ export default function Hero() {
           >
             <ArrowDown width={18} height={18} /> See how it works
           </a>
-          <a
-            href={SOURCE_REPO}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="inline-flex items-center gap-2 rounded-xl border border-base bg-panel px-6 py-3.5 font-medium hover:text-brand transition"
-          >
-            <Github width={18} height={18} /> Source
-          </a>
         </div>
 
         <div className="animate-fade-up mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-c">
@@ -69,7 +61,7 @@ export default function Hero() {
           ))}
         </div>
 
-        <p className="mt-6 text-xs text-muted-c/80">
+        <p className="mt-6 text-xs text-muted-c">
           For apps you own or are explicitly authorised to test. Requires Android 8.0+.
         </p>
       </div>

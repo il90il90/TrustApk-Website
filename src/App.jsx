@@ -1,10 +1,10 @@
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import ValueProps from './components/ValueProps.jsx'
-import Stats from './components/Stats.jsx'
 import Audience from './components/Audience.jsx'
 import HowItWorks from './components/HowItWorks.jsx'
 import Demo from './components/Demo.jsx'
+import AiPentest from './components/AiPentest.jsx'
 import Features from './components/Features.jsx'
 import Compatibility from './components/Compatibility.jsx'
 import Screenshots from './components/Screenshots.jsx'
@@ -26,10 +26,10 @@ export default function App() {
       <main>
         <Hero />
         <ValueProps />
-        <Stats />
         <Audience />
         <HowItWorks />
         <Demo />
+        <AiPentest />
         <Features />
         <Compatibility />
         <Screenshots />

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0f16" />
 
-    <title>TrustAPK — On-device APK toolkit for mobile app pentesting</title>
-    <meta name="description" content="TrustAPK is an on-device Android APK toolkit for mobile app pentesting: intercept HTTPS, strip certificate pinning, inspect endpoints and secrets, and decompile to Java — right on the phone. No server, no root, no laptop, nothing uploaded." />
+    <title>TrustAPK - On-device APK toolkit for mobile app pentesting</title>
+    <meta name="description" content="TrustAPK is an on-device Android APK toolkit for mobile app pentesting: intercept HTTPS, strip certificate pinning, inspect endpoints and secrets, and decompile to Java - right on the phone. No server, no root, no laptop, nothing uploaded." />
     <meta name="keywords" content="TrustAPK, mobile pentesting, Android pentest, APK patcher, HTTPS inspection, certificate pinning bypass, Frida gadget, unpinning, mitmproxy, Burp Suite, Reqable, bug bounty, mobile security, reverse engineering, on-device, no root, dex decompiler, smali, jadx" />
     <meta name="author" content="Israel Cohen" />
     <link rel="canonical" href="https://trustapk.app/" />
@@ -18,8 +18,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TrustAPK" />
-    <meta property="og:title" content="TrustAPK — On-device APK toolkit for mobile app pentesting" />
-    <meta property="og:description" content="Intercept HTTPS, strip certificate pinning, inspect endpoints and secrets, and decompile Android apps for a pentest — all on the phone. No server, no root, no laptop. The app's own code is never modified." />
+    <meta property="og:title" content="TrustAPK - On-device APK toolkit for mobile app pentesting" />
+    <meta property="og:description" content="Intercept HTTPS, strip certificate pinning, inspect endpoints and secrets, and decompile Android apps for a pentest - all on the phone. No server, no root, no laptop. The app's own code is never modified." />
     <meta property="og:url" content="https://trustapk.app/" />
     <meta property="og:image" content="https://trustapk.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -27,8 +27,8 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="TrustAPK — On-device APK toolkit for mobile app pentesting" />
-    <meta name="twitter:description" content="Intercept HTTPS, strip pinning, inspect and decompile Android apps for a pentest — all on the phone. No server, no root, no laptop." />
+    <meta name="twitter:title" content="TrustAPK - On-device APK toolkit for mobile app pentesting" />
+    <meta name="twitter:description" content="Intercept HTTPS, strip pinning, inspect and decompile Android apps for a pentest - all on the phone. No server, no root, no laptop." />
     <meta name="twitter:image" content="https://trustapk.app/og-image.png" />
 
     <!-- Fonts -->
@@ -58,7 +58,7 @@
         "name": "TrustAPK",
         "operatingSystem": "Android 8.0+",
         "applicationCategory": "SecurityApplication",
-        "description": "An on-device Android APK toolkit for mobile app pentesting — intercept HTTPS, strip certificate pinning, inspect endpoints and secrets, and decompile to Java. No server, no root, nothing uploaded.",
+        "description": "An on-device Android APK toolkit for mobile app pentesting - intercept HTTPS, strip certificate pinning, inspect endpoints and secrets, and decompile to Java. No server, no root, nothing uploaded.",
         "softwareVersion": "1.7.615",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "author": { "@type": "Person", "name": "Israel Cohen", "url": "https://t.me/IsraelCohen" }
@@ -69,11 +69,11 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-          { "@type": "Question", "name": "Do I need a rooted phone?", "acceptedAnswer": { "@type": "Answer", "text": "No. TrustAPK re-signs and installs the patched app through Android's normal package installer — no root, no custom ROM, no desktop, on a stock phone (Android 8.0+)." } },
-          { "@type": "Question", "name": "Which proxies does it work with?", "acceptedAnswer": { "@type": "Answer", "text": "Any intercepting proxy that exports a CA certificate — Reqable, mitmproxy, Burp Suite, Charles, Fiddler. You export the CA once and it is bundled inside the patched app." } },
-          { "@type": "Question", "name": "What about certificate pinning?", "acceptedAnswer": { "@type": "Answer", "text": "Pinning in the network-security config and common setups is stripped by default. For native or OkHttp pinning, add the bundled Frida gadget with an unpinning script or use the runtime bypass — no desktop Frida required." } },
+          { "@type": "Question", "name": "Do I need a rooted phone?", "acceptedAnswer": { "@type": "Answer", "text": "No. TrustAPK re-signs and installs the patched app through Android's normal package installer - no root, no custom ROM, no desktop, on a stock phone (Android 8.0+)." } },
+          { "@type": "Question", "name": "Which proxies does it work with?", "acceptedAnswer": { "@type": "Answer", "text": "Any intercepting proxy that exports a CA certificate - Reqable, mitmproxy, Burp Suite, Charles, Fiddler. You export the CA once and it is bundled inside the patched app." } },
+          { "@type": "Question", "name": "What about certificate pinning?", "acceptedAnswer": { "@type": "Answer", "text": "Pinning in the network-security config and common setups is stripped by default. For native or OkHttp pinning, add the bundled Frida gadget with an unpinning script or use the runtime bypass - no desktop Frida required." } },
           { "@type": "Question", "name": "Does anything leave my device?", "acceptedAnswer": { "@type": "Answer", "text": "No APK ever leaves the device during patching, signing or installing. INTERNET is used only for the optional ad-block hosts list and a log webhook you configure." } },
-          { "@type": "Question", "name": "Is it free and open source?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Download the signed APK from GitHub Releases, or build it yourself from source with Docker — no JDK, SDK, Android Studio or Gradle required." } }
+          { "@type": "Question", "name": "Is it free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Download the signed APK from GitHub Releases at no cost, and the in-app updater keeps it current automatically." } }
         ]
       }
     </script>

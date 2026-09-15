@@ -5,17 +5,17 @@ const notes = [
   {
     icon: Cpu,
     title: 'No Gradle, framework APIs only',
-    text: 'The app is linked by hand so the build stays fully offline and reproducible — no Android SDK, Android Studio or Gradle needed. Docker is the only host requirement.',
+    text: 'The app is linked by hand so the build stays fully offline and reproducible - no Android SDK, Android Studio or Gradle needed. Docker is the only host requirement.',
   },
   {
     icon: Code,
     title: 'The formats, from scratch',
-    text: 'Binary XML (AndroidManifest), the resources.arsc chunk table, the ZIP/APK container and the v2/v3 signature schemes are all implemented in-app — that’s how it edits and re-signs on the phone.',
+    text: 'Binary XML (AndroidManifest), the resources.arsc chunk table, the ZIP/APK container and the v2/v3 signature schemes are all implemented in-app - that’s how it edits and re-signs on the phone.',
   },
   {
     icon: Shield,
     title: 'Pure-Java, vendored',
-    text: 'dexlib2 / baksmali and jadx (decompilation), Guava, and XZ are vendored in-repo — all pure Java, so they run on Android’s ART with nothing fetched at runtime.',
+    text: 'dexlib2 / baksmali and jadx (decompilation), Guava, and XZ are vendored in-repo - all pure Java, so they run on Android’s ART with nothing fetched at runtime.',
   },
   {
     icon: Check,
@@ -31,7 +31,7 @@ export default function TechNotes() {
         <Kicker>Under the hood</Kicker>
         <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Engineered to run anywhere, offline</h2>
         <p className="mt-4 text-muted-c">
-          The parts that make on-device patching possible — built from the raw formats up, with no
+          The parts that make on-device patching possible - built from the raw formats up, with no
           server and no toolchain to install.
         </p>
       </div>

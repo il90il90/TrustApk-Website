@@ -46,6 +46,10 @@ body {
 .bg-base { background-color: var(--bg); }
 .bg-soft { background-color: var(--bg-soft); }
 .bg-panel { background-color: var(--panel); }
+/* Semi-transparent header background (opacity modifiers don't work on the
+   custom color utilities above, so this is a dedicated token). */
+.bg-header { background-color: color-mix(in srgb, var(--bg) 88%, transparent); }
+.bg-panel-soft { background-color: color-mix(in srgb, var(--panel) 45%, transparent); }
 .text-base-c { color: var(--text); }
 .text-muted-c { color: var(--text-muted); }
 .border-base { border-color: var(--border); }

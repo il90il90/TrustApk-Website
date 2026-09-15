@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Section, Kicker } from './Section.jsx'
-import { Telegram, Github } from './Icons.jsx'
-import { TELEGRAM, SOURCE_REPO, FORMSPREE_ENDPOINT, CONTACT_EMAIL } from '../lib/constants.js'
+import { Telegram } from './Icons.jsx'
+import { TELEGRAM, FORMSPREE_ENDPOINT, CONTACT_EMAIL } from '../lib/constants.js'
 
 export default function Contact() {
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
@@ -13,8 +13,8 @@ export default function Contact() {
     e.preventDefault()
     // No backend: use Formspree if configured, otherwise fall back to a mailto draft.
     if (!FORMSPREE_ENDPOINT) {
-      const subject = encodeURIComponent(`TrustAPK — message from ${form.name || 'website'}`)
-      const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`)
+      const subject = encodeURIComponent(`TrustAPK - message from ${form.name || 'website'}`)
+      const body = encodeURIComponent(`${form.message}\n\n- ${form.name} (${form.email})`)
       window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
       return
     }
@@ -45,8 +45,7 @@ export default function Contact() {
             Questions, bugs or ideas?
           </h2>
           <p className="mt-4 text-muted-c leading-relaxed">
-            The fastest way to reach the author is Telegram. You can also open an issue on GitHub
-            or drop a message with the form.
+            The fastest way to reach the author is Telegram, or drop a message with the form.
           </p>
 
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
@@ -57,14 +56,6 @@ export default function Contact() {
               className="inline-flex items-center gap-2 rounded-xl bg-[#229ED9] text-white font-semibold px-5 py-3 hover:brightness-110 transition"
             >
               <Telegram width={20} height={20} /> Message on Telegram
-            </a>
-            <a
-              href={`${SOURCE_REPO}/issues`}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 rounded-xl border border-base bg-panel px-5 py-3 font-medium hover:text-brand transition"
-            >
-              <Github width={18} height={18} /> Open an issue
             </a>
           </div>
         </div>
@@ -110,9 +101,9 @@ export default function Contact() {
             disabled={status === 'sending'}
             className="w-full rounded-lg bg-brand text-[#04140f] font-semibold px-5 py-3 hover:brightness-110 transition disabled:opacity-60"
           >
-            {status === 'sending' ? 'Sending…' : FORMSPREE_ENDPOINT ? 'Send message' : 'Compose email'}
+            {status === 'sending' ? 'Sending...' : FORMSPREE_ENDPOINT ? 'Send message' : 'Compose email'}
           </button>
-          {status === 'sent' && <p className="text-sm text-brand">Thanks — your message was sent.</p>}
+          {status === 'sent' && <p className="text-sm text-brand">Thanks - your message was sent.</p>}
           {status === 'error' && <p className="text-sm text-amber-400">Something went wrong. Try Telegram or GitHub instead.</p>}
           {!FORMSPREE_ENDPOINT && (
             <p className="text-xs text-muted-c">

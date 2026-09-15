@@ -4,7 +4,7 @@ const problems = [
   {
     n: '1',
     title: 'Apps ignore user CAs',
-    text: 'Since Android 7, apps only trust the system CA store by default — so pointing your phone at a proxy shows empty or broken traffic.',
+    text: 'Since Android 7, apps only trust the system CA store by default - so pointing your phone at a proxy shows empty or broken traffic.',
   },
   {
     n: '2',
@@ -25,7 +25,7 @@ export default function WhyItExists() {
         <div>
           <Kicker>Why this exists</Kicker>
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">
-            Modern Android makes inspection hard — on purpose
+            Modern Android makes inspection hard - on purpose
           </h2>
           <p className="mt-4 text-muted-c leading-relaxed">
             The usual workarounds need a rooted phone, Frida with a desktop attached, or a full

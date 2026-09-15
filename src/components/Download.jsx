@@ -1,14 +1,14 @@
 import { Section, Kicker } from './Section.jsx'
-import { Download as DownloadIcon, Github, Check } from './Icons.jsx'
-import { VERSION, DOWNLOAD_URL, RELEASES_PAGE, SOURCE_REPO } from '../lib/constants.js'
+import { Download as DownloadIcon, Check } from './Icons.jsx'
+import { VERSION, DOWNLOAD_URL, RELEASES_PAGE } from '../lib/constants.js'
 
 const quickstart = [
   'Install TrustAPK and allow it to install unknown apps when asked.',
   'Open your proxy (Reqable / mitmproxy / Burp / Charles) and export its CA certificate.',
   'On the home screen, pick an installed app (or an APK file).',
   'Leave "Remove certificate pinning" on and tap "Patch this APK".',
-  'Install it now — replace, or as a separate copy.',
-  'Point your Wi-Fi proxy at your tool and open the app — traffic is readable.',
+  'Install it now - replace, or as a separate copy.',
+  'Point your Wi-Fi proxy at your tool and open the app - traffic is readable.',
 ]
 
 export default function Download() {
@@ -22,8 +22,8 @@ export default function Download() {
               Download &amp; patch your first app
             </h2>
             <p className="mt-4 text-muted-c leading-relaxed">
-              Grab the signed APK from GitHub Releases. It&rsquo;s free and open source — the in-app
-              updater keeps it current from the public releases repo.
+              Grab the signed APK from GitHub Releases. It&rsquo;s free, and the in-app updater keeps
+              it current from the public releases repo.
             </p>
 
             <div className="mt-7 flex flex-col sm:flex-row gap-3">
@@ -45,22 +45,10 @@ export default function Download() {
               </a>
             </div>
 
-            <div className="mt-8 rounded-xl border border-base bg-[#080d13] p-5">
-              <p className="text-sm font-semibold mb-2">Build from source</p>
-              <p className="text-xs text-muted-c mb-3">
-                The only requirement on your machine is Docker — no JDK, SDK, Android Studio or Gradle.
-              </p>
-              <pre className="font-mono text-xs text-emerald-300/90 overflow-x-auto thin-scroll">{`# 1. Create the signing key (once)
-./scripts/create-keystore.sh
-
-# 2. Fill in passwords
-cp secrets/build.env.example secrets/build.env
-
-# 3. Build (first run also builds the image)
-./build.sh   #  ->  dist-android/trustapk-client.apk`}</pre>
-              <a href={SOURCE_REPO} target="_blank" rel="noreferrer noopener" className="mt-3 inline-flex items-center gap-1.5 text-xs text-brand hover:underline">
-                <Github width={14} height={14} /> Full instructions on GitHub
-              </a>
+            <div className="mt-8 flex items-start gap-2 rounded-xl border border-base bg-panel p-4 text-xs text-muted-c">
+              <span className="text-brand mt-0.5"><Check width={14} height={14} /></span>
+              Signed with a stable key, so the in-app updater can upgrade it in place. On first install,
+              allow installing unknown apps when Android asks.
             </div>
           </div>
 

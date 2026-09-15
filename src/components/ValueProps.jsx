@@ -4,7 +4,7 @@ const items = [
   { icon: Cpu, title: 'Fully on-device', text: 'Patching, signing and installing all happen on the phone. No desktop, no Gradle, no root.' },
   { icon: Cloud, title: 'Nothing uploaded', text: 'No APK ever leaves the device during patching. Your apps and data stay with you.' },
   { icon: Code, title: 'Code untouched', text: "The app's own classes*.dex stay byte-for-byte identical. Only the manifest & resources change." },
-  { icon: Lock, title: 'Per-app CA trust', text: 'Trust your proxy inside one app — no system-wide CA, no scary warning, works on MDM devices.' },
+  { icon: Lock, title: 'Per-app CA trust', text: 'Trust your proxy inside one app - no system-wide CA, no scary warning, works on MDM devices.' },
 ]
 
 export default function ValueProps() {
