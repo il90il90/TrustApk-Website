@@ -1,6 +1,8 @@
 // A premium device frame. Responsive width, subtle metallic edge, side buttons,
 // pill camera cutout, and an optional scanning overlay.
 export default function PhoneFrame({ src, alt, scanning = false, glow = false }) {
+  // src is e.g. './shots/dashboard.jpg'; frames use the smaller -sm variants.
+  const base = src.replace(/\.jpg$/, '')
   return (
     <div className="relative mx-auto w-full max-w-[248px] sm:max-w-[264px]">
       {/* side buttons */}
@@ -20,7 +22,18 @@ export default function PhoneFrame({ src, alt, scanning = false, glow = false })
             <span className="h-1 w-1 rounded-full bg-[#22303f]" />
           </div>
           <div className="relative overflow-hidden rounded-[1.7rem] aspect-[9/19.5] bg-black">
-            <img src={src} alt={alt} loading="lazy" className="h-full w-full object-cover object-top" />
+            <picture>
+              <source type="image/webp" srcSet={`${base}-sm.webp`} />
+              <img
+                src={`${base}-sm.jpg`}
+                alt={alt}
+                loading="lazy"
+                decoding="async"
+                width="520"
+                height="1214"
+                className="h-full w-full object-cover object-top"
+              />
+            </picture>
             {scanning && (
               <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 <div className="absolute inset-x-0 h-24 bg-gradient-to-b from-transparent via-brand/30 to-transparent animate-scan" />

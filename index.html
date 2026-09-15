@@ -13,7 +13,7 @@
 
     <!-- Icons -->
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="apple-touch-icon" href="./favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -63,20 +63,7 @@
         "author": { "@type": "Person", "name": "Israel Cohen", "url": "https://t.me/IsraelCohen" }
       }
     </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "Do I need a rooted phone?", "acceptedAnswer": { "@type": "Answer", "text": "No. TrustAPK re-signs and installs the patched app through Android's normal package installer - no root, no custom ROM, no desktop, on a stock phone (Android 8.0+)." } },
-          { "@type": "Question", "name": "Which proxies does it work with?", "acceptedAnswer": { "@type": "Answer", "text": "Any intercepting proxy that exports a CA certificate - Reqable, mitmproxy, Burp Suite, Charles, Fiddler. You export the CA once and it is bundled inside the patched app." } },
-          { "@type": "Question", "name": "What about certificate pinning?", "acceptedAnswer": { "@type": "Answer", "text": "Pinning in the network-security config and common setups is stripped by default. For native or OkHttp pinning, add the bundled Frida gadget with an unpinning script or use the runtime bypass - no desktop Frida required." } },
-          { "@type": "Question", "name": "What uses the network?", "acceptedAnswer": { "@type": "Answer", "text": "Patching and local inspection do not need the network. The app does reach out for license validation, update checks, the optional ad-block hosts list, an optional Frida-gadget download, any log webhook you configure, and the live traffic it proxies for the app under test. Sharing evidence to an AI assistant is handed to that app by Android, not uploaded by TrustAPK." } },
-          { "@type": "Question", "name": "Which AI does it use, and what does it see?", "acceptedAnswer": { "@type": "Answer", "text": "Your own. TrustAPK has no built-in AI model - it shares a bundle into a chat app you have installed (ChatGPT, Gemini, Claude, Grok) via Android's share sheet, and you can add a custom prompt. You choose which evidence to include; that bundle can contain sensitive data such as captured traffic, logs, decompiled code or the APK." } },
-          { "@type": "Question", "name": "Is it free?", "acceptedAnswer": { "@type": "Answer", "text": "The APK is free to download from GitHub Releases, but using it requires a paid license. Message the developer on Telegram to get a key." } }
-        ]
-      }
-    </script>
+    <!--FAQ_JSONLD-->
   </head>
   <body>
     <div id="root"></div>

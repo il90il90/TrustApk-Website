@@ -154,11 +154,14 @@ export default function Screenshots() {
             <Close width={22} height={22} />
           </button>
           <figure className="flex flex-col items-center max-h-full" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={shots[active].src}
-              alt={shots[active].title}
-              className="max-h-[78vh] w-auto max-w-full rounded-2xl shadow-2xl"
-            />
+            <picture>
+              <source type="image/webp" srcSet={shots[active].src.replace(/\.jpg$/, '.webp')} />
+              <img
+                src={shots[active].src}
+                alt={shots[active].title}
+                className="max-h-[78vh] w-auto max-w-full rounded-2xl shadow-2xl"
+              />
+            </picture>
             <figcaption className="mt-4 max-w-lg text-center text-sm text-white/80 overflow-y-auto">
               <span id="lightbox-title" className="font-semibold text-white">{shots[active].title}.</span>{' '}
               {shots[active].desc}
