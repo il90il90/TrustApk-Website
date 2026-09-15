@@ -7,12 +7,12 @@ const shots = [
   {
     src: './shots/dashboard.jpg',
     title: 'The target dashboard',
-    desc: 'Load any installed app or APK and get one control room — Inspect (Links, Secrets, Files, Components, Security scan, App settings), live App data, Live traffic and Capture logs, then Patch this APK. Here: eWeLink (com.coolkit), 174.8 MB, base + 6 splits.',
+    desc: 'Load any installed app or APK and get one control room — Inspect (Links, Secrets, Files, Components, Security scan, App settings), live App data, Live traffic and Capture logs, then Patch this APK. Here: a shipping app of 174.8 MB, base + 6 splits.',
   },
   {
     src: './shots/live-traffic.jpg',
     title: 'Decrypted HTTPS, live',
-    desc: 'After patching, the app’s own TLS is readable in the built-in inspector — 406 requests captured across graph.facebook.com, the coolkit APIs, Firebase and more. Tap any request to read its headers and body.',
+    desc: 'After patching, the app’s own TLS is readable in the built-in inspector — 406 requests captured across the app’s analytics, backend APIs, Firebase and more. Tap any request to read its headers and body.',
   },
   {
     src: './shots/links.jpg',

@@ -10,7 +10,7 @@ const steps = [
     img: './shots/dashboard.jpg',
     title: '1 · Load the target',
     body: 'Pick an installed app (splits included) or an .apk / .apks / .xapk file. TrustAPK opens a single dashboard for the whole assessment — inspect, patch, capture and analyse from one place.',
-    log: ['> reading com.coolkit …', '> base.apk + 6 splits (174.8 MB)', '> dashboard ready'],
+    log: ['> reading target package …', '> base.apk + 6 splits (174.8 MB)', '> dashboard ready'],
   },
   {
     label: 'Trust proxy',
@@ -24,7 +24,7 @@ const steps = [
     img: './shots/live-traffic.jpg',
     title: '3 · Patch & intercept',
     body: 'Strip pinning (on by default), re-sign and install, then read the app’s own HTTPS live in the built-in inspector — every request, header and body, on the device.',
-    log: ['> unpin + re-sign (v2 + v3)', '> CONNECT graph.facebook.com:443 mitm=true', '> TLS client-side ok — 406 captured'],
+    log: ['> unpin + re-sign (v2 + v3)', '> CONNECT api.target.tld:443 mitm=true', '> TLS client-side ok — 406 captured'],
     scanning: true,
   },
   {

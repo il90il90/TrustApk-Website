@@ -6,8 +6,10 @@ import Audience from './components/Audience.jsx'
 import HowItWorks from './components/HowItWorks.jsx'
 import Demo from './components/Demo.jsx'
 import Features from './components/Features.jsx'
+import Compatibility from './components/Compatibility.jsx'
 import Screenshots from './components/Screenshots.jsx'
 import WhyItExists from './components/WhyItExists.jsx'
+import TechNotes from './components/TechNotes.jsx'
 import Comparison from './components/Comparison.jsx'
 import Limitations from './components/Limitations.jsx'
 import Faq from './components/Faq.jsx'
@@ -29,8 +31,10 @@ export default function App() {
         <HowItWorks />
         <Demo />
         <Features />
+        <Compatibility />
         <Screenshots />
         <WhyItExists />
+        <TechNotes />
         <Comparison />
         <Limitations />
         <Faq />
