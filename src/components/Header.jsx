@@ -7,8 +7,8 @@ const links = [
   { href: '#how', label: 'How it works' },
   { href: '#demo', label: 'Demo' },
   { href: '#features', label: 'Features' },
+  { href: '#faq', label: 'FAQ' },
   { href: '#download', label: 'Download' },
-  { href: '#contact', label: 'Contact' },
 ]
 
 export default function Header({ theme, toggleTheme }) {
