@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0f16;
+  --bg-soft: #0f1620;
+  --panel: #121b26;
+  --border: #1e2b3a;
+  --text: #e6edf3;
+  --text-muted: #93a4b8;
+  --brand: #22d3aa;
+}
+
+:root:not(.dark) {
+  --bg: #f6f8fb;
+  --bg-soft: #ffffff;
+  --panel: #ffffff;
+  --border: #e2e8f0;
+  --text: #0d1b2a;
+  --text-muted: #52657a;
+  --brand: #0d9c7e;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+}
+
+/* Utility helpers driven by CSS vars so both themes stay in sync */
+.bg-base { background-color: var(--bg); }
+.bg-soft { background-color: var(--bg-soft); }
+.bg-panel { background-color: var(--panel); }
+.text-base-c { color: var(--text); }
+.text-muted-c { color: var(--text-muted); }
+.border-base { border-color: var(--border); }
+
+.text-gradient {
+  background: linear-gradient(120deg, #5eead4 0%, #22d3aa 45%, #7c5cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle grid backdrop */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+.glow {
+  box-shadow: 0 0 0 1px rgba(34, 211, 170, 0.25), 0 0 40px -8px rgba(34, 211, 170, 0.45);
+}
+
+::selection {
+  background: rgba(34, 211, 170, 0.3);
+}
+
+/* Thin scrollbars in code blocks */
+.thin-scroll::-webkit-scrollbar { height: 8px; width: 8px; }
+.thin-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
