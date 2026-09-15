@@ -6,50 +6,50 @@ import { VERSION } from '../lib/constants.js'
 
 const steps = [
   {
-    label: 'Pick an app',
-    img: './screenshots/home.png',
-    title: '1 · Pick an app or an APK',
-    body: 'Start from an app already installed on the phone (splits included) or choose an .apk / .apks / .xapk file. No hunting for files, no desktop.',
-    log: ['> reading installed package…', '> found base.apk + config.arm64_v8a.apk', '> ready to inspect'],
+    label: 'Load target',
+    img: './shots/dashboard.jpg',
+    title: '1 · Load the target',
+    body: 'Pick an installed app (splits included) or an .apk / .apks / .xapk file. TrustAPK opens a single dashboard for the whole assessment — inspect, patch, capture and analyse from one place.',
+    log: ['> reading com.coolkit …', '> base.apk + 6 splits (174.8 MB)', '> dashboard ready'],
   },
   {
     label: 'Trust proxy',
-    img: './screenshots/02-certificate.png',
-    title: '2 · Trust your proxy certificate',
-    body: 'Point at your proxy’s CA (Reqable / mitmproxy / Burp / Charles). TrustAPK bundles it inside the patched APK, so that one app trusts your proxy — no system CA, no MDM block.',
-    log: ['> import mitmproxy-ca.pem', '> writing network_security_config.xml', '> pin certificate to app store only'],
+    img: './shots/proxy-cert.jpg',
+    title: '2 · Trust your proxy',
+    body: 'Point at your proxy’s CA (Reqable / mitmproxy / Burp / Charles). TrustAPK writes it inside the patched APK, so that one app trusts your proxy — no system CA, no security warning, works on MDM devices.',
+    log: ['> import mitmproxy-ca.pem', '> write network_security_config.xml', '> per-app trust only'],
   },
   {
-    label: 'Strip pinning',
-    img: './screenshots/03-app-loaded.png',
-    title: '3 · Strip pinning & trim permissions',
-    body: 'Remove certificate pinning (on by default), untick sensitive permissions to strip them, and browse Links, Secrets and Files — all read-only, all on-device.',
-    log: ['> scanning for pinning config…', '> unpinned: api.example.com, cdn.example.com', '> flagged 3 SENSITIVE permissions'],
+    label: 'Intercept',
+    img: './shots/live-traffic.jpg',
+    title: '3 · Patch & intercept',
+    body: 'Strip pinning (on by default), re-sign and install, then read the app’s own HTTPS live in the built-in inspector — every request, header and body, on the device.',
+    log: ['> unpin + re-sign (v2 + v3)', '> CONNECT graph.facebook.com:443 mitm=true', '> TLS client-side ok — 406 captured'],
     scanning: true,
   },
   {
-    label: 'Advanced',
-    img: './screenshots/04-advanced.png',
-    title: '4 · Advanced (optional)',
-    body: 'Flip manifest flags (debuggable, cleartext, extractNativeLibs), enable WebView debugging, add a Frida gadget for native/OkHttp pinning, or set min-SDK & version code.',
-    log: ['> set application:debuggable=true', '> inject frida-gadget.so (+ frida_unpin.js)', '> min-sdk 26 → 24'],
+    label: 'Map surface',
+    img: './shots/components.jpg',
+    title: '4 · Map the attack surface',
+    body: 'Pull every host and URL, then enumerate activities, services, receivers and providers flagged Exported / Unguarded / Reachable — the entry points worth probing.',
+    log: ['> 139 hosts / 729 URLs', '> 75 components — 31 exported, 27 unguarded', '> intent actions + deep-link schemes'],
   },
   {
-    label: 'Result',
-    img: './screenshots/05-result.png',
-    title: '5 · Patch, sign & install',
-    body: 'One tap applies everything, re-signs with a local v2/v3 key and installs. The result screen shows exactly what changed — then Install, Save or Send the APK.',
-    log: ['> re-signing (v2 + v3)…', '> classes.dex unchanged ✓', '> patched in 3.1s — install ready'],
+    label: 'Dig in',
+    img: './shots/app-data.jpg',
+    title: '5 · Dig into data & logs',
+    body: 'Browse the app’s private sandbox — shared_prefs, databases and files — stream its logcat live over localhost, and export the captured flows for your report.',
+    log: ['> shared_prefs / databases / files', '> files/trustapk_flows.jsonl (3.4 MB)', '> classes*.dex unchanged ✓'],
   },
 ]
 
 const resultRows = [
-  'User-CA trust enabled',
-  'Network-security config written',
-  'Proxy certificate bundled',
-  '2 domains unpinned',
+  '406 HTTPS requests decrypted',
+  '139 hosts, 729 URLs mapped',
+  '31 exported components flagged',
+  'App sandbox data browsed',
   'classes*.dex identical to original',
-  'Signed with v2 + v3',
+  'Flows exported for the report',
 ]
 
 export default function Demo() {
@@ -61,10 +61,10 @@ export default function Demo() {
     <Section id="demo" soft>
       <div className="text-center max-w-2xl mx-auto">
         <Kicker>Interactive walkthrough</Kicker>
-        <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">See the patch flow</h2>
+        <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Walk through an assessment</h2>
         <p className="mt-4 text-muted-c">
-          A front-end walkthrough of the real screens — click through the steps. Nothing here talks
-          to a server; it mirrors what happens entirely on your device.
+          Click through the five steps of a real on-device assessment, on the actual screens. Nothing
+          here talks to a server — it mirrors what happens entirely on your phone.
         </p>
       </div>
 
