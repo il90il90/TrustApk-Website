@@ -1,5 +1,7 @@
 # TrustAPK — Website
 
+**Live:** [trustapk.app](https://trustapk.app)
+
 Marketing + interactive-demo landing site for **[TrustAPK](https://github.com/il90il90/trust-apk)**,
 a fully on-device Android APK patcher for HTTPS inspection, app analysis and reverse-engineering.
 
