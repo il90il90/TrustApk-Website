@@ -1,8 +1,54 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Section, Kicker } from './Section.jsx'
 import PhoneFrame from './PhoneFrame.jsx'
 import { Check } from './Icons.jsx'
-import { VERSION } from '../lib/constants.js'
+
+const Cursor = () => (
+  <span className="ml-0.5 -mb-0.5 inline-block h-3 w-2 bg-brand animate-pulse-glow align-middle" aria-hidden="true" />
+)
+
+// Reveals the terminal lines with a streaming, typed-out feel each time the
+// active step changes - so the demo looks like it's actually running.
+function useTypedLines(lines, resetKey) {
+  const [done, setDone] = useState(0) // fully-typed lines
+  const [chars, setChars] = useState(0) // chars shown on the in-progress line
+
+  useEffect(() => {
+    const reduce =
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    if (reduce) {
+      setDone(lines.length)
+      setChars(0)
+      return
+    }
+    setDone(0)
+    setChars(0)
+    let li = 0
+    let ci = 0
+    let timer
+    const tick = () => {
+      const line = lines[li] ?? ''
+      if (ci < line.length) {
+        ci += 1
+        setChars(ci)
+        timer = setTimeout(tick, 18)
+      } else {
+        li += 1
+        ci = 0
+        setDone(li)
+        setChars(0)
+        if (li < lines.length) timer = setTimeout(tick, 260)
+      }
+    }
+    timer = setTimeout(tick, 220)
+    return () => clearTimeout(timer)
+    // resetKey changes exactly when `lines` does (both derive from the step).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resetKey])
+
+  return { done, chars }
+}
 
 const steps = [
   {
@@ -56,6 +102,8 @@ export default function Demo() {
   const [i, setI] = useState(0)
   const step = steps[i]
   const isLast = i === steps.length - 1
+  const { done, chars } = useTypedLines(step.log, i)
+  const typing = done < step.log.length
 
   return (
     <Section id="demo" soft>
@@ -98,10 +146,18 @@ export default function Demo() {
           <p className="mt-3 text-muted-c leading-relaxed">{step.body}</p>
 
           <div className="mt-5 rounded-xl border border-base bg-[#080d13] text-emerald-300/90 font-mono text-xs p-4 thin-scroll overflow-x-auto">
-            {step.log.map((line, k) => (
-              <div key={k} className="whitespace-pre">{line}</div>
-            ))}
-            <div className="mt-1 h-3 w-2 bg-brand inline-block animate-pulse-glow" />
+            {step.log.map((line, k) => {
+              if (k < done) return <div key={k} className="whitespace-pre">{line}</div>
+              if (k === done && typing)
+                return (
+                  <div key={k} className="whitespace-pre">
+                    {line.slice(0, chars)}
+                    <Cursor />
+                  </div>
+                )
+              return null
+            })}
+            {!typing && <Cursor />}
           </div>
 
           {isLast && (
@@ -129,7 +185,6 @@ export default function Demo() {
             >
               {isLast ? 'Restart walkthrough' : 'Next step'}
             </button>
-            <span className="ml-auto text-xs text-muted-c font-mono">v{VERSION}</span>
           </div>
         </div>
       </div>

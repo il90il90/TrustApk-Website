@@ -1,7 +1,7 @@
 import { Download, ArrowDown, Check } from './Icons.jsx'
 import { VERSION, DOWNLOAD_URL } from '../lib/constants.js'
 
-const chips = ['No root', 'No laptop', 'Local by default', 'AI-assisted review']
+const chips = ['No root', 'No laptop', 'Runs 100% on your phone', 'AI-assisted review']
 
 export default function Hero() {
   return (
@@ -19,7 +19,7 @@ export default function Hero() {
         </div>
 
         <h1 className="animate-fade-up text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
-          On-device APK toolkit
+          APK toolkit
           <br className="hidden sm:block" /> for <span className="text-gradient"><span className="whitespace-nowrap">AI-assisted</span> pentesting</span>
         </h1>
 
