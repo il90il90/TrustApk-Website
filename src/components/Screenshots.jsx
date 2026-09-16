@@ -25,6 +25,11 @@ const shots = [
     desc: 'Enumerate every activity, service, receiver and provider - flagged Exported / Unguarded / Reachable. 75 components, 31 exported, 27 unguarded, with the intent actions and deep-link schemes that reach them.',
   },
   {
+    src: './shots/permissions.jpg',
+    title: 'Strip risky permissions',
+    desc: 'Every permission the app requests, each with a plain-language note and a SENSITIVE flag. Untick any to remove it from the patched app, or bulk-remove the sensitive ones - then see exactly what changed after patching.',
+  },
+  {
     src: './shots/logs.jpg',
     title: 'Live logcat over localhost',
     desc: 'A companion component streams the app’s own logs to TrustAPK without touching its code - watch the interception happen in real time (CONNECT ...:443 mitm=true, TLS client-side ok).',
