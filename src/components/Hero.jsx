@@ -24,9 +24,9 @@ export default function Hero() {
         </h1>
 
         <p className="animate-fade-up mx-auto mt-6 max-w-2xl text-base sm:text-lg text-muted-c">
-          Inspect a compatible app's HTTPS traffic, strip certificate pinning, surface endpoints and
-          secrets, and decompile to Java - then export the evidence to your AI assistant for a review.
-          Right on the phone, in the field.
+          <span className="text-base-c font-medium">TrustAPK makes an app trust your proxy</span> - so you
+          can read its HTTPS traffic, strip certificate pinning, surface endpoints and secrets, and
+          decompile to Java, then hand the evidence to your AI assistant. Right on the phone, in the field.
         </p>
 
         <div className="animate-fade-up mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
