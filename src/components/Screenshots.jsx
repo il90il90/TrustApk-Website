@@ -20,9 +20,19 @@ const shots = [
     desc: 'Hosts and URLs found in the APK, pulled statically: 139 hosts and 729 URLs across 124 domains. Filter instantly, flag ad/tracker hosts to block, and see which come from bundled SDKs.',
   },
   {
+    src: './shots/ad-block.jpg',
+    title: 'Block ads & unwanted hosts',
+    desc: 'Stop ad, tracker and other unwanted requests from leaving the patched app - block a specific host you spotted in the traffic, or pull in ready-made lists (AdAway, HaGeZi, 1Hosts, Peter Lowe, StevenBlack) and choose which to apply.',
+  },
+  {
     src: './shots/components.jpg',
     title: 'Attack-surface map',
     desc: 'Enumerate every activity, service, receiver and provider - flagged Exported / Unguarded / Reachable. 75 components, 31 exported, 27 unguarded, with the intent actions and deep-link schemes that reach them.',
+  },
+  {
+    src: './shots/source-files.jpg',
+    title: 'Read the app’s code & files',
+    desc: 'Browse the app’s entire contents on the device - every package and resource in the tree (7,212 files here), the AndroidManifest and more - search names and contents, and open any class decompiled to smali or Java.',
   },
   {
     src: './shots/permissions.jpg',
