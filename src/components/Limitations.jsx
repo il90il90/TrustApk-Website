@@ -2,11 +2,12 @@ import { Section, Kicker } from './Section.jsx'
 import { Warning } from './Icons.jsx'
 
 const items = [
-  { title: 'Re-signing breaks integrity checks', text: 'Apps with server-side signature/integrity checks (banking, Play-Integrity-gated services) may reject a re-signed build. That’s how Android’s signature model works - re-signing can’t get around it.' },
+  { title: 'Hardened & packed apps resist (e.g. Ijiami)', text: 'Apps reinforced by a commercial hardening SDK such as Ijiami (爱加密) ship their real code encrypted inside a native shell that only unpacks at runtime, wrapped in anti-tamper and anti-debug guards. TrustAPK can’t unpack or defeat that shell, so those apps can’t be unpinned, patched or read - this is one protection it cannot get past.' },
+  { title: 'Re-signing can trip integrity checks', text: 'A re-signed build changes the app’s signature, so features gated behind Play Integrity or hardware attestation may refuse to run. Capturing the app’s traffic usually still works - a re-sign only trips those specific attestation checks; it does not break whole categories such as banking apps.' },
   { title: 'Removing a permission is not the same as revoking it', text: 'A permission removed from the manifest can make an app hit a SecurityException it never expected and crash. To just stop camera/mic/location use, revoke it in Settings instead - no reinstall, no data loss.' },
   { title: 'Manifest edits need a reinstall', text: "You can't change an installed app's manifest in place; and because the signature differs, an in-place update over the original isn't possible (Android forces uninstall first)." },
   { title: 'Decompilation is approximate', text: 'The decompiler emits readable Java, not the original source; Kotlin can’t be reconstructed and the output may be partial or imperfect.' },
-  { title: 'Native pinning may resist', text: 'Pinning done in native code may need the Frida gadget or runtime bypass, and very hardened apps can still resist inspection.' },
+  { title: 'Native pinning may resist', text: 'Pinning done in native code may need the Frida gadget or runtime bypass to read the traffic.' },
   { title: 'Reinstalling replaces the app', text: 'Installing a patched build in place removes the original and its data (or install it as a separate copy to keep both). Back up anything you need first.' },
 ]
 
