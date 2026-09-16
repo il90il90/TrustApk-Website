@@ -31,11 +31,16 @@ export default {
           '0%': { transform: 'translateY(-100%)' },
           '100%': { transform: 'translateY(100%)' },
         },
+        'blink': {
+          '0%, 100%': { opacity: '0.2', transform: 'translateY(0)' },
+          '50%': { opacity: '1', transform: 'translateY(-2px)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.6s ease-out both',
         'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
         'scan': 'scan 2.5s linear infinite',
+        'blink': 'blink 1.05s ease-in-out infinite',
       },
     },
   },

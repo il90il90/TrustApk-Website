@@ -7,6 +7,23 @@ const Cursor = () => (
   <span className="ml-0.5 -mb-0.5 inline-block h-3 w-2 bg-brand animate-pulse-glow align-middle" aria-hidden="true" />
 )
 
+// A little "still working" heartbeat for the terminal - a prompt caret plus three
+// dots that wave, so the log never looks frozen once it has finished typing.
+const LiveActivity = () => (
+  <div className="mt-1.5 flex items-center gap-2" aria-hidden="true">
+    <span className="text-brand/70">&#9656;</span>
+    <span className="inline-flex items-end gap-1">
+      {[0, 1, 2].map((i) => (
+        <span
+          key={i}
+          className="h-1.5 w-1.5 rounded-full bg-brand animate-blink"
+          style={{ animationDelay: `${i * 180}ms` }}
+        />
+      ))}
+    </span>
+  </div>
+)
+
 // Reveals the terminal lines with a streaming, typed-out feel each time the
 // active step changes - so the demo looks like it's actually running.
 function useTypedLines(lines, resetKey) {
@@ -157,7 +174,7 @@ export default function Demo() {
                 )
               return null
             })}
-            {!typing && <Cursor />}
+            {!typing && <LiveActivity />}
           </div>
 
           {isLast && (
