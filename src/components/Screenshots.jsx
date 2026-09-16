@@ -50,6 +50,11 @@ const shots = [
     desc: 'Browse the patched app’s own sandbox on-device: shared_prefs, databases and files with sizes and timestamps. Read Firebase prefs and Google measurement DBs, or export the captured flows.',
   },
   {
+    src: './shots/live-watch.jpg',
+    title: 'Watch & edit app data live',
+    desc: 'Live-watch the app’s shared_prefs and files as you use it - see exactly which keys flip and what values are written, so session ids, feature flags and gatekeepers reveal themselves in real time. Tap any change to edit the value on the spot and feed the app whatever you want.',
+  },
+  {
     src: './shots/proxy-cert.jpg',
     title: 'Per-app CA trust',
     desc: 'Select your proxy’s CA certificate once; TrustAPK writes it inside the patched APK so that one app trusts your proxy - no system-wide CA install (managed-device compatibility depends on your org’s policy).',
