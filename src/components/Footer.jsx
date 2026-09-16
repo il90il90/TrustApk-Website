@@ -21,10 +21,6 @@ export default function Footer() {
               <span className="text-brand"><Shield width={24} height={24} /></span>
               <span>Trust<span className="text-gradient">APK</span></span>
             </a>
-            <p className="mt-3 text-sm text-muted-c max-w-md">
-              An on-device Android APK toolkit for HTTPS inspection, app analysis and
-              reverse-engineering. No Gradle, no desktop - local by default.
-            </p>
             <p className="mt-3 text-xs text-muted-c">
               Made with ❤️ from Israel · by{' '}
               <a href={TELEGRAM} target="_blank" rel="noreferrer noopener" className="text-brand hover:underline">

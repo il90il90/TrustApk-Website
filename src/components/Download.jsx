@@ -64,11 +64,6 @@ export default function Download() {
               All releases
             </a>
 
-            <div className="mt-8 flex items-start gap-2 rounded-xl border border-base bg-panel p-4 text-xs text-muted-c">
-              <span className="text-brand mt-0.5"><Check width={14} height={14} /></span>
-              Signed with a stable key, so the in-app updater can upgrade it in place. On first install,
-              allow installing unknown apps when Android asks.
-            </div>
           </div>
 
           <div>
