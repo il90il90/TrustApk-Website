@@ -5,7 +5,7 @@ const chips = ['No root', 'No laptop', 'Runs 100% on your phone', 'AI-assisted r
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <section id="top" className="relative overflow-hidden pt-20 pb-20 sm:pt-28 sm:pb-28">
       <div className="absolute inset-0 grid-bg pointer-events-none" aria-hidden="true" />
       <div
         className="absolute -top-40 left-1/2 -translate-x-1/2 h-[420px] w-[720px] rounded-full blur-3xl opacity-30 animate-pulse-glow pointer-events-none"
