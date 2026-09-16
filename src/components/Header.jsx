@@ -15,6 +15,9 @@ const links = [
 export default function Header({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  // The header Download button reveals only once the hero's own Download button
+  // has scrolled out of view, so the two CTAs never show at once.
+  const [showCta, setShowCta] = useState(false)
   const menuBtnRef = useRef(null)
 
   useEffect(() => {
@@ -22,6 +25,21 @@ export default function Header({ theme, toggleTheme }) {
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Watch the hero's Download button; show the header CTA when it's not visible.
+  useEffect(() => {
+    const hero = document.getElementById('hero-download')
+    if (!hero || typeof IntersectionObserver === 'undefined') {
+      setShowCta(true) // no hero button (or old browser) -> always show
+      return
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => setShowCta(!entry.isIntersecting),
+      { rootMargin: '-64px 0px 0px 0px' }, // account for the fixed header height
+    )
+    io.observe(hero)
+    return () => io.disconnect()
   }, [])
 
   // Escape closes the mobile menu and returns focus to its toggle.
@@ -69,7 +87,11 @@ export default function Header({ theme, toggleTheme }) {
             href={DOWNLOAD_URL}
             target="_blank"
             rel="noreferrer noopener"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-brand-surface text-[#04140f] font-semibold text-sm px-3.5 py-2 hover:brightness-110 transition"
+            aria-hidden={!showCta}
+            tabIndex={showCta ? 0 : -1}
+            className={`hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-brand-surface text-[#04140f] font-semibold text-sm px-3.5 py-2 hover:brightness-110 transition-all duration-300 ${
+              showCta ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1 pointer-events-none'
+            }`}
           >
             <Download width={16} height={16} /> Download
           </a>

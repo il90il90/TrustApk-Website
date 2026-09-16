@@ -31,6 +31,7 @@ export default function Hero() {
 
         <div className="animate-fade-up mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
+            id="hero-download"
             href={DOWNLOAD_URL}
             target="_blank"
             rel="noreferrer noopener"
