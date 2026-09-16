@@ -1,10 +1,9 @@
 import { Section, Kicker } from './Section.jsx'
-import { Certificate, Install, Phone, Lock, Code, Unlock } from './Icons.jsx'
+import { Certificate, Install, Lock, Code, Unlock } from './Icons.jsx'
 
 const specs = [
   { icon: Certificate, title: 'Any intercepting proxy', items: ['Reqable', 'mitmproxy', 'Burp Suite', 'Charles', 'Fiddler'] },
   { icon: Install, title: 'Input formats', items: ['.apk', '.apks', '.xapk', '.apkm', 'installed splits'] },
-  { icon: Phone, title: 'Android support', items: ['Android 8.0+', 'min SDK 26', 'target / compile SDK 36'] },
   { icon: Lock, title: 'On-device signing', items: ['APK Signature v2', 'APK Signature v3', 'v2-only fallback'] },
   { icon: Code, title: 'Decompile', items: ['smali (highlighted)', 'Java via jadx', 'package tree + search'] },
   { icon: Unlock, title: 'Pinning bypass', items: ['NSC strip (default)', 'Frida gadget', 'runtime bypass'] },
