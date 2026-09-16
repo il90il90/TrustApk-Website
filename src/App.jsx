@@ -4,6 +4,7 @@ import ValueProps from './components/ValueProps.jsx'
 import Audience from './components/Audience.jsx'
 import HowItWorks from './components/HowItWorks.jsx'
 import Demo from './components/Demo.jsx'
+import ControlRoom from './components/ControlRoom.jsx'
 import AiPentest from './components/AiPentest.jsx'
 import Features from './components/Features.jsx'
 import Compatibility from './components/Compatibility.jsx'
@@ -36,6 +37,7 @@ export default function App() {
         <WhyItExists />
         <HowItWorks />
         <Demo />
+        <ControlRoom />
         <AiPentest />
         <Features />
         <Compatibility />

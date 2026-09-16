@@ -49,7 +49,7 @@ export default function Header({ theme, toggleTheme }) {
           <span className="text-lg">Trust<span className="text-gradient">APK</span></span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm text-muted-c">
+        <nav className="hidden lg:flex items-center gap-6 text-sm text-muted-c">
           {links.map((l) => (
             <a key={l.href} href={l.href} className="hover:text-base-c transition-colors">
               {l.label}
@@ -79,7 +79,7 @@ export default function Header({ theme, toggleTheme }) {
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="md:hidden p-2 rounded-lg border border-base bg-panel hover:text-brand transition-colors"
+            className="lg:hidden p-2 rounded-lg border border-base bg-panel hover:text-brand transition-colors"
           >
             {open ? <Close width={18} height={18} /> : <Menu width={18} height={18} />}
           </button>
@@ -87,7 +87,7 @@ export default function Header({ theme, toggleTheme }) {
       </div>
 
       {open && (
-        <div id="mobile-menu" className="md:hidden border-t border-base bg-base shadow-xl">
+        <div id="mobile-menu" className="lg:hidden border-t border-base bg-base shadow-xl">
           <nav className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-1">
             {links.map((l) => (
               <a

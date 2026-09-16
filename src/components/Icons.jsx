@@ -35,3 +35,6 @@ export const Close = (p) => (<svg {...base} {...p}><path d="M6 6l12 12M18 6L6 18
 export const Traffic = (p) => (<svg {...base} {...p}><path d="M8 21V3M8 3L5 6M8 3l3 3M16 3v18M16 21l-3-3M16 21l3-3"/></svg>)
 export const Sparkle = (p) => (<svg {...base} {...p}><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg>)
 export const Warning = (p) => (<svg {...base} {...p}><path d="M12 3l9 16H3l9-16z"/><path d="M12 10v4M12 17h.01"/></svg>)
+export const Doc = (p) => (<svg {...base} {...p}><path d="M6 2h7l5 5v15H6z"/><path d="M13 2v5h5"/><path d="M9 13h6M9 17h4"/></svg>)
+export const Folder = (p) => (<svg {...base} {...p}><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>)
+export const Grid = (p) => (<svg {...base} {...p}><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>)
