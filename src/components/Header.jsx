@@ -12,7 +12,7 @@ const links = [
   { href: '#download', label: 'Download' },
 ]
 
-export default function Header({ theme, toggleTheme }) {
+export default function Header({ theme, toggleTheme, onOpenDemo }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   // The header Download button reveals only once the hero's own Download button
@@ -68,21 +68,31 @@ export default function Header({ theme, toggleTheme }) {
         </a>
 
         <nav className="hidden lg:flex items-center gap-6 text-sm text-muted-c">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="hover:text-base-c transition-colors">
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.href === '#demo' ? (
+              <button
+                key={l.href}
+                onClick={onOpenDemo}
+                className="hover:text-base-c transition-colors"
+              >
+                {l.label}
+              </button>
+            ) : (
+              <a key={l.href} href={l.href} className="hover:text-base-c transition-colors">
+                {l.label}
+              </a>
+            ),
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href="#demo"
+          <button
+            onClick={onOpenDemo}
             className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-brand/40 bg-brand/5 text-brand font-medium text-sm px-3.5 py-2 hover:bg-brand/15 transition-colors"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
             Demo
-          </a>
+          </button>
           <button
             onClick={toggleTheme}
             aria-label="Toggle color theme"
@@ -118,16 +128,29 @@ export default function Header({ theme, toggleTheme }) {
       {open && (
         <div id="mobile-menu" className="lg:hidden border-t border-base bg-base shadow-xl">
           <nav className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-1">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="py-2 text-muted-c hover:text-base-c"
-              >
-                {l.label}
-              </a>
-            ))}
+            {links.map((l) =>
+              l.href === '#demo' ? (
+                <button
+                  key={l.href}
+                  onClick={() => {
+                    setOpen(false)
+                    onOpenDemo?.()
+                  }}
+                  className="py-2 text-left text-muted-c hover:text-base-c"
+                >
+                  {l.label}
+                </button>
+              ) : (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="py-2 text-muted-c hover:text-base-c"
+                >
+                  {l.label}
+                </a>
+              ),
+            )}
             <a
               href={DOWNLOAD_URL}
               target="_blank"

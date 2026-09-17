@@ -1,9 +1,9 @@
-import { Download, ArrowDown, Check } from './Icons.jsx'
+import { Download, Check } from './Icons.jsx'
 import { VERSION, DOWNLOAD_URL } from '../lib/constants.js'
 
 const chips = ['No root', 'No laptop', 'Runs 100% on your phone', 'AI-assisted review']
 
-export default function Hero() {
+export default function Hero({ onOpenDemo }) {
   return (
     <section id="top" className="relative overflow-hidden pt-20 pb-20 sm:pt-28 sm:pb-28">
       <div className="absolute inset-0 grid-bg pointer-events-none" aria-hidden="true" />
@@ -39,12 +39,12 @@ export default function Hero() {
           >
             <Download width={20} height={20} /> Download latest APK
           </a>
-          <a
-            href="#demo"
+          <button
+            onClick={onOpenDemo}
             className="inline-flex items-center gap-2 rounded-xl border border-base bg-panel px-6 py-3.5 font-medium hover:text-brand transition"
           >
-            <ArrowDown width={18} height={18} /> See how it works
-          </a>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg> Try the live demo
+          </button>
         </div>
 
         <div className="animate-fade-up mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-c">

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { Section, Kicker } from './Section.jsx'
+import { Close } from './Icons.jsx'
 
 const DIR = './shots/sim/'
 
@@ -11,6 +11,8 @@ const TITLE = {
   '26': 'Live traffic', '30': 'App data files', '31': 'Permissions',
   '32': 'App settings', '33': 'App info', '34': 'Proxy certificate',
   '37': 'AI pentest · pick evidence', '38': 'Choose your AI',
+  '39': 'AndroidManifest.xml', '40': 'Log actions', '43': 'Editing app data',
+  '44': 'Appearance & license',
 }
 
 // Tap targets, as percentages of the screen image (x, y, w, h). `to` steps
@@ -20,6 +22,7 @@ const TITLE = {
 // squarely on the real button.
 const HOTSPOTS = {
   '00': [
+    { x: 82, y: 5, w: 13, h: 5, to: '44', label: 'Appearance & license' },
     { x: 10.5, y: 23, w: 79, h: 10.3, to: '01', label: 'Pick an installed app' },
     { x: 10.5, y: 34.5, w: 79, h: 10.3, to: '01', label: 'Pick an APK file' },
   ],
@@ -46,11 +49,22 @@ const HOTSPOTS = {
   // Leaf screens: close via their Done / Close / back arrow.
   '03': [{ x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' }],
   '05': [{ x: 75, y: 8.5, w: 22, h: 4, back: true, label: 'Done' }],
-  '06': [{ x: 75, y: 16, w: 22, h: 4, back: true, label: 'Done' }],
+  '06': [
+    { x: 75, y: 16, w: 22, h: 4, back: true, label: 'Done' },
+    { x: 6, y: 37.5, w: 88, h: 5.5, to: '39', label: 'Open a file - decompiled source' },
+  ],
   '07': [{ x: 3, y: 6, w: 14, h: 5, back: true, label: 'Back' }],
-  '25': [{ x: 3, y: 4.5, w: 14, h: 5, back: true, label: 'Back' }],
+  '25': [
+    { x: 3, y: 4.5, w: 14, h: 5, back: true, label: 'Back' },
+    { x: 85, y: 17, w: 13, h: 6, to: '40', label: 'More log actions' },
+  ],
   '26': [{ x: 3, y: 5, w: 14, h: 5, back: true, label: 'Back' }],
-  '30': [{ x: 3, y: 6, w: 14, h: 5, back: true, label: 'Back' }],
+  '30': [
+    { x: 3, y: 6, w: 14, h: 5, back: true, label: 'Back' },
+    { x: 84, y: 6.5, w: 13, h: 5, to: '43', label: 'How editing works' },
+  ],
+  // Leaf continuations reached from the tools above.
+  '39': [{ x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' }],
   '31': [{ x: 75, y: 9, w: 22, h: 4, back: true, label: 'Done' }],
   '32': [{ x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' }],
   '34': [{ x: 75, y: 11, w: 22, h: 4, back: true, label: 'Done' }],
@@ -83,13 +97,28 @@ const NavIcon = ({ d, fill = 'none' }) => (
   </svg>
 )
 
-export default function InteractiveDemo() {
+export default function InteractiveDemo({ open = false, onClose }) {
   const [stack, setStack] = useState([START])
   const current = stack[stack.length - 1]
   const scrollRef = useRef(null)
   const liveRef = useRef(null)
   const hots = HOTSPOTS[current] || []
   const hasForward = hots.some((h) => !h.back)
+
+  // Open as its own full-screen view: start at Home, lock the page scroll,
+  // and close on Escape.
+  useEffect(() => {
+    if (!open) return
+    setStack([START])
+    const onKey = (e) => e.key === 'Escape' && onClose?.()
+    window.addEventListener('keydown', onKey)
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prev
+    }
+  }, [open, onClose])
 
   // Respect reduced-motion: skip the brief on-load "tap here" pulse.
   const [animate, setAnimate] = useState(true)
@@ -112,18 +141,32 @@ export default function InteractiveDemo() {
     if (liveRef.current) liveRef.current.textContent = `Screen: ${TITLE[current] || current}`
   }, [current])
 
+  if (!open) return null
+
   return (
-    <Section id="demo" soft>
-      <div className="text-center max-w-2xl mx-auto">
-        <Kicker>Live demo</Kicker>
-        <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Try the app, right here</h2>
-        <p className="mt-4 text-muted-c">
-          A real hands-on demo. Tap the buttons on the screen like you would on your phone, scroll inside
-          it, and use the back button to step out - exactly how TrustAPK feels in your hand.
-        </p>
+    <div
+      className="fixed inset-0 z-[80] flex flex-col bg-base/95 backdrop-blur-sm animate-fade-up"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Interactive TrustAPK demo"
+    >
+      {/* top bar */}
+      <div className="flex-shrink-0 flex items-center justify-between gap-3 px-4 sm:px-6 h-14 border-b border-base bg-header/80">
+        <div className="flex items-center gap-2 font-semibold">
+          <span className="h-2 w-2 rounded-full bg-brand animate-pulse-glow" />
+          Live demo
+          <span className="hidden sm:inline text-muted-c font-normal">· tap through the real app</span>
+        </div>
+        <button
+          onClick={onClose}
+          aria-label="Close demo"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-base bg-panel px-3 py-1.5 text-sm font-medium hover:text-brand transition-colors"
+        >
+          <Close width={16} height={16} /> Close
+        </button>
       </div>
 
-      <div className="mt-10 flex flex-col items-center">
+      <div className="flex-1 overflow-y-auto flex flex-col items-center justify-center px-4 py-6">
         {/* Phone */}
         <div className="relative mx-auto w-full max-w-[300px]">
           <span className="absolute -left-[3px] top-[24%] h-10 w-[3px] rounded-l bg-[#243244]" aria-hidden="true" />
@@ -192,6 +235,6 @@ export default function InteractiveDemo() {
           )}
         </div>
       </div>
-    </Section>
+    </div>
   )
 }

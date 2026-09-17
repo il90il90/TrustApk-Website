@@ -18,9 +18,12 @@ import Download from './components/Download.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import { useTheme } from './lib/useTheme.js'
+import { useState } from 'react'
 
 export default function App() {
   const { theme, toggle } = useTheme()
+  const [demoOpen, setDemoOpen] = useState(false)
+  const openDemo = () => setDemoOpen(true)
   return (
     <div className="bg-base text-base-c min-h-screen">
       <a
@@ -29,14 +32,13 @@ export default function App() {
       >
         Skip to main content
       </a>
-      <Header theme={theme} toggleTheme={toggle} />
+      <Header theme={theme} toggleTheme={toggle} onOpenDemo={openDemo} />
       <main id="main">
-        <Hero />
+        <Hero onOpenDemo={openDemo} />
         <ValueProps />
         <Audience />
         <WhyItExists />
         <HowItWorks />
-        <InteractiveDemo />
         <ControlRoom />
         <AiPentest />
         <Features />
@@ -50,6 +52,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <InteractiveDemo open={demoOpen} onClose={() => setDemoOpen(false)} />
     </div>
   )
 }
