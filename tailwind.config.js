@@ -27,6 +27,12 @@ export default {
           '0%, 100%': { opacity: '0.5' },
           '50%': { opacity: '1' },
         },
+        'hint-tap': {
+          '0%': { opacity: '0', transform: 'scale(1.04)' },
+          '22%': { opacity: '1', transform: 'scale(1)' },
+          '72%': { opacity: '1', transform: 'scale(1)' },
+          '100%': { opacity: '0', transform: 'scale(1)' },
+        },
         'scan': {
           '0%': { transform: 'translateY(-100%)' },
           '100%': { transform: 'translateY(100%)' },
@@ -39,6 +45,7 @@ export default {
       animation: {
         'fade-up': 'fade-up 0.6s ease-out both',
         'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+        'hint-tap': 'hint-tap 1.8s ease-in-out 1 forwards',
         'scan': 'scan 2.5s linear infinite',
         'blink': 'blink 1.05s ease-in-out infinite',
       },

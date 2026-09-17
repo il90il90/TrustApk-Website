@@ -20,8 +20,8 @@ const TITLE = {
 // squarely on the real button.
 const HOTSPOTS = {
   '00': [
-    { x: 6, y: 21, w: 84, h: 10, to: '01', label: 'Pick an installed app' },
-    { x: 6, y: 32, w: 84, h: 11, to: '01', label: 'Pick an APK file' },
+    { x: 6, y: 21, w: 84, h: 9, to: '01', label: 'Pick an installed app' },
+    { x: 6, y: 32.5, w: 84, h: 10.5, to: '01', label: 'Pick an APK file' },
   ],
   '01': [
     { x: 6, y: 37, w: 88, h: 9, to: '02', label: 'Open lichess' },
@@ -91,6 +91,17 @@ export default function InteractiveDemo() {
   const hots = HOTSPOTS[current] || []
   const hasForward = hots.some((h) => !h.back)
 
+  // Respect reduced-motion: skip the brief on-load "tap here" pulse.
+  const [animate, setAnimate] = useState(true)
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const apply = () => setAnimate(!mq.matches)
+    apply()
+    mq.addEventListener?.('change', apply)
+    return () => mq.removeEventListener?.('change', apply)
+  }, [])
+
   const go = useCallback((to) => setStack((s) => [...s, to]), [])
   const back = useCallback(() => setStack((s) => (s.length > 1 ? s.slice(0, -1) : s)), [])
   const home = useCallback(() => setStack([START]), [])
@@ -138,9 +149,16 @@ export default function InteractiveDemo() {
                       key={i}
                       onClick={() => (h.back ? back() : go(h.to))}
                       aria-label={h.label}
-                      className="absolute rounded-lg ring-1 ring-brand/40 bg-brand/5 hover:bg-brand/15 hover:ring-brand/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand transition-colors animate-pulse-glow"
+                      className="absolute rounded-xl cursor-pointer bg-transparent hover:bg-brand/15 hover:ring-2 hover:ring-brand/60 active:bg-brand/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand transition-colors"
                       style={{ left: `${h.x}%`, top: `${h.y}%`, width: `${h.w}%`, height: `${h.h}%` }}
-                    />
+                    >
+                      {animate && (
+                        <span
+                          key={current}
+                          className="pointer-events-none absolute inset-0 rounded-xl ring-2 ring-brand/60 bg-brand/10 opacity-0 animate-hint-tap"
+                        />
+                      )}
+                    </button>
                   ))}
                 </div>
               </div>
@@ -166,7 +184,7 @@ export default function InteractiveDemo() {
         <div className="mt-5 flex items-center gap-2 text-sm text-muted-c">
           <span className="inline-block h-2 w-2 rounded-full bg-brand animate-pulse-glow" />
           {hasForward ? (
-            <span>You&rsquo;re on <span className="text-base-c font-medium">{TITLE[current]}</span> - tap a highlighted button</span>
+            <span>You&rsquo;re on <span className="text-base-c font-medium">{TITLE[current]}</span> - tap any button to open it</span>
           ) : hots.length > 0 ? (
             <span>On <span className="text-base-c font-medium">{TITLE[current]}</span> - tap Done, or the back button, to go back</span>
           ) : (
