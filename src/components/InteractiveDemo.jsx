@@ -15,6 +15,7 @@ const TITLE = {
   '44': 'Appearance & license', '45': 'Ask AI', '46': 'Add domains to block',
   '47': 'App info · Force stop', '48': 'Ad-block · mark hosts', '49': 'Ad-block lists',
   '50': 'Ad-block lists loaded', '23': 'Patched & installed',
+  '51': 'Saved requests', '52': 'Request runner',
 }
 
 // Tap targets, as percentages of the screen image (x, y, w, h). `to` steps
@@ -27,6 +28,8 @@ const HOTSPOTS = {
     { x: 82, y: 5, w: 13, h: 5, to: '44', label: 'Appearance & license' },
     { x: 10.5, y: 23, w: 79, h: 10.3, to: '01', label: 'Pick an installed app' },
     { x: 10.5, y: 34.5, w: 79, h: 10.3, to: '01', label: 'Pick an APK file' },
+    { x: 10.5, y: 51.5, w: 79, h: 8.5, to: '52', label: 'Request runner' },
+    { x: 10.5, y: 66.5, w: 79, h: 9.5, to: '23', label: 'Install a file' },
   ],
   '01': [
     { x: 6, y: 37, w: 88, h: 10, to: '02', label: 'Open lichess' },
@@ -95,6 +98,11 @@ const HOTSPOTS = {
     { x: 51, y: 72.5, w: 44, h: 4, to: '50', label: 'Download selected' },
   ],
   '50': [{ x: 76, y: 6.5, w: 20, h: 4, back: true, label: 'Done' }],
+  '51': [{ x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' }],
+  '52': [
+    { x: 3, y: 5.5, w: 13, h: 5, back: true, label: 'Back' },
+    { x: 56, y: 5.5, w: 11, h: 5, to: '51', label: 'Saved requests' },
+  ],
   // Patch this APK -> installed result.
   '23': [
     { x: 38, y: 56, w: 20, h: 4.5, back: true, label: 'Not now' },
