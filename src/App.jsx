@@ -25,23 +25,22 @@ export default function App() {
   const [demoOpen, setDemoOpen] = useState(false)
   const openDemo = () => setDemoOpen(true)
 
-  // A #demo link (shared or bookmarked) opens the demo directly.
+  // A #demo link (shared or bookmarked) opens the demo directly; changing the
+  // hash to/from #demo (e.g. the hardware Back button) also toggles it.
   useEffect(() => {
-    if (window.location.hash === '#demo') setDemoOpen(true)
+    const sync = () => setDemoOpen(window.location.hash === '#demo')
+    sync()
+    window.addEventListener('hashchange', sync)
+    return () => window.removeEventListener('hashchange', sync)
   }, [])
 
-  // While the demo is open: put #demo in the URL (shareable) via a history
-  // entry so the hardware Back button closes it; Close cleans the URL back up.
+  // Keep the URL in sync with the open demo, in place (no new history entry),
+  // so Close simply clears #demo and can never re-open it.
   useEffect(() => {
-    if (!demoOpen) return
     const base = window.location.pathname + window.location.search
-    window.history.pushState({ demo: true }, '', base + '#demo')
-    const onPop = () => setDemoOpen(false)
-    window.addEventListener('popstate', onPop)
-    return () => {
-      window.removeEventListener('popstate', onPop)
-      if (window.history.state && window.history.state.demo) window.history.back()
-    }
+    const atDemo = window.location.hash === '#demo'
+    if (demoOpen && !atDemo) window.history.replaceState(null, '', base + '#demo')
+    if (!demoOpen && atDemo) window.history.replaceState(null, '', base)
   }, [demoOpen])
 
   return (
