@@ -13,7 +13,8 @@ const TITLE = {
   '37': 'AI pentest · pick evidence', '38': 'Choose your AI',
   '39': 'AndroidManifest.xml', '40': 'Log actions', '43': 'Editing app data',
   '44': 'Appearance & license', '45': 'Ask AI', '46': 'Add domains to block',
-  '47': 'App info · Force stop',
+  '47': 'App info · Force stop', '48': 'Ad-block · mark hosts', '49': 'Ad-block lists',
+  '50': 'Ad-block lists loaded', '23': 'Patched & installed',
 }
 
 // Tap targets, as percentages of the screen image (x, y, w, h). `to` steps
@@ -44,6 +45,7 @@ const HOTSPOTS = {
     { x: 6.5, y: 48.9, w: 87, h: 5.7, to: '25', label: 'Capture logs' },
     { x: 6.5, y: 61.2, w: 87, h: 5.9, to: '31', label: 'Permissions' },
     { x: 6.5, y: 67.9, w: 87, h: 12.3, to: '34', label: 'Remove certificate pinning - proxy certificate' },
+    { x: 6, y: 93.2, w: 88, h: 5.3, to: '23', label: 'Patch this APK' },
   ],
   // Security scan -> Ask AI opens the pentest bundle picker.
   '08': [{ x: 5, y: 18, w: 90, h: 5, to: '37', label: 'Ask AI - review all findings' }],
@@ -52,6 +54,7 @@ const HOTSPOTS = {
     { x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' },
     { x: 47, y: 4.5, w: 14, h: 4, to: '46', label: 'Add domains to block' },
     { x: 61, y: 4.5, w: 14, h: 4, to: '45', label: 'Ask AI about these' },
+    { x: 40, y: 14, w: 14, h: 3, to: '48', label: 'Ads - mark hosts to block' },
   ],
   '05': [
     { x: 75, y: 8.5, w: 22, h: 4, back: true, label: 'Done' },
@@ -83,6 +86,20 @@ const HOTSPOTS = {
     { x: 50, y: 64.5, w: 44, h: 4.5, back: true, label: 'Add to block list' },
   ],
   '47': [{ x: 3, y: 4.5, w: 13, h: 4.5, back: true, label: 'Back' }],
+  '48': [
+    { x: 77, y: 8.5, w: 18, h: 4, back: true, label: 'Done' },
+    { x: 56, y: 32, w: 24, h: 4, to: '49', label: 'Manage ad-block lists' },
+  ],
+  '49': [
+    { x: 33, y: 72.5, w: 17, h: 4, back: true, label: 'Done' },
+    { x: 51, y: 72.5, w: 44, h: 4, to: '50', label: 'Download selected' },
+  ],
+  '50': [{ x: 76, y: 6.5, w: 20, h: 4, back: true, label: 'Done' }],
+  // Patch this APK -> installed result.
+  '23': [
+    { x: 38, y: 56, w: 20, h: 4.5, back: true, label: 'Not now' },
+    { x: 61, y: 55, w: 33, h: 6.5, back: true, label: 'Open it' },
+  ],
   '31': [{ x: 75, y: 9, w: 22, h: 4, back: true, label: 'Done' }],
   '32': [{ x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' }],
   '34': [{ x: 75, y: 11, w: 22, h: 4, back: true, label: 'Done' }],
