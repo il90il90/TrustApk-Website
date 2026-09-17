@@ -85,6 +85,7 @@ const NavIcon = ({ d, fill = 'none' }) => (
 
 export default function InteractiveDemo() {
   const [stack, setStack] = useState([START])
+  const [pressed, setPressed] = useState(null)
   const current = stack[stack.length - 1]
   const scrollRef = useRef(null)
   const liveRef = useRef(null)
@@ -106,10 +107,18 @@ export default function InteractiveDemo() {
   const back = useCallback(() => setStack((s) => (s.length > 1 ? s.slice(0, -1) : s)), [])
   const home = useCallback(() => setStack([START]), [])
 
+  // Flash the tapped button briefly before switching screens, so a tap feels
+  // like a real press instead of an instant jump.
+  const activate = useCallback((h, i) => {
+    setPressed(i)
+    setTimeout(() => (h.back ? back() : go(h.to)), 140)
+  }, [back, go])
+
   // Reset scroll to the top and announce the screen on every change.
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = 0
     if (liveRef.current) liveRef.current.textContent = `Screen: ${TITLE[current] || current}`
+    setPressed(null)
   }, [current])
 
   return (
@@ -147,9 +156,11 @@ export default function InteractiveDemo() {
                   {hots.map((h, i) => (
                     <button
                       key={i}
-                      onClick={() => (h.back ? back() : go(h.to))}
+                      onClick={() => activate(h, i)}
                       aria-label={h.label}
-                      className="absolute rounded-xl cursor-pointer bg-transparent hover:bg-brand/15 hover:ring-2 hover:ring-brand/60 active:bg-brand/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand transition-colors"
+                      className={`absolute rounded-xl cursor-pointer hover:bg-brand/15 hover:ring-2 hover:ring-brand/60 active:bg-brand/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand transition-colors ${
+                        pressed === i ? 'bg-brand/25 ring-2 ring-brand' : 'bg-transparent'
+                      }`}
                       style={{ left: `${h.x}%`, top: `${h.y}%`, width: `${h.w}%`, height: `${h.h}%` }}
                     >
                       {animate && (
