@@ -86,6 +86,7 @@ export default function Header({ theme, toggleTheme, onOpenDemo }) {
         </nav>
 
         <div className="flex items-center gap-2">
+          {/* Demo + Download sit together; Download appears once the hero CTA scrolls away. */}
           <button
             onClick={onOpenDemo}
             className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-brand/40 bg-brand/5 text-brand font-medium text-sm px-3.5 py-2 hover:bg-brand/15 transition-colors"
@@ -93,6 +94,16 @@ export default function Header({ theme, toggleTheme, onOpenDemo }) {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
             Demo
           </button>
+          {showCta && (
+            <a
+              href={DOWNLOAD_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-brand-surface text-[#04140f] font-semibold text-sm px-3.5 py-2 hover:brightness-110 transition animate-fade-up"
+            >
+              <Download width={16} height={16} /> Download
+            </a>
+          )}
           <button
             onClick={toggleTheme}
             aria-label="Toggle color theme"
@@ -100,18 +111,6 @@ export default function Header({ theme, toggleTheme, onOpenDemo }) {
           >
             {theme === 'light' ? <Moon width={18} height={18} /> : <Sun width={18} height={18} />}
           </button>
-          <a
-            href={DOWNLOAD_URL}
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-hidden={!showCta}
-            tabIndex={showCta ? 0 : -1}
-            className={`hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-brand-surface text-[#04140f] font-semibold text-sm px-3.5 py-2 hover:brightness-110 transition-all duration-300 ${
-              showCta ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1 pointer-events-none'
-            }`}
-          >
-            <Download width={16} height={16} /> Download
-          </a>
           <button
             ref={menuBtnRef}
             onClick={() => setOpen((o) => !o)}

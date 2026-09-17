@@ -141,29 +141,55 @@ export default function InteractiveDemo({ open = false, onClose }) {
     if (liveRef.current) liveRef.current.textContent = `Screen: ${TITLE[current] || current}`
   }, [current])
 
+  // Share a direct link that opens the demo.
+  const [copied, setCopied] = useState(false)
+  const copyLink = useCallback(async () => {
+    const url = `${window.location.origin}${window.location.pathname}#demo`
+    try {
+      await navigator.clipboard.writeText(url)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1800)
+    } catch {
+      /* clipboard blocked - ignore */
+    }
+  }, [])
+
   if (!open) return null
 
   return (
     <div
-      className="fixed inset-0 z-[80] flex flex-col bg-base/95 backdrop-blur-sm animate-fade-up"
+      className="fixed inset-0 z-[80] flex flex-col bg-base"
       role="dialog"
       aria-modal="true"
       aria-label="Interactive TrustAPK demo"
     >
       {/* top bar */}
-      <div className="flex-shrink-0 flex items-center justify-between gap-3 px-4 sm:px-6 h-14 border-b border-base bg-header/80">
+      <div className="flex-shrink-0 flex items-center justify-between gap-2 px-3 sm:px-6 h-14 border-b border-base bg-base">
         <div className="flex items-center gap-2 font-semibold">
           <span className="h-2 w-2 rounded-full bg-brand animate-pulse-glow" />
           Live demo
-          <span className="hidden sm:inline text-muted-c font-normal">· tap through the real app</span>
+          <span className="hidden md:inline text-muted-c font-normal">· tap through the real app</span>
         </div>
-        <button
-          onClick={onClose}
-          aria-label="Close demo"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-base bg-panel px-3 py-1.5 text-sm font-medium hover:text-brand transition-colors"
-        >
-          <Close width={16} height={16} /> Close
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={copyLink}
+            aria-label="Copy a link to this demo"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-base bg-panel px-2.5 sm:px-3 py-1.5 text-sm font-medium hover:text-brand transition-colors"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1" />
+              <path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1" />
+            </svg>
+            <span>{copied ? 'Copied!' : 'Copy link'}</span>
+          </button>
+          <button
+            onClick={onClose}
+            aria-label="Close demo"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-base bg-panel px-2.5 sm:px-3 py-1.5 text-sm font-medium hover:text-brand transition-colors"
+          >
+            <Close width={16} height={16} /> <span className="hidden sm:inline">Close</span>
+          </button>
+        </div>
       </div>
 
       <div className="flex-1 overflow-y-auto flex flex-col items-center justify-center px-4 py-6">

@@ -18,12 +18,28 @@ import Download from './components/Download.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import { useTheme } from './lib/useTheme.js'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function App() {
   const { theme, toggle } = useTheme()
   const [demoOpen, setDemoOpen] = useState(false)
   const openDemo = () => setDemoOpen(true)
+
+  // A #demo link (shared or bookmarked) opens the demo directly.
+  useEffect(() => {
+    const sync = () => setDemoOpen(window.location.hash === '#demo')
+    sync()
+    window.addEventListener('hashchange', sync)
+    return () => window.removeEventListener('hashchange', sync)
+  }, [])
+
+  // Keep the URL shareable while the demo is open, without scrolling the page.
+  useEffect(() => {
+    const { pathname, search, hash } = window.location
+    if (demoOpen && hash !== '#demo') window.history.replaceState(null, '', pathname + search + '#demo')
+    if (!demoOpen && hash === '#demo') window.history.replaceState(null, '', pathname + search)
+  }, [demoOpen])
+
   return (
     <div className="bg-base text-base-c min-h-screen">
       <a
