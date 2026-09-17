@@ -3,7 +3,7 @@ import Hero from './components/Hero.jsx'
 import ValueProps from './components/ValueProps.jsx'
 import Audience from './components/Audience.jsx'
 import HowItWorks from './components/HowItWorks.jsx'
-import Demo from './components/Demo.jsx'
+import InteractiveDemo from './components/InteractiveDemo.jsx'
 import ControlRoom from './components/ControlRoom.jsx'
 import AiPentest from './components/AiPentest.jsx'
 import Features from './components/Features.jsx'
@@ -36,7 +36,7 @@ export default function App() {
         <Audience />
         <WhyItExists />
         <HowItWorks />
-        <Demo />
+        <InteractiveDemo />
         <ControlRoom />
         <AiPentest />
         <Features />
