@@ -20,11 +20,11 @@ const TITLE = {
 // squarely on the real button.
 const HOTSPOTS = {
   '00': [
-    { x: 6, y: 21, w: 84, h: 9, to: '01', label: 'Pick an installed app' },
-    { x: 6, y: 32.5, w: 84, h: 10.5, to: '01', label: 'Pick an APK file' },
+    { x: 10.5, y: 23, w: 79, h: 10.3, to: '01', label: 'Pick an installed app' },
+    { x: 10.5, y: 34.5, w: 79, h: 10.3, to: '01', label: 'Pick an APK file' },
   ],
   '01': [
-    { x: 6, y: 37, w: 88, h: 9, to: '02', label: 'Open lichess' },
+    { x: 6, y: 37, w: 88, h: 10, to: '02', label: 'Open lichess' },
     { x: 74, y: 22.5, w: 22, h: 4.5, back: true, label: 'Close' },
   ],
   '02': [
