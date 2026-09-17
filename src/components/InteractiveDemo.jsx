@@ -9,7 +9,7 @@ const TITLE = {
   '03': 'Links & endpoints', '05': 'Secrets & keys', '06': 'Files inside',
   '07': 'Components', '08': 'Security scan', '30': 'App data files',
   '31': 'Permissions', '32': 'Capture logs', '33': 'Live traffic',
-  '34': 'App settings',
+  '34': 'App settings', '37': 'AI pentest · pick evidence', '38': 'Choose your AI',
 }
 
 // Forward tap targets, as percentages of the screen image (x, y, w, h).
@@ -17,10 +17,10 @@ const TITLE = {
 // here and returns with the phone's Back button.
 const HOTSPOTS = {
   '00': [
-    { x: 9, y: 22, w: 82, h: 9, to: '01', label: 'Pick an installed app' },
-    { x: 9, y: 32, w: 82, h: 8, to: '01', label: 'Pick an APK file' },
+    { x: 6, y: 22, w: 85, h: 6.5, to: '01', label: 'Pick an installed app' },
+    { x: 6, y: 32, w: 85, h: 6.5, to: '01', label: 'Pick an APK file' },
   ],
-  '01': [{ x: 6, y: 34, w: 88, h: 10, to: '02', label: 'Open lichess' }],
+  '01': [{ x: 6, y: 36, w: 88, h: 12, to: '02', label: 'Open lichess' }],
   '02': [
     { x: 8, y: 19, w: 27, h: 9, to: '03', label: 'Links' },
     { x: 37, y: 19, w: 26, h: 9, to: '05', label: 'Secrets' },
@@ -32,6 +32,13 @@ const HOTSPOTS = {
     { x: 8, y: 43, w: 84, h: 6, to: '33', label: 'Live traffic' },
     { x: 8, y: 49.5, w: 84, h: 5.5, to: '32', label: 'Capture logs' },
     { x: 8, y: 60.5, w: 84, h: 5.5, to: '31', label: 'Permissions' },
+  ],
+  // Security scan -> Ask AI opens the pentest bundle picker.
+  '08': [{ x: 7, y: 18, w: 86, h: 6, to: '37', label: 'Ask AI - review all findings' }],
+  // Pick evidence -> Run pentest opens the AI chooser; Not now closes it.
+  '37': [
+    { x: 62, y: 86.5, w: 32, h: 6, to: '38', label: 'Run pentest' },
+    { x: 39, y: 86.5, w: 21, h: 6, back: true, label: 'Not now' },
   ],
 }
 
@@ -102,14 +109,14 @@ export default function InteractiveDemo() {
               {/* screen: scrolls inside */}
               <div
                 ref={scrollRef}
-                className="relative overflow-y-auto thin-scroll rounded-t-[1.9rem] aspect-[9/19] bg-[#0a0f16] overscroll-contain"
+                className="relative overflow-y-auto thin-scroll rounded-t-[1.9rem] aspect-[720/1580] bg-[#0a0f16] overscroll-contain"
               >
                 <div className="relative">
                   <Screen id={current} />
                   {hots.map((h, i) => (
                     <button
                       key={i}
-                      onClick={() => go(h.to)}
+                      onClick={() => (h.back ? back() : go(h.to))}
                       aria-label={h.label}
                       className="absolute rounded-lg ring-1 ring-brand/40 bg-brand/5 hover:bg-brand/15 hover:ring-brand/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand transition-colors animate-pulse-glow"
                       style={{ left: `${h.x}%`, top: `${h.y}%`, width: `${h.w}%`, height: `${h.h}%` }}

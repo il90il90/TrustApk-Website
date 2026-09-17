@@ -76,6 +76,13 @@ export default function Header({ theme, toggleTheme }) {
         </nav>
 
         <div className="flex items-center gap-2">
+          <a
+            href="#demo"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-brand/40 bg-brand/5 text-brand font-medium text-sm px-3.5 py-2 hover:bg-brand/15 transition-colors"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+            Demo
+          </a>
           <button
             onClick={toggleTheme}
             aria-label="Toggle color theme"
