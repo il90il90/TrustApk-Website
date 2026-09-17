@@ -12,7 +12,8 @@ const TITLE = {
   '32': 'App settings', '33': 'App info', '34': 'Proxy certificate',
   '37': 'AI pentest · pick evidence', '38': 'Choose your AI',
   '39': 'AndroidManifest.xml', '40': 'Log actions', '43': 'Editing app data',
-  '44': 'Appearance & license',
+  '44': 'Appearance & license', '45': 'Ask AI', '46': 'Add domains to block',
+  '47': 'App info · Force stop',
 }
 
 // Tap targets, as percentages of the screen image (x, y, w, h). `to` steps
@@ -47,8 +48,15 @@ const HOTSPOTS = {
   // Security scan -> Ask AI opens the pentest bundle picker.
   '08': [{ x: 5, y: 18, w: 90, h: 5, to: '37', label: 'Ask AI - review all findings' }],
   // Leaf screens: close via their Done / Close / back arrow.
-  '03': [{ x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' }],
-  '05': [{ x: 75, y: 8.5, w: 22, h: 4, back: true, label: 'Done' }],
+  '03': [
+    { x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' },
+    { x: 47, y: 4.5, w: 14, h: 4, to: '46', label: 'Add domains to block' },
+    { x: 61, y: 4.5, w: 14, h: 4, to: '45', label: 'Ask AI about these' },
+  ],
+  '05': [
+    { x: 75, y: 8.5, w: 22, h: 4, back: true, label: 'Done' },
+    { x: 54, y: 8.5, w: 19, h: 4, to: '37', label: 'Ask AI about secrets' },
+  ],
   '06': [
     { x: 75, y: 16, w: 22, h: 4, back: true, label: 'Done' },
     { x: 6, y: 37.5, w: 88, h: 5.5, to: '39', label: 'Open a file - decompiled source' },
@@ -62,9 +70,19 @@ const HOTSPOTS = {
   '30': [
     { x: 3, y: 6, w: 14, h: 5, back: true, label: 'Back' },
     { x: 84, y: 6.5, w: 13, h: 5, to: '43', label: 'How editing works' },
+    { x: 8, y: 91.5, w: 84, h: 6.5, to: '47', label: 'Force-stop the app' },
   ],
   // Leaf continuations reached from the tools above.
   '39': [{ x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' }],
+  '45': [
+    { x: 50, y: 61, w: 22, h: 4.5, back: true, label: 'Not now' },
+    { x: 76, y: 61, w: 22, h: 4.5, back: true, label: 'Ask AI' },
+  ],
+  '46': [
+    { x: 28, y: 64.5, w: 20, h: 4.5, back: true, label: 'Not now' },
+    { x: 50, y: 64.5, w: 44, h: 4.5, back: true, label: 'Add to block list' },
+  ],
+  '47': [{ x: 3, y: 4.5, w: 13, h: 4.5, back: true, label: 'Back' }],
   '31': [{ x: 75, y: 9, w: 22, h: 4, back: true, label: 'Done' }],
   '32': [{ x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' }],
   '34': [{ x: 75, y: 11, w: 22, h: 4, back: true, label: 'Done' }],

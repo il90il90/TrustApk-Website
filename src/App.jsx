@@ -27,17 +27,21 @@ export default function App() {
 
   // A #demo link (shared or bookmarked) opens the demo directly.
   useEffect(() => {
-    const sync = () => setDemoOpen(window.location.hash === '#demo')
-    sync()
-    window.addEventListener('hashchange', sync)
-    return () => window.removeEventListener('hashchange', sync)
+    if (window.location.hash === '#demo') setDemoOpen(true)
   }, [])
 
-  // Keep the URL shareable while the demo is open, without scrolling the page.
+  // While the demo is open: put #demo in the URL (shareable) via a history
+  // entry so the hardware Back button closes it; Close cleans the URL back up.
   useEffect(() => {
-    const { pathname, search, hash } = window.location
-    if (demoOpen && hash !== '#demo') window.history.replaceState(null, '', pathname + search + '#demo')
-    if (!demoOpen && hash === '#demo') window.history.replaceState(null, '', pathname + search)
+    if (!demoOpen) return
+    const base = window.location.pathname + window.location.search
+    window.history.pushState({ demo: true }, '', base + '#demo')
+    const onPop = () => setDemoOpen(false)
+    window.addEventListener('popstate', onPop)
+    return () => {
+      window.removeEventListener('popstate', onPop)
+      if (window.history.state && window.history.state.demo) window.history.back()
+    }
   }, [demoOpen])
 
   return (
