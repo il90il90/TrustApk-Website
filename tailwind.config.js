@@ -33,6 +33,10 @@ export default {
           '72%': { opacity: '1', transform: 'scale(1)' },
           '100%': { opacity: '0', transform: 'scale(1)' },
         },
+        'screen-in': {
+          '0%': { opacity: '0', transform: 'translateY(8px) scale(0.995)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
         'scan': {
           '0%': { transform: 'translateY(-100%)' },
           '100%': { transform: 'translateY(100%)' },
@@ -46,6 +50,7 @@ export default {
         'fade-up': 'fade-up 0.6s ease-out both',
         'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
         'hint-tap': 'hint-tap 1.8s ease-in-out 1 forwards',
+        'screen-in': 'screen-in 0.24s ease-out',
         'scan': 'scan 2.5s linear infinite',
         'blink': 'blink 1.05s ease-in-out infinite',
       },
