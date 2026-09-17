@@ -210,9 +210,10 @@ export default function InteractiveDemo({ open = false, onClose }) {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto flex flex-col items-center justify-center px-4 py-6">
+      <div className="flex-1 min-h-0 overflow-y-auto flex flex-col items-center px-4 py-4">
+       <div className="my-auto w-full flex flex-col items-center gap-4">
         {/* Phone */}
-        <div className="relative mx-auto w-full max-w-[300px]">
+        <div className="relative mx-auto w-full max-w-[min(300px,calc((100dvh_-_168px)_*_0.45))]">
           <span className="absolute -left-[3px] top-[24%] h-10 w-[3px] rounded-l bg-[#243244]" aria-hidden="true" />
           <span className="absolute -left-[3px] top-[36%] h-16 w-[3px] rounded-l bg-[#243244]" aria-hidden="true" />
           <span className="absolute -right-[3px] top-[28%] h-20 w-[3px] rounded-r bg-[#243244]" aria-hidden="true" />
@@ -268,8 +269,8 @@ export default function InteractiveDemo({ open = false, onClose }) {
 
         {/* caption + hint */}
         <p className="sr-only" aria-live="polite" ref={liveRef} />
-        <div className="mt-5 flex items-center gap-2 text-sm text-muted-c">
-          <span className="inline-block h-2 w-2 rounded-full bg-brand animate-pulse-glow" />
+        <div className="flex items-center gap-2 text-sm text-muted-c text-center px-2">
+          <span className="inline-block h-2 w-2 flex-shrink-0 rounded-full bg-brand animate-pulse-glow" />
           {hasForward ? (
             <span>You&rsquo;re on <span className="text-base-c font-medium">{TITLE[current]}</span> - tap any button to open it</span>
           ) : hots.length > 0 ? (
@@ -278,6 +279,7 @@ export default function InteractiveDemo({ open = false, onClose }) {
             <span><span className="text-base-c font-medium">{TITLE[current]}</span> - use the back button to go back</span>
           )}
         </div>
+       </div>
       </div>
     </div>
   )
