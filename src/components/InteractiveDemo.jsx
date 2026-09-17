@@ -7,34 +7,53 @@ const DIR = './shots/sim/'
 const TITLE = {
   '00': 'Home', '01': 'Choose an app', '02': 'Dashboard',
   '03': 'Links & endpoints', '05': 'Secrets & keys', '06': 'Files inside',
-  '07': 'Components', '08': 'Security scan', '30': 'App data files',
-  '31': 'Permissions', '32': 'Capture logs', '33': 'Live traffic',
-  '34': 'App settings', '37': 'AI pentest · pick evidence', '38': 'Choose your AI',
+  '07': 'Components', '08': 'Security scan', '25': 'Capture logs',
+  '26': 'Live traffic', '30': 'App data files', '31': 'Permissions',
+  '32': 'App settings', '33': 'App info', '34': 'Proxy certificate',
+  '37': 'AI pentest · pick evidence', '38': 'Choose your AI',
 }
 
-// Forward tap targets, as percentages of the screen image (x, y, w, h).
-// Only the three "hub" screens need them; every other screen is reached from
-// here and returns with the phone's Back button.
+// Tap targets, as percentages of the screen image (x, y, w, h). `to` steps
+// forward to another screen; `back: true` closes the current screen (Done /
+// Close / the on-screen back arrow) exactly like the phone's Back button.
+// Coordinates are measured against each processed screenshot so the box sits
+// squarely on the real button.
 const HOTSPOTS = {
   '00': [
-    { x: 6, y: 22, w: 85, h: 6.5, to: '01', label: 'Pick an installed app' },
-    { x: 6, y: 32, w: 85, h: 6.5, to: '01', label: 'Pick an APK file' },
+    { x: 6, y: 21, w: 84, h: 10, to: '01', label: 'Pick an installed app' },
+    { x: 6, y: 32, w: 84, h: 11, to: '01', label: 'Pick an APK file' },
   ],
-  '01': [{ x: 6, y: 36, w: 88, h: 12, to: '02', label: 'Open lichess' }],
+  '01': [
+    { x: 6, y: 37, w: 88, h: 9, to: '02', label: 'Open lichess' },
+    { x: 74, y: 22.5, w: 22, h: 4.5, back: true, label: 'Close' },
+  ],
   '02': [
-    { x: 8, y: 19, w: 27, h: 9, to: '03', label: 'Links' },
-    { x: 37, y: 19, w: 26, h: 9, to: '05', label: 'Secrets' },
-    { x: 65, y: 19, w: 27, h: 9, to: '06', label: 'Files' },
-    { x: 8, y: 28, w: 27, h: 8, to: '07', label: 'Components' },
-    { x: 37, y: 28, w: 26, h: 8, to: '08', label: 'Security scan' },
-    { x: 65, y: 28, w: 27, h: 8, to: '34', label: 'App settings' },
-    { x: 8, y: 36.5, w: 84, h: 6, to: '30', label: 'App data' },
-    { x: 8, y: 43, w: 84, h: 6, to: '33', label: 'Live traffic' },
-    { x: 8, y: 49.5, w: 84, h: 5.5, to: '32', label: 'Capture logs' },
-    { x: 8, y: 60.5, w: 84, h: 5.5, to: '31', label: 'Permissions' },
+    { x: 5, y: 9, w: 62, h: 8, to: '33', label: 'App info' },
+    { x: 6, y: 19, w: 27, h: 9, to: '03', label: 'Links' },
+    { x: 35, y: 19, w: 27, h: 9, to: '05', label: 'Secrets' },
+    { x: 64, y: 19, w: 28, h: 9, to: '06', label: 'Files' },
+    { x: 6, y: 28, w: 27, h: 8, to: '07', label: 'Components' },
+    { x: 35, y: 28, w: 27, h: 8, to: '08', label: 'Security scan' },
+    { x: 64, y: 28, w: 28, h: 8, to: '32', label: 'App settings' },
+    { x: 6, y: 36.5, w: 86, h: 5.5, to: '30', label: 'App data' },
+    { x: 6, y: 42.5, w: 86, h: 5.5, to: '26', label: 'Live traffic' },
+    { x: 6, y: 48.5, w: 86, h: 5.5, to: '25', label: 'Capture logs' },
+    { x: 6, y: 59.5, w: 86, h: 6, to: '31', label: 'Permissions' },
+    { x: 6, y: 66, w: 86, h: 9, to: '34', label: 'Remove certificate pinning - proxy certificate' },
   ],
   // Security scan -> Ask AI opens the pentest bundle picker.
-  '08': [{ x: 7, y: 18, w: 86, h: 6, to: '37', label: 'Ask AI - review all findings' }],
+  '08': [{ x: 5, y: 18, w: 90, h: 5, to: '37', label: 'Ask AI - review all findings' }],
+  // Leaf screens: close via their Done / Close / back arrow.
+  '03': [{ x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' }],
+  '05': [{ x: 75, y: 8.5, w: 22, h: 4, back: true, label: 'Done' }],
+  '06': [{ x: 75, y: 16, w: 22, h: 4, back: true, label: 'Done' }],
+  '07': [{ x: 3, y: 6, w: 14, h: 5, back: true, label: 'Back' }],
+  '25': [{ x: 3, y: 4.5, w: 14, h: 5, back: true, label: 'Back' }],
+  '26': [{ x: 3, y: 5, w: 14, h: 5, back: true, label: 'Back' }],
+  '30': [{ x: 3, y: 6, w: 14, h: 5, back: true, label: 'Back' }],
+  '31': [{ x: 75, y: 9, w: 22, h: 4, back: true, label: 'Done' }],
+  '32': [{ x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' }],
+  '34': [{ x: 75, y: 11, w: 22, h: 4, back: true, label: 'Done' }],
   // Pick evidence -> Run pentest opens the AI chooser; Not now closes it.
   '37': [
     { x: 62, y: 86.5, w: 32, h: 6, to: '38', label: 'Run pentest' },
@@ -70,6 +89,7 @@ export default function InteractiveDemo() {
   const scrollRef = useRef(null)
   const liveRef = useRef(null)
   const hots = HOTSPOTS[current] || []
+  const hasForward = hots.some((h) => !h.back)
 
   const go = useCallback((to) => setStack((s) => [...s, to]), [])
   const back = useCallback(() => setStack((s) => (s.length > 1 ? s.slice(0, -1) : s)), [])
@@ -145,8 +165,10 @@ export default function InteractiveDemo() {
         <p className="sr-only" aria-live="polite" ref={liveRef} />
         <div className="mt-5 flex items-center gap-2 text-sm text-muted-c">
           <span className="inline-block h-2 w-2 rounded-full bg-brand animate-pulse-glow" />
-          {hots.length > 0 ? (
+          {hasForward ? (
             <span>You&rsquo;re on <span className="text-base-c font-medium">{TITLE[current]}</span> - tap a highlighted button</span>
+          ) : hots.length > 0 ? (
+            <span>On <span className="text-base-c font-medium">{TITLE[current]}</span> - tap Done, or the back button, to go back</span>
           ) : (
             <span><span className="text-base-c font-medium">{TITLE[current]}</span> - use the back button to go back</span>
           )}
