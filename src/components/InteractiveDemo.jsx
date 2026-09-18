@@ -19,6 +19,10 @@ const TITLE = {
   '51': 'Saved requests', '52': 'Request runner',
   '53': 'Ad-block · 2 to block', '54': 'Ad-block · 1 to block',
   '55': 'Filter logs', '56': 'Send logs to AI',
+  '58': 'Secrets · values', '59': 'kotlin package', '60': 'Rewrite & Debug',
+  '61': 'New rule', '62': 'Request · response', '63': 'cURL preview',
+  '64': 'Save request', '65': 'Clear request', '66': 'Webhook forwarding',
+  '68': 'Traffic filter', '69': 'Tag request', '70': 'Request · cURL',
 }
 
 // Tap targets, as percentages of the screen image (x, y, w, h). `to` steps
@@ -66,10 +70,12 @@ const HOTSPOTS = {
   '05': [
     { x: 75, y: 8.5, w: 22, h: 4, back: true, label: 'Done' },
     { x: 54, y: 8.5, w: 19, h: 4, to: '37', label: 'Ask AI about secrets' },
+    { x: 50, y: 13.5, w: 43, h: 4, to: '58', label: 'All secret values' },
   ],
   '06': [
     { x: 75, y: 16, w: 22, h: 4, back: true, label: 'Done' },
     { x: 6, y: 37.5, w: 88, h: 5.5, to: '39', label: 'Open a file - decompiled source' },
+    { x: 6, y: 51, w: 88, h: 5.5, to: '59', label: 'Open the kotlin package' },
   ],
   '07': [{ x: 3, y: 6, w: 14, h: 5, back: true, label: 'Back' }],
   '25': [
@@ -78,10 +84,17 @@ const HOTSPOTS = {
     { x: 74, y: 17, w: 11, h: 6, to: '56', label: 'Send logs to AI' },
     { x: 85, y: 17, w: 13, h: 6, to: '40', label: 'More log actions' },
   ],
-  '26': [{ x: 3, y: 5, w: 14, h: 5, back: true, label: 'Back' }],
+  '26': [
+    { x: 3, y: 5, w: 14, h: 5, back: true, label: 'Back' },
+    { x: 6, y: 91, w: 88, h: 6, to: '70', label: 'Request actions' },
+  ],
   '57': [
     { x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' },
+    { x: 16, y: 11.5, w: 12, h: 6, to: '60', label: 'Rewrite & Debug rules' },
+    { x: 61, y: 11.5, w: 11, h: 6, to: '68', label: 'Filter captures' },
+    { x: 88, y: 11.5, w: 10, h: 6, to: '66', label: 'Webhook forwarding' },
     { x: 2, y: 28, w: 54, h: 7, to: '26', label: 'Open the captured request' },
+    { x: 70, y: 29, w: 13, h: 6, to: '69', label: 'Tag this request' },
   ],
   '30': [
     { x: 3, y: 6, w: 14, h: 5, back: true, label: 'Back' },
@@ -119,11 +132,46 @@ const HOTSPOTS = {
     { x: 38, y: 64, w: 22, h: 4.5, back: true, label: 'Logs only' },
     { x: 62, y: 64, w: 32, h: 4.5, back: true, label: 'Logs + code' },
   ],
-  '51': [{ x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' }],
+  '51': [
+    { x: 3, y: 6.5, w: 13, h: 5, back: true, label: 'Back' },
+    { x: 64, y: 69, w: 30, h: 5, back: true, label: 'Import' },
+    { x: 51, y: 69, w: 10, h: 5, back: true, label: 'Cancel import' },
+  ],
   '52': [
     { x: 3, y: 5.5, w: 13, h: 5, back: true, label: 'Back' },
-    { x: 56, y: 5.5, w: 11, h: 5, to: '51', label: 'Saved requests' },
+    { x: 63, y: 6, w: 11, h: 5, to: '64', label: 'Save request' },
+    { x: 77, y: 6, w: 17, h: 5, to: '63', label: 'Show as cURL' },
+    { x: 82, y: 20, w: 13, h: 5, to: '62', label: 'Send request' },
+    { x: 65, y: 20, w: 11, h: 5, to: '65', label: 'Clear request' },
+    { x: 66, y: 28, w: 30, h: 4.5, to: '62', label: 'Response' },
+    { x: 74, y: 88, w: 22, h: 6, to: '51', label: 'Collections · import cURL' },
   ],
+  '58': [
+    { x: 75, y: 7, w: 20, h: 4, back: true, label: 'Done' },
+    { x: 54, y: 7, w: 17, h: 4, to: '37', label: 'Ask AI about secrets' },
+  ],
+  '59': [{ x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' }],
+  '60': [
+    { x: 2, y: 5, w: 11, h: 5, back: true, label: 'Close' },
+    { x: 88, y: 5, w: 10, h: 5, to: '61', label: 'New rule' },
+    { x: 36, y: 52, w: 28, h: 5, to: '61', label: 'New rule' },
+  ],
+  '61': [
+    { x: 2, y: 5, w: 11, h: 5, back: true, label: 'Close' },
+    { x: 84, y: 5, w: 13, h: 5, back: true, label: 'Save' },
+  ],
+  '62': [{ x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' }],
+  '63': [{ x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' }],
+  '65': [
+    { x: 60, y: 55.5, w: 17, h: 4, back: true, label: 'Not now' },
+    { x: 77, y: 55.5, w: 16, h: 4, back: true, label: 'Clear' },
+  ],
+  '68': [{ x: 3, y: 5, w: 13, h: 5, back: true, label: 'Back' }],
+  '69': [
+    { x: 50, y: 57, w: 12, h: 4.5, back: true, label: 'Cancel' },
+    { x: 62, y: 57, w: 32, h: 4.5, back: true, label: 'Save tag' },
+  ],
+  '70': [{ x: 35, y: 78, w: 30, h: 4.5, back: true, label: 'Close' }],
   // Patch this APK -> installed result.
   '23': [
     { x: 38, y: 56, w: 20, h: 4.5, back: true, label: 'Not now' },
