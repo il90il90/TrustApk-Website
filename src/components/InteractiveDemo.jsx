@@ -102,7 +102,10 @@ const HOTSPOTS = {
     { x: 8, y: 91.5, w: 84, h: 6.5, to: '47', label: 'Force-stop the app' },
   ],
   // Leaf continuations reached from the tools above.
-  '39': [{ x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' }],
+  '39': [
+    { x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' },
+    { x: 77, y: 16.5, w: 20, h: 4, back: true, label: 'Done' },
+  ],
   '45': [
     { x: 50, y: 61, w: 22, h: 4.5, back: true, label: 'Not now' },
     { x: 76, y: 61, w: 22, h: 4.5, back: true, label: 'Ask AI' },
@@ -150,7 +153,10 @@ const HOTSPOTS = {
     { x: 75, y: 7, w: 20, h: 4, back: true, label: 'Done' },
     { x: 54, y: 7, w: 17, h: 4, to: '37', label: 'Ask AI about secrets' },
   ],
-  '59': [{ x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' }],
+  '59': [
+    { x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' },
+    { x: 77, y: 16.5, w: 20, h: 4, back: true, label: 'Done' },
+  ],
   '60': [
     { x: 2, y: 5, w: 11, h: 5, back: true, label: 'Close' },
     { x: 88, y: 5, w: 10, h: 5, to: '61', label: 'New rule' },
