@@ -17,6 +17,7 @@ const TITLE = {
   '50': 'Ad-block lists loaded', '23': 'Patched & installed',
   '51': 'Saved requests', '52': 'Request runner',
   '53': 'Ad-block · 2 to block', '54': 'Ad-block · 1 to block',
+  '55': 'Filter logs', '56': 'Send logs to AI',
 }
 
 // Tap targets, as percentages of the screen image (x, y, w, h). `to` steps
@@ -72,6 +73,8 @@ const HOTSPOTS = {
   '07': [{ x: 3, y: 6, w: 14, h: 5, back: true, label: 'Back' }],
   '25': [
     { x: 3, y: 4.5, w: 14, h: 5, back: true, label: 'Back' },
+    { x: 3, y: 17, w: 12, h: 6, to: '55', label: 'Filter logs by level' },
+    { x: 74, y: 17, w: 11, h: 6, to: '56', label: 'Send logs to AI' },
     { x: 85, y: 17, w: 13, h: 6, to: '40', label: 'More log actions' },
   ],
   '26': [{ x: 3, y: 5, w: 14, h: 5, back: true, label: 'Back' }],
@@ -106,6 +109,11 @@ const HOTSPOTS = {
     { x: 82, y: 49, w: 13, h: 5, to: '54', label: 'Untick www.googleapis.com' },
   ],
   '54': [{ x: 77, y: 8.5, w: 18, h: 4, back: true, label: 'Done' }],
+  '55': [{ x: 3, y: 4.5, w: 14, h: 5, back: true, label: 'Back' }],
+  '56': [
+    { x: 38, y: 64, w: 22, h: 4.5, back: true, label: 'Logs only' },
+    { x: 62, y: 64, w: 32, h: 4.5, back: true, label: 'Logs + code' },
+  ],
   '51': [{ x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' }],
   '52': [
     { x: 3, y: 5.5, w: 13, h: 5, back: true, label: 'Back' },
