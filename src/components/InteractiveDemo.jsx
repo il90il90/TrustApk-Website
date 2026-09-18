@@ -24,6 +24,13 @@ const TITLE = {
   '64': 'Save request', '65': 'Clear request', '66': 'Webhook forwarding',
   '68': 'Traffic filter', '69': 'Tag request', '70': 'Request · cURL',
   '71': 'META-INF folder', '72': 'META-INF / com',
+  '04': 'All endpoint URLs', '09': 'App data · not ready',
+  '11': 'Capture traffic · choose', '12': 'Traffic capture · not ready',
+  '14': 'Capture logs · not on', '16': 'Patch summary',
+  '17': 'Already installed', '18': 'Could not remove it',
+  '19': 'App info · uninstall', '21': 'Install this app?', '22': 'Installing…',
+  '24': 'Dashboard · patched', '27': 'Request · headers',
+  '28': 'Response · body', '29': 'Response · headers', '36': 'HTTP method',
 }
 
 // Tap targets, as percentages of the screen image (x, y, w, h). `to` steps
@@ -37,7 +44,7 @@ const HOTSPOTS = {
     { x: 10.5, y: 23, w: 79, h: 10.3, to: '01', label: 'Pick an installed app' },
     { x: 10.5, y: 34.5, w: 79, h: 10.3, to: '01', label: 'Pick an APK file' },
     { x: 10.5, y: 51.5, w: 79, h: 8.5, to: '52', label: 'Request runner' },
-    { x: 10.5, y: 66.5, w: 79, h: 9.5, to: '23', label: 'Install a file' },
+    { x: 10.5, y: 66.5, w: 79, h: 9.5, to: '17', label: 'Install a file' },
   ],
   '01': [
     { x: 6, y: 37, w: 88, h: 10, to: '02', label: 'Open lichess' },
@@ -51,22 +58,30 @@ const HOTSPOTS = {
     { x: 8, y: 29, w: 25, h: 8, to: '07', label: 'Components' },
     { x: 36.5, y: 29, w: 25, h: 8, to: '08', label: 'Security scan' },
     { x: 65, y: 29, w: 26, h: 8, to: '32', label: 'App settings' },
-    { x: 6.5, y: 36.2, w: 87, h: 5.7, to: '30', label: 'App data' },
-    { x: 6.5, y: 42.6, w: 87, h: 5.7, to: '57', label: 'Live traffic' },
-    { x: 6.5, y: 48.9, w: 87, h: 5.7, to: '25', label: 'Capture logs' },
+    { x: 6.5, y: 36.2, w: 87, h: 5.7, to: '09', label: 'App data' },
+    { x: 6.5, y: 42.6, w: 87, h: 5.7, to: '12', label: 'Live traffic' },
+    { x: 6.5, y: 48.9, w: 87, h: 5.7, to: '14', label: 'Capture logs' },
     { x: 6.5, y: 61.2, w: 87, h: 5.9, to: '31', label: 'Permissions' },
     { x: 6.5, y: 67.9, w: 87, h: 12.3, to: '34', label: 'Remove certificate pinning - proxy certificate' },
     { x: 6.5, y: 81.5, w: 87, h: 6, to: '32', label: 'Advanced' },
-    { x: 6, y: 93.2, w: 88, h: 5.3, to: '23', label: 'Patch this APK' },
+    { x: 6, y: 93.2, w: 88, h: 5.3, to: '16', label: 'Patch this APK' },
   ],
   // Security scan -> Ask AI opens the pentest bundle picker.
   '08': [{ x: 5, y: 18, w: 90, h: 5, to: '37', label: 'Ask AI - review all findings' }],
   // Leaf screens: close via their Done / Close / back arrow.
   '03': [
-    { x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' },
-    { x: 47, y: 4.5, w: 14, h: 4, to: '46', label: 'Add domains to block' },
-    { x: 61, y: 4.5, w: 14, h: 4, to: '45', label: 'Ask AI about these' },
+    { x: 47, y: 3.8, w: 14, h: 2.8, to: '46', label: 'Add domains to block' },
+    { x: 61, y: 3.8, w: 14, h: 2.8, to: '45', label: 'Ask AI about these' },
+    { x: 75, y: 3.8, w: 22, h: 2.8, back: true, label: 'Done' },
+    { x: 56, y: 7, w: 20, h: 2.8, to: '04', label: 'URLs (84) - see every full URL' },
     { x: 40, y: 14, w: 14, h: 3, to: '48', label: 'Ads - mark hosts to block' },
+  ],
+  // URLs tab of Links & endpoints (the full 84 URLs, not just hosts).
+  '04': [
+    { x: 44, y: 3.8, w: 15, h: 2.8, to: '46', label: 'Add domains to block' },
+    { x: 61, y: 3.8, w: 15, h: 2.8, to: '45', label: 'Ask AI about these' },
+    { x: 79, y: 3.8, w: 17, h: 2.8, back: true, label: 'Done' },
+    { x: 6, y: 7, w: 40, h: 2.8, back: true, label: 'Back to Hosts' },
   ],
   '05': [
     { x: 75, y: 8.5, w: 22, h: 4, back: true, label: 'Done' },
@@ -88,7 +103,27 @@ const HOTSPOTS = {
   ],
   '26': [
     { x: 3, y: 5, w: 14, h: 5, back: true, label: 'Back' },
+    { x: 60, y: 25, w: 30, h: 4.5, to: '28', label: 'Response' },
+    { x: 18, y: 30, w: 26, h: 4, to: '27', label: 'Headers' },
     { x: 6, y: 91, w: 88, h: 6, to: '70', label: 'Request actions' },
+  ],
+  // Request headers view (same request, Headers tab).
+  '27': [
+    { x: 3, y: 5, w: 14, h: 5, back: true, label: 'Back' },
+    { x: 2, y: 30, w: 16, h: 4, back: true, label: 'Body' },
+    { x: 60, y: 25, w: 30, h: 4.5, to: '29', label: 'Response' },
+  ],
+  // Response body view (with the JWT + Decode JWT helper).
+  '28': [
+    { x: 3, y: 5, w: 14, h: 5, back: true, label: 'Back' },
+    { x: 14, y: 25, w: 28, h: 4.5, back: true, label: 'Request' },
+    { x: 18, y: 30, w: 26, h: 4, to: '29', label: 'Headers' },
+  ],
+  // Response headers view.
+  '29': [
+    { x: 3, y: 5, w: 14, h: 5, back: true, label: 'Back' },
+    { x: 14, y: 25, w: 28, h: 4.5, back: true, label: 'Request' },
+    { x: 2, y: 30, w: 16, h: 4, to: '28', label: 'Body' },
   ],
   '57': [
     { x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' },
@@ -144,6 +179,7 @@ const HOTSPOTS = {
   ],
   '52': [
     { x: 3, y: 5.5, w: 13, h: 5, back: true, label: 'Back' },
+    { x: 2, y: 17, w: 20, h: 8, to: '36', label: 'Choose HTTP method' },
     { x: 63, y: 6, w: 11, h: 5, to: '64', label: 'Save request' },
     { x: 77, y: 6, w: 17, h: 5, to: '63', label: 'Show as cURL' },
     { x: 82, y: 20, w: 13, h: 5, to: '62', label: 'Send request' },
@@ -185,11 +221,73 @@ const HOTSPOTS = {
     { x: 62, y: 57, w: 32, h: 4.5, back: true, label: 'Save tag' },
   ],
   '70': [{ x: 35, y: 78, w: 30, h: 4.5, back: true, label: 'Close' }],
-  // Patch this APK -> installed result.
+  // Patch this APK -> installed result. "Open it" shows the patched dashboard.
   '23': [
     { x: 38, y: 56, w: 20, h: 4.5, back: true, label: 'Not now' },
-    { x: 61, y: 55, w: 33, h: 6.5, back: true, label: 'Open it' },
+    { x: 61, y: 55, w: 33, h: 6.5, to: '24', label: 'Open it' },
   ],
+  // Patched dashboard: the same app, now with the tools live (Active).
+  '24': [
+    { x: 2, y: 6, w: 13, h: 5, back: true, label: 'Back' },
+    { x: 4, y: 26, w: 29, h: 15, to: '03', label: 'Links' },
+    { x: 35, y: 26, w: 30, h: 15, to: '05', label: 'Secrets' },
+    { x: 64, y: 26, w: 30, h: 15, to: '06', label: 'Files' },
+    { x: 4, y: 43, w: 29, h: 13, to: '07', label: 'Components' },
+    { x: 35, y: 43, w: 30, h: 13, to: '08', label: 'Security scan' },
+    { x: 64, y: 43, w: 30, h: 13, to: '32', label: 'App settings' },
+    { x: 5, y: 54, w: 90, h: 10, to: '30', label: 'App data - now active' },
+    { x: 5, y: 65, w: 90, h: 9, to: '57', label: 'Live traffic - now active' },
+    { x: 5, y: 75, w: 90, h: 10, to: '25', label: 'Capture logs - now active' },
+  ],
+  // Pre-patch "not ready yet" prompts: tapping a tool before patching explains
+  // how to turn it on; the primary action jumps to the (post-patch) tool.
+  '09': [
+    { x: 4, y: 78, w: 22, h: 5, back: true, label: 'Close' },
+    { x: 28, y: 78, w: 40, h: 5, to: '30', label: 'Turn on data access' },
+  ],
+  '12': [
+    { x: 35, y: 77, w: 15, h: 5, back: true, label: 'Close' },
+    { x: 51, y: 77, w: 23, h: 5, to: '11', label: 'Turn on Traffic capture' },
+  ],
+  '11': [
+    { x: 4, y: 46, w: 90, h: 9, to: '57', label: 'Patch with certificate' },
+    { x: 4, y: 58, w: 90, h: 9, to: '57', label: 'VPN capture' },
+    { x: 65, y: 70, w: 17, h: 5, back: true, label: 'Close' },
+  ],
+  '14': [
+    { x: 44, y: 77, w: 15, h: 5, back: true, label: 'Close' },
+    { x: 59, y: 77, w: 22, h: 5, to: '25', label: 'Turn it on' },
+  ],
+  // Patch summary -> Android install prompt.
+  '16': [
+    { x: 3, y: 4, w: 14, h: 5, back: true, label: 'Back' },
+    { x: 5, y: 87, w: 90, h: 7, to: '21', label: 'Install it now' },
+    { x: 2, y: 94, w: 30, h: 5, back: true, label: 'Save APK' },
+    { x: 48, y: 94, w: 45, h: 5, back: true, label: 'Send APK' },
+  ],
+  '21': [
+    { x: 20, y: 94, w: 20, h: 5, back: true, label: 'Cancel' },
+    { x: 40, y: 94, w: 22, h: 5, to: '22', label: 'Install' },
+  ],
+  // Installing... (progress) -> installed result.
+  '22': [{ x: 6, y: 45, w: 88, h: 20, to: '23', label: 'Continue' }],
+  // Install a file -> already-installed conflict.
+  '17': [
+    { x: 5, y: 47, w: 88, h: 9, to: '18', label: 'Replace the installed app' },
+    { x: 5, y: 60, w: 88, h: 9, to: '22', label: 'Install as a separate copy' },
+    { x: 76, y: 68, w: 20, h: 4, back: true, label: 'Not now' },
+  ],
+  '18': [
+    { x: 53, y: 42, w: 18, h: 4, to: '37', label: 'Ask AI' },
+    { x: 30, y: 77, w: 22, h: 4, back: true, label: 'Not now' },
+    { x: 64, y: 77, w: 30, h: 4, to: '19', label: 'Open app info' },
+  ],
+  '19': [
+    { x: 1, y: 6, w: 14, h: 5, back: true, label: 'Back' },
+    { x: 15, y: 93, w: 13, h: 6, to: '18', label: 'Uninstall' },
+  ],
+  // HTTP method picker: tapping any method returns to the request runner.
+  '36': [{ x: 3, y: 15, w: 94, h: 82, back: true, label: 'Choose a method' }],
   '31': [{ x: 75, y: 9, w: 22, h: 4, back: true, label: 'Done' }],
   '32': [{ x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' }],
   '33': [{ x: 5, y: 6.8, w: 88, h: 3, to: '37', label: 'Full AI penetration test' }],
