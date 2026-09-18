@@ -356,6 +356,16 @@ export default function InteractiveDemo({ open = false, onClose }) {
                       )}
                     </button>
                   ))}
+                  {/* Live-capture indicator: makes the traffic list feel live. */}
+                  {current === '57' && (
+                    <span className="pointer-events-none absolute left-1/2 top-[42%] -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full bg-brand/10 ring-1 ring-brand/30 px-2.5 py-1 text-[9px] font-medium text-brand whitespace-nowrap">
+                      <span className="relative flex h-1.5 w-1.5">
+                        {animate && <span className="absolute inline-flex h-full w-full rounded-full bg-brand opacity-75 animate-ping" />}
+                        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
+                      </span>
+                      Listening for traffic&hellip;
+                    </span>
+                  )}
                 </div>
               </div>
 
