@@ -16,6 +16,7 @@ const TITLE = {
   '47': 'App info · Force stop', '48': 'Ad-block · mark hosts', '49': 'Ad-block lists',
   '50': 'Ad-block lists loaded', '23': 'Patched & installed',
   '51': 'Saved requests', '52': 'Request runner',
+  '53': 'Ad-block · 2 to block', '54': 'Ad-block · 1 to block',
 }
 
 // Tap targets, as percentages of the screen image (x, y, w, h). `to` steps
@@ -93,12 +94,18 @@ const HOTSPOTS = {
   '48': [
     { x: 77, y: 8.5, w: 18, h: 4, back: true, label: 'Done' },
     { x: 56, y: 32, w: 24, h: 4, to: '49', label: 'Manage ad-block lists' },
+    { x: 82, y: 56, w: 13, h: 5.5, to: '53', label: 'Untick github.com' },
   ],
   '49': [
     { x: 33, y: 72.5, w: 17, h: 4, back: true, label: 'Done' },
     { x: 51, y: 72.5, w: 44, h: 4, to: '50', label: 'Download selected' },
   ],
   '50': [{ x: 76, y: 6.5, w: 20, h: 4, back: true, label: 'Done' }],
+  '53': [
+    { x: 77, y: 8.5, w: 18, h: 4, back: true, label: 'Done' },
+    { x: 82, y: 49, w: 13, h: 5, to: '54', label: 'Untick www.googleapis.com' },
+  ],
+  '54': [{ x: 77, y: 8.5, w: 18, h: 4, back: true, label: 'Done' }],
   '51': [{ x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' }],
   '52': [
     { x: 3, y: 5.5, w: 13, h: 5, back: true, label: 'Back' },
