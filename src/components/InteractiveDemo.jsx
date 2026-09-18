@@ -8,7 +8,8 @@ const TITLE = {
   '00': 'Home', '01': 'Choose an app', '02': 'Dashboard',
   '03': 'Links & endpoints', '05': 'Secrets & keys', '06': 'Files inside',
   '07': 'Components', '08': 'Security scan', '25': 'Capture logs',
-  '26': 'Live traffic', '30': 'App data files', '31': 'Permissions',
+  '26': 'Request detail', '30': 'App data files', '31': 'Permissions',
+  '57': 'Live traffic',
   '32': 'App settings', '33': 'App info', '34': 'Proxy certificate',
   '37': 'AI pentest · pick evidence', '38': 'Choose your AI',
   '39': 'AndroidManifest.xml', '40': 'Log actions', '43': 'Editing app data',
@@ -46,7 +47,7 @@ const HOTSPOTS = {
     { x: 36.5, y: 29, w: 25, h: 8, to: '08', label: 'Security scan' },
     { x: 65, y: 29, w: 26, h: 8, to: '32', label: 'App settings' },
     { x: 6.5, y: 36.2, w: 87, h: 5.7, to: '30', label: 'App data' },
-    { x: 6.5, y: 42.6, w: 87, h: 5.7, to: '26', label: 'Live traffic' },
+    { x: 6.5, y: 42.6, w: 87, h: 5.7, to: '57', label: 'Live traffic' },
     { x: 6.5, y: 48.9, w: 87, h: 5.7, to: '25', label: 'Capture logs' },
     { x: 6.5, y: 61.2, w: 87, h: 5.9, to: '31', label: 'Permissions' },
     { x: 6.5, y: 67.9, w: 87, h: 12.3, to: '34', label: 'Remove certificate pinning - proxy certificate' },
@@ -78,6 +79,10 @@ const HOTSPOTS = {
     { x: 85, y: 17, w: 13, h: 6, to: '40', label: 'More log actions' },
   ],
   '26': [{ x: 3, y: 5, w: 14, h: 5, back: true, label: 'Back' }],
+  '57': [
+    { x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' },
+    { x: 2, y: 28, w: 54, h: 7, to: '26', label: 'Open the captured request' },
+  ],
   '30': [
     { x: 3, y: 6, w: 14, h: 5, back: true, label: 'Back' },
     { x: 84, y: 6.5, w: 13, h: 5, to: '43', label: 'How editing works' },
@@ -126,6 +131,7 @@ const HOTSPOTS = {
   ],
   '31': [{ x: 75, y: 9, w: 22, h: 4, back: true, label: 'Done' }],
   '32': [{ x: 75, y: 4.5, w: 22, h: 4, back: true, label: 'Done' }],
+  '33': [{ x: 5, y: 6.8, w: 88, h: 3, to: '37', label: 'Full AI penetration test' }],
   '34': [{ x: 75, y: 11, w: 22, h: 4, back: true, label: 'Done' }],
   // Pick evidence -> Run pentest opens the AI chooser; Not now closes it.
   '37': [
