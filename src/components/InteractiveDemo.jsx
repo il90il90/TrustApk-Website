@@ -23,6 +23,7 @@ const TITLE = {
   '61': 'New rule', '62': 'Request · response', '63': 'cURL preview',
   '64': 'Save request', '65': 'Clear request', '66': 'Webhook forwarding',
   '68': 'Traffic filter', '69': 'Tag request', '70': 'Request · cURL',
+  '71': 'META-INF folder', '72': 'META-INF / com',
 }
 
 // Tap targets, as percentages of the screen image (x, y, w, h). `to` steps
@@ -74,8 +75,9 @@ const HOTSPOTS = {
   ],
   '06': [
     { x: 75, y: 16, w: 22, h: 4, back: true, label: 'Done' },
-    { x: 6, y: 37.5, w: 88, h: 5.5, to: '39', label: 'Open a file - decompiled source' },
-    { x: 6, y: 51, w: 88, h: 5.5, to: '59', label: 'Open the kotlin package' },
+    { x: 6, y: 37.5, w: 88, h: 5.5, to: '71', label: 'Open the META-INF folder' },
+    { x: 6, y: 51, w: 88, h: 5.5, to: '59', label: 'Open the kotlin folder' },
+    { x: 6, y: 78, w: 88, h: 5.5, to: '39', label: 'Open AndroidManifest.xml' },
   ],
   '07': [{ x: 3, y: 6, w: 14, h: 5, back: true, label: 'Back' }],
   '25': [
@@ -157,6 +159,11 @@ const HOTSPOTS = {
     { x: 3, y: 6, w: 13, h: 5, back: true, label: 'Back' },
     { x: 77, y: 16.5, w: 20, h: 4, back: true, label: 'Done' },
   ],
+  '71': [
+    { x: 77, y: 17.5, w: 20, h: 4, back: true, label: 'Done' },
+    { x: 6, y: 44, w: 88, h: 6, to: '72', label: 'Open the com folder' },
+  ],
+  '72': [{ x: 77, y: 17.5, w: 20, h: 4, back: true, label: 'Done' }],
   '60': [
     { x: 2, y: 5, w: 11, h: 5, back: true, label: 'Close' },
     { x: 88, y: 5, w: 10, h: 5, to: '61', label: 'New rule' },
