@@ -48,6 +48,7 @@ const HOTSPOTS = {
     { x: 6.5, y: 48.9, w: 87, h: 5.7, to: '25', label: 'Capture logs' },
     { x: 6.5, y: 61.2, w: 87, h: 5.9, to: '31', label: 'Permissions' },
     { x: 6.5, y: 67.9, w: 87, h: 12.3, to: '34', label: 'Remove certificate pinning - proxy certificate' },
+    { x: 6.5, y: 81.5, w: 87, h: 6, to: '32', label: 'Advanced' },
     { x: 6, y: 93.2, w: 88, h: 5.3, to: '23', label: 'Patch this APK' },
   ],
   // Security scan -> Ask AI opens the pentest bundle picker.
