@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrustAPK Privacy Policy · מדיניות פרטיות – TrustAPK</title>
+<meta name="description" content="How TrustAPK handles your information: on-device patching and inspection, licence activation, updates and your rights. מדיניות הפרטיות של TrustAPK.">
+<link rel="canonical" href="https://trustapk.app/privacy/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Hebrew:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f16;--surface:#121b26;--elev:#0f1620;--line:#1e2b3a;--accent:#22d3aa;--text:#e6edf3;--muted:#93a4b8;color-scheme:dark}
+:root.light{--bg:#f6f8fb;--surface:#ffffff;--elev:#eef2f7;--line:#e2e8f0;--accent:#0a7d63;--text:#0d1b2a;--muted:#52657a;}
+:root.light{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16.5px/1.7 Inter,"Noto Sans Hebrew",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html[lang="he"] body{font-family:"Noto Sans Hebrew",Inter,system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:24px 16px 72px}
+a{color:var(--accent)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font:800 21px Inter,system-ui,sans-serif;direction:ltr;letter-spacing:-.02em;color:var(--text);text-decoration:none}
+.brand b{color:var(--accent)}
+.actions{display:flex;gap:8px}
+.pill{color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;background:none;font:inherit;font-size:14px;cursor:pointer}
+h1{font-size:clamp(28px,6vw,40px);line-height:1.2;margin:26px 0 6px;letter-spacing:-.01em}
+.meta{color:var(--muted);font-size:14.5px;margin:0 0 18px}
+.lead{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:0 0 20px}
+.lead ul{margin:6px 0 0;padding-inline-start:20px}
+nav.toc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 18px;margin:0 0 8px}
+nav.toc .toc-h{font-weight:700;margin-bottom:6px}
+nav.toc ol{margin:0;padding-inline-start:22px;columns:2;column-gap:28px}
+nav.toc li{break-inside:avoid;font-size:15px}
+nav.toc a{color:var(--text);text-decoration:none}
+nav.toc a:hover{color:var(--accent)}
+section{scroll-margin-top:16px}
+h2{font-size:21px;margin:34px 0 10px;line-height:1.35}
+h2 .num{color:var(--accent)}
+h3{font-size:17px;margin:18px 0 6px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-inline-start:22px}
+li{margin:3px 0}
+.tbl{overflow-x:auto;margin:0 0 14px;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:start;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{background:var(--elev);font-weight:700}
+tr:last-child td{border-bottom:0}
+.box{background:var(--elev);border:1px solid var(--line);border-inline-start:3px solid var(--accent);border-radius:10px;padding:12px 14px;margin:0 0 14px}
+.caps{text-transform:none;font-weight:600}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;direction:ltr;unicode-bidi:isolate}
+.ltr{direction:ltr;unicode-bidi:isolate}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 0}
+.chip{border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none;color:var(--text);font-size:14.5px;background:var(--surface)}
+footer{margin-top:44px;color:var(--muted);font-size:14px;text-align:center}
+footer a{color:var(--muted)}
+[data-lang]{display:none!important}
+html[lang="he"] [data-lang="he"],html[lang="en"] [data-lang="en"]{display:revert!important}
+@media (max-width:600px){nav.toc ol{columns:1}}
+@media print{.actions,.chips,nav.toc{display:none}body{background:#fff;color:#000}}
+</style>
+<script>
+(function(){
+  var asked=new URLSearchParams(location.search).get('lang');
+  var nl=(navigator.language||'').toLowerCase().slice(0,2);
+  var lang=asked==='he'||asked==='en'?asked:(nl==='he'||nl==='iw'?'he':'en');
+  document.documentElement.lang=lang;document.documentElement.dir=lang==='he'?'rtl':'ltr';
+  try{if(localStorage.getItem('trustapk-theme')==='light')document.documentElement.classList.add('light')}catch(e){}
+})();
+</script>
+</head>
+<body>
+<main>
+<div class="top">
+  <a class="brand" href="/">Trust<b>APK</b></a>
+  <div class="actions">
+    <a class="pill" data-lang="he" href="?lang=en">English</a>
+    <a class="pill" data-lang="en" href="?lang=he">עברית</a>
+    <button class="pill" type="button" onclick="print()"><span data-lang="he">הדפסה / PDF</span><span data-lang="en">Print / PDF</span></button>
+  </div>
+</div>
+<h1 data-lang="he">מדיניות פרטיות – TrustAPK</h1>
+<h1 data-lang="en">TrustAPK Privacy Policy</h1>
+<p class="meta" data-lang="he">בתוקף ועדכון אחרון: 31 באוקטובר 2026</p>
+<p class="meta" data-lang="en">Effective and last updated: 31 October 2026</p>
+<div class="lead"><div data-lang="he"><p><b>בקצרה:</b></p><ul><li>TrustAPK פועלת על הטלפון שלכם. האפליקציות שאתם פותחים, משנים או בודקים, התעבורה שאתם לוכדים, הקוד המפוענח והקבצים שאתם יוצרים <b>נשארים במכשיר</b>. הם יוצאים ממנו רק אם אתם בוחרים לשתף או לייצא אותם.</li><li>אין באפליקציה פרסומות, אנליטיקה, מעקב או כלי לדיווח קריסות שמשדר החוצה.</li><li>לצורך רישוי בלבד נשלחים מפתח הרישיון, מזהה המכשיר (Android ID) ופרטי מכשיר בסיסיים לשירות הרישוי PWFAuth ולשרת הרישוי שלנו.</li><li>האפליקציה בודקת עדכונים ב-GitHub בכל הפעלה. התשלום מתבצע ב-PayPal ותיאום ההזמנה בטלגרם.</li></ul></div>
+<div data-lang="en"><p><b>In short:</b></p><ul><li>TrustAPK runs on your phone. The apps you open, patch or inspect, the traffic you capture, decompiled code and the files you create <b>stay on your device</b>. They leave it only if you choose to share or export them.</li><li>The app has no ads, analytics, tracking, or crash reporting that sends anything out.</li><li>For licensing only, your licence key, your device ID (Android ID) and basic device details go to the PWFAuth licensing service and to our licence server.</li><li>The app checks GitHub for updates each time it starts. Payment goes through PayPal and orders are arranged on Telegram.</li></ul></div></div>
+<nav class="toc" aria-label="Contents"><div class="toc-h" data-lang="he">תוכן העניינים</div><div class="toc-h" data-lang="en">Contents</div>
+<ol data-lang="he"><li><a href="#who">מי אנחנו ואיך פונים אלינו</a></li><li><a href="#ondevice">מה נשאר במכשיר שלכם</a></li><li><a href="#collect">מה אנחנו אוספים</a></li><li><a href="#services">שירותים שהאפליקציה פונה אליהם</a></li><li><a href="#permissions">הרשאות</a></li><li><a href="#bases">מטרות השימוש ובסיס חוקי</a></li><li><a href="#retention">כמה זמן שומרים</a></li><li><a href="#sharing">העברת מידע לאחרים</a></li><li><a href="#transfers">העברת מידע מחוץ לישראל</a></li><li><a href="#rights">הזכויות שלכם</a></li><li><a href="#children">ילדים</a></li><li><a href="#security">אבטחת מידע</a></li><li><a href="#website">האתר trustapk.app</a></li><li><a href="#changes">שינויים</a></li></ol><ol data-lang="en"><li><a href="#who">Who we are and how to reach us</a></li><li><a href="#ondevice">What stays on your device</a></li><li><a href="#collect">What we collect</a></li><li><a href="#services">Services the app connects to</a></li><li><a href="#permissions">Permissions</a></li><li><a href="#bases">Purposes and legal bases</a></li><li><a href="#retention">How long we keep it</a></li><li><a href="#sharing">Who we share information with</a></li><li><a href="#transfers">International transfers</a></li><li><a href="#rights">Your rights</a></li><li><a href="#children">Children</a></li><li><a href="#security">Security</a></li><li><a href="#website">The trustapk.app website</a></li><li><a href="#changes">Changes</a></li></ol></nav>
+<section id="who">
+<h2><span class="num">1.</span> <span data-lang="he">מי אנחנו ואיך פונים אלינו</span><span data-lang="en">Who we are and how to reach us</span></h2>
+<p data-lang="he">TrustAPK מפותחת ומופצת על ידי ישראל כהן, מפתח עצמאי (עוסק יחיד) מישראל ("אנחנו", "אנו"). אנחנו "בעל השליטה במאגר" / "בקר הנתונים" (Controller) לגבי המידע האישי המתואר במדיניות זו, לפי חוק הגנת הפרטיות, התשמ"א-1981 ותקנותיו, ובמידה שהוא חל, לפי התקנה הכללית להגנת מידע של האיחוד האירופי (GDPR).</p>
+<p data-lang="en">TrustAPK is developed and published by Israel Cohen, an independent developer (sole proprietor) based in Israel ("we", "us"). We are the controller of the personal data described in this policy under the Israeli Protection of Privacy Law, 5741-1981 and its regulations and, where it applies, the EU General Data Protection Regulation (GDPR).</p>
+<p data-lang="he">לכל שאלה, בקשה או תלונה בנושא פרטיות: דוא"ל <a href="mailto:il90il90@gmail.com" class="ltr">il90il90@gmail.com</a> או טלגרם <a href="https://t.me/IsraelCohen" class="ltr" target="_blank" rel="noopener">t.me/IsraelCohen</a>. אנו משיבים בדרך כלל תוך מספר ימי עסקים, ולכל המאוחר בתוך המועדים הקבועים בדין. </p>
+<p data-lang="en">For any privacy question, request or complaint: email <a href="mailto:il90il90@gmail.com" class="ltr">il90il90@gmail.com</a> or Telegram <a href="https://t.me/IsraelCohen" class="ltr" target="_blank" rel="noopener">t.me/IsraelCohen</a>. We usually reply within a few business days, and in any case within the time limits set by law. </p>
+</section>
+<section id="ondevice">
+<h2><span class="num">2.</span> <span data-lang="he">מה נשאר במכשיר שלכם</span><span data-lang="en">What stays on your device</span></h2>
+<p data-lang="he">הנתונים הבאים נשמרים באחסון הפרטי של האפליקציה במכשיר. איננו מקבלים אותם ואין לנו גישה אליהם:</p>
+<p data-lang="en">The following is stored in the app's private storage on your device. We do not receive it and cannot access it:</p>
+<div data-lang="he"><div class="tbl"><table><thead><tr><th>מידע</th><th>למה</th><th>יוצא מהמכשיר?</th></tr></thead><tbody><tr><td>רשימת האפליקציות המותקנות וקובצי ה-APK שלהן</td><td>לבחור אפליקציה, לנתח, לשנות ולהתקין מחדש</td><td>לא, אלא אם תשתפו קובץ</td></tr><tr><td>קבצי APK ששונו, חתימות ותוצאות ניתוח, סריקת סודות וקישורים, קוד מפוענח</td><td>הכלים של TrustAPK</td><td>לא, אלא אם תייצאו או תשתפו</td></tr><tr><td>תעבורת רשת שלכדתם (פרוקסי מקומי, דפדפן מובנה, לכידה דרך VPN מקומי)</td><td>בדיקת HTTPS של האפליקציות שאתם בודקים</td><td>רק אל השרתים שהאפליקציה הנבדקת פונה אליהם, או אם תייצאו</td></tr><tr><td>היסטוריית דפדפן מובנה, יומנים, הגדרות, מועדפים</td><td>תפעול האפליקציה</td><td>לא</td></tr><tr><td>פרטי הרישיון (מפתח, סוג, תוקף), מוצפנים</td><td>לבדוק שהמכשיר מורשה</td><td>נשלח לשירות הרישוי (ראו להלן)</td></tr><tr><td>קובץ קריסה מקומי</td><td>פתרון תקלות</td><td>רק אם תבחרו לשתף אותו</td></tr></tbody></table></div></div>
+<div data-lang="en"><div class="tbl"><table><thead><tr><th>Information</th><th>Why</th><th>Leaves the device?</th></tr></thead><tbody><tr><td>The list of installed apps and their APK files</td><td>To pick, analyse, patch and reinstall an app</td><td>No, unless you share a file</td></tr><tr><td>Patched APKs, signatures, analysis and secrets/links scan results, decompiled code</td><td>TrustAPK's tools</td><td>No, unless you export or share it</td></tr><tr><td>Network traffic you capture (local proxy, built-in browser, local VPN capture)</td><td>HTTPS inspection of the apps you test</td><td>Only to the servers the tested app talks to, or if you export it</td></tr><tr><td>Built-in browser history, logs, settings, favourites</td><td>Running the app</td><td>No</td></tr><tr><td>Licence details (key, type, expiry), encrypted</td><td>To check the device is licensed</td><td>Sent to the licensing service (below)</td></tr><tr><td>A local crash file</td><td>Troubleshooting</td><td>Only if you choose to share it</td></tr></tbody></table></div></div>
+<p data-lang="he">גיבוי הנתונים של האפליקציה בענן של אנדרואיד כבוי (allowBackup=false). מחיקת נתוני האפליקציה או הסרתה מוחקות את כל המידע הזה.</p>
+<p data-lang="en">Android cloud backup of the app's data is turned off (allowBackup=false). Clearing the app's data or uninstalling it deletes all of it.</p>
+<div data-lang="he"><div class="box"><b>הנתונים של אחרים.</b> תעבורה שאתם לוכדים עשויה להכיל מידע אישי, אסימונים או סיסמאות, שלכם או של אחרים. אתם האחראים לכך שיש לכם הרשאה לבדוק את האפליקציה ואת השרת, ולטפל במידע הזה כדין. אנחנו לא רואים אותו.</div></div>
+<div data-lang="en"><div class="box"><b>Other people's data.</b> Traffic you capture may contain personal data, tokens or passwords, yours or other people's. You are responsible for being authorised to test the app and server, and for handling that data lawfully. We never see it.</div></div>
+</section>
+<section id="collect">
+<h2><span class="num">3.</span> <span data-lang="he">מה אנחנו אוספים</span><span data-lang="en">What we collect</span></h2>
+<div data-lang="he"><div class="tbl"><table><thead><tr><th>מידע</th><th>מתי</th><th>למה</th></tr></thead><tbody><tr><td>מפתח הרישיון</td><td>בהפעלה, בבדיקות תקופתיות בזמן השימוש, וביציאה מהחשבון</td><td>הפעלה ואימות של הרישיון</td></tr><tr><td>מזהה המכשיר (Android ID) – הערך שאנדרואיד מקצה לאפליקציה ולמכשיר</td><td>בהפעלה וביציאה</td><td>קשירת הרישיון למכשיר ואכיפת מספר המכשירים</td></tr><tr><td>שם המכשיר כפי שהגדרתם בהגדרות אנדרואיד, יצרן ודגם, גרסת אנדרואיד ושפת המכשיר</td><td>פעם אחת, אחרי ההפעלה</td><td>זיהוי המכשיר ברשימת המכשירים של הרישיון ותמיכה</td></tr><tr><td>כתובת IP ומדינה משוערת</td><td>בכל פנייה לשרת</td><td>נלווה לכל חיבור לאינטרנט; משמש לאבטחה ולמניעת שימוש לרעה</td></tr><tr><td>פרטי התשלום ש-PayPal מוסרת למוכר (שם, דוא"ל, סכום, מזהה עסקה)</td><td>כשאתם רוכשים</td><td>הנפקת מפתח, קבלות, החזרים, חובות חשבונאיות</td></tr><tr><td>מה ששלחתם לנו בטלגרם או בדוא"ל (שם משתמש, הודעות, צילום קבלה)</td><td>כשאתם פונים אלינו</td><td>מתן מפתח ותמיכה</td></tr></tbody></table></div></div>
+<div data-lang="en"><div class="tbl"><table><thead><tr><th>Information</th><th>When</th><th>Why</th></tr></thead><tbody><tr><td>Your licence key</td><td>On activation, periodic checks while you use the app, and on sign-out</td><td>Activating and validating the licence</td></tr><tr><td>Your device ID (the Android ID Android assigns to the app on this device)</td><td>On activation and sign-out</td><td>Binding the licence to the device and enforcing the device limit</td></tr><tr><td>The device name you set in Android settings, manufacturer and model, Android version and device language</td><td>Once, after activation</td><td>Identifying the device in the licence's device list, and support</td></tr><tr><td>IP address and approximate country</td><td>With every request</td><td>Part of any internet connection; used for security and abuse prevention</td></tr><tr><td>Payment details PayPal gives the seller (name, email, amount, transaction ID)</td><td>When you buy</td><td>Issuing the key, receipts, refunds, accounting duties</td></tr><tr><td>What you send us on Telegram or by email (username, messages, receipt image)</td><td>When you contact us</td><td>Delivering your key and support</td></tr></tbody></table></div></div>
+<p data-lang="he">איננו אוספים את תוכן האפליקציות שאתם בודקים, תעבורה שלכדתם, קבצים, אנשי קשר, מיקום או מידע ממכשירים אחרים.</p>
+<p data-lang="en">We do not collect the content of apps you test, traffic you capture, files, contacts, location, or data about other devices.</p>
+</section>
+<section id="services">
+<h2><span class="num">4.</span> <span data-lang="he">שירותים שהאפליקציה פונה אליהם</span><span data-lang="en">Services the app connects to</span></h2>
+<p data-lang="he">כל שירות רואה את כתובת ה-IP שלכם כמו בכל פנייה לאינטרנט, ומעבד מידע לפי מדיניות הפרטיות שלו.</p>
+<p data-lang="en">Each service sees your IP address, as with any internet request, and handles data under its own privacy policy.</p>
+<div data-lang="he"><div class="tbl"><table><thead><tr><th>שירות</th><th>מטרה</th><th>מה נשלח</th></tr></thead><tbody><tr><td>PWFAuth (pwfauth.com) – שירות רישוי של צד שלישי</td><td>הפעלה ובדיקת רישיון</td><td>מפתח הרישיון ומזהה המכשיר, בבקשות מוצפנות וחתומות</td></tr><tr><td>שרת הרישוי שלנו (Cloudflare Workers)</td><td>רישום המכשיר אחרי ההפעלה ושחרורו ביציאה</td><td>מפתח, מזהה מכשיר, שם/יצרן/דגם המכשיר, גרסת אנדרואיד ושפה. השרת לא שומר מידע בעצמו; הוא רושם את פרטי המכשיר ברשומת הרישיון ב-PWFAuth ושולח לנו התראה</td></tr><tr><td>טלגרם (Bot API)</td><td>התראות אלינו על הפעלה, שחרור, הזמנה ותפוגה</td><td>המפתח, פרטי המכשיר, חלק מקוצר של מזהה המכשיר, ובהזמנה: סכום ודוא"ל. ההתראות מגיעות לחשבון הטלגרם שלנו בלבד</td></tr><tr><td>GitHub (api.github.com, github.com)</td><td>בדיקת עדכונים בכל הפעלה והורדתם</td><td>בקשה אנונימית; שום מידע אישי</td></tr><tr><td>שירותים שאתם מפעילים בעצמכם: רשימות חסימת פרסומות, Frida, רשימות מילים ל-JWT, RDAP/Whois, YouTube/NewPipe, Webhooks שהגדרתם, חיפוש Google בדפדפן, DNS ציבורי (1.1.1.1/8.8.8.8) כגיבוי</td><td>התכונה שבחרתם</td><td>רק מה שהתכונה צריכה, ורק כשהפעלתם אותה</td></tr><tr><td>אפליקציית צ'אט AI שבחרתם (למשל ChatGPT, Gemini, Claude)</td><td>"שאלו את ה-AI": שיתוף דרך מערכת השיתוף של אנדרואיד</td><td>רק מה שבחרתם לשתף, ורק לאפליקציה שבחרתם. TrustAPK לא פונה לשום שירות AI בעצמה</td></tr></tbody></table></div></div>
+<div data-lang="en"><div class="tbl"><table><thead><tr><th>Service</th><th>Purpose</th><th>What is sent</th></tr></thead><tbody><tr><td>PWFAuth (pwfauth.com), a third-party licensing service</td><td>Activating and checking the licence</td><td>Licence key and device ID, in encrypted, signed requests</td></tr><tr><td>Our licence server (Cloudflare Workers)</td><td>Registering the device after activation and releasing it on sign-out</td><td>Key, device ID, device name/make/model, Android version and language. The server stores nothing itself; it writes the device details into the licence record at PWFAuth and notifies us</td></tr><tr><td>Telegram (Bot API)</td><td>Notifications to us about activations, releases, orders and expiry</td><td>The key, device details, a shortened part of the device ID, and for orders the amount and email. They go only to our own Telegram account</td></tr><tr><td>GitHub (api.github.com, github.com)</td><td>Checking for updates on each launch and downloading them</td><td>An anonymous request; nothing personal</td></tr><tr><td>Services you start yourself: ad-block host lists, Frida, JWT wordlists, RDAP/Whois, YouTube/NewPipe, webhooks you configure, Google search in the browser, public DNS (1.1.1.1/8.8.8.8) as a fallback</td><td>The feature you chose</td><td>Only what that feature needs, and only when you use it</td></tr><tr><td>An AI chat app you choose (e.g. ChatGPT, Gemini, Claude)</td><td>"Ask AI": sharing through Android's share sheet</td><td>Only what you choose to share, and only to the app you pick. TrustAPK itself never contacts an AI service</td></tr></tbody></table></div></div>
+</section>
+<section id="permissions">
+<h2><span class="num">5.</span> <span data-lang="he">הרשאות</span><span data-lang="en">Permissions</span></h2>
+<div data-lang="he"><ul><li><b>רשימת אפליקציות מותקנות (QUERY_ALL_PACKAGES)</b> – כדי לבחור אפליקציה לבדיקה ולקרוא את קובץ ה-APK שלה במכשיר.</li><li><b>התקנת אפליקציות (REQUEST_INSTALL_PACKAGES)</b> – כדי להעביר למתקין של אנדרואיד את האפליקציה ששיניתם ואת עדכוני TrustAPK. כל התקנה מאושרת על ידיכם במסך המערכת.</li><li><b>VPN מקומי (BIND_VPN_SERVICE)</b> – ללכידת תעבורה של אפליקציה שבחרתם, בתוך המכשיר. התעבורה אינה מנותבת לשרת שלנו.</li><li><b>נתוני שימוש (PACKAGE_USAGE_STATS)</b> – לניתוח האחסון, לפי בחירתכם.</li><li><b>אינטרנט, שירות בחזית, התראות, חלון צף, הפעלה עם האתחול, סגירת תהליכים ברקע</b> – לתפעול הכלים, הפרוקסי וה-Webhooks.</li></ul></div>
+<div data-lang="en"><ul><li><b>Installed apps list (QUERY_ALL_PACKAGES)</b> – to pick an app to test and read its APK on the device.</li><li><b>Install apps (REQUEST_INSTALL_PACKAGES)</b> – to hand the patched app and TrustAPK updates to Android's installer. You approve every install on the system screen.</li><li><b>Local VPN (BIND_VPN_SERVICE)</b> – to capture the traffic of an app you choose, on the device. Traffic is not routed through our servers.</li><li><b>Usage access (PACKAGE_USAGE_STATS)</b> – for the storage analyser, if you choose to use it.</li><li><b>Internet, foreground service, notifications, overlay, start at boot, kill background processes</b> – to run the tools, the proxy and webhooks.</li></ul></div>
+</section>
+<section id="bases">
+<h2><span class="num">6.</span> <span data-lang="he">מטרות השימוש ובסיס חוקי</span><span data-lang="en">Purposes and legal bases</span></h2>
+<p data-lang="he">אנו משתמשים במידע רק למטרות שלהלן, ולא מוכרים, משכירים או מעבירים מידע אישי לצד שלישי לשיווק או לפרסום. המשתמשים באיחוד האירופי, באזור הכלכלי האירופי ובבריטניה: לצד כל מטרה מצוין הבסיס החוקי לפי סעיף 6 ל-GDPR.</p>
+<p data-lang="en">We use information only for the purposes below, and we do not sell, rent or share personal data with anyone for marketing or advertising. For users in the EU, EEA and UK, the legal basis under Article 6 GDPR is shown next to each purpose.</p>
+<div data-lang="he"><div class="tbl"><table><thead><tr><th>מטרה</th><th>בסיס חוקי</th></tr></thead><tbody><tr><td>הפעלה, אימות ואכיפה של הרישיון; אספקת מפתח ותמיכה</td><td>ביצוע חוזה (סעיף 6(1)(ב))</td></tr><tr><td>מניעת שיתוף מפתחות, הונאה ושימוש לרעה; אבטחה</td><td>אינטרס לגיטימי (סעיף 6(1)(ו))</td></tr><tr><td>שמירת רשומות תשלום וקבלות</td><td>חובה חוקית (סעיף 6(1)(ג))</td></tr><tr><td>בדיקת עדכונים</td><td>אינטרס לגיטימי – אספקת גרסה בטוחה ומעודכנת</td></tr></tbody></table></div></div>
+<div data-lang="en"><div class="tbl"><table><thead><tr><th>Purpose</th><th>Legal basis</th></tr></thead><tbody><tr><td>Activating, validating and enforcing the licence; delivering keys and support</td><td>Performance of a contract (Art. 6(1)(b))</td></tr><tr><td>Preventing key sharing, fraud and abuse; security</td><td>Legitimate interests (Art. 6(1)(f))</td></tr><tr><td>Keeping payment records and receipts</td><td>Legal obligation (Art. 6(1)(c))</td></tr><tr><td>Checking for updates</td><td>Legitimate interests – providing a safe, current version</td></tr></tbody></table></div></div>
+</section>
+<section id="retention">
+<h2><span class="num">7.</span> <span data-lang="he">כמה זמן שומרים</span><span data-lang="en">How long we keep it</span></h2>
+<div data-lang="he"><div class="tbl"><table><thead><tr><th>מידע</th><th>תקופה</th></tr></thead><tbody><tr><td>רשומת הרישיון ופרטי המכשירים</td><td>כל עוד הרישיון בתוקף, ועד 24 חודשים אחריו (לטיפול בפניות, החזרים ומחלוקות), ואז נמחקים או מותממים</td></tr><tr><td>רשומות תשלום וקבלות</td><td>7 שנים, כנדרש בדיני המס בישראל</td></tr><tr><td>התכתבויות תמיכה בטלגרם או בדוא"ל</td><td>עד 24 חודשים מהפנייה האחרונה, אלא אם תבקשו למחוק קודם</td></tr><tr><td>מידע במכשיר</td><td>עד שתמחקו אותו או תסירו את האפליקציה</td></tr></tbody></table></div></div>
+<div data-lang="en"><div class="tbl"><table><thead><tr><th>Information</th><th>Period</th></tr></thead><tbody><tr><td>Licence record and device details</td><td>While the licence is valid and up to 24 months after (to handle requests, refunds and disputes), then deleted or anonymised</td></tr><tr><td>Payment records and receipts</td><td>7 years, as Israeli tax law requires</td></tr><tr><td>Support conversations on Telegram or email</td><td>Up to 24 months after the last contact, unless you ask us to delete them sooner</td></tr><tr><td>Data on your device</td><td>Until you delete it or uninstall the app</td></tr></tbody></table></div></div>
+<p data-lang="he">PWFAuth, PayPal, טלגרם ו-GitHub שומרים מידע לפי המדיניות שלהם.</p>
+<p data-lang="en">PWFAuth, PayPal, Telegram and GitHub keep data under their own policies.</p>
+</section>
+<section id="sharing">
+<h2><span class="num">8.</span> <span data-lang="he">העברת מידע לאחרים</span><span data-lang="en">Who we share information with</span></h2>
+<p data-lang="he">איננו מוכרים מידע אישי ואיננו "משתפים" אותו לצורכי פרסום ממוקד (כמשמעות המונחים בחוקי פרטיות של מדינות בארצות הברית, כגון CCPA/CPRA). המידע מועבר רק אל:</p>
+<p data-lang="en">We do not sell personal information, and we do not "share" it for cross-context behavioural advertising (as those terms are used in US state privacy laws such as the CCPA/CPRA). Information goes only to:</p>
+<div data-lang="he"><ul><li>ספקי השירות המפורטים במדיניות זו, שמעבדים אותו לצורך מתן השירות בלבד ובהתאם למדיניות הפרטיות שלהם;</li><li>רשויות מוסמכות, כאשר הדבר נדרש על פי דין, צו שיפוטי או הליך משפטי מחייב, או כשהדבר נחוץ כדי להגן על זכויותינו, על בטיחות משתמשים או למניעת הונאה;</li><li>רוכש או ממשיך של הפעילות, אם האפליקציה תימכר או תועבר, ובתנאי שימשיך לכבד מדיניות זו או יודיע לכם מראש על שינוי.</li></ul></div>
+<div data-lang="en"><ul><li>the service providers listed in this policy, which process it only to provide their service and under their own privacy policies;</li><li>competent authorities, where required by law, court order or binding legal process, or where needed to protect our rights, user safety or to prevent fraud;</li><li>a buyer or successor of the business, if the app is sold or transferred, provided it keeps honouring this policy or tells you about any change in advance.</li></ul></div>
+</section>
+<section id="transfers">
+<h2><span class="num">9.</span> <span data-lang="he">העברת מידע מחוץ לישראל</span><span data-lang="en">International transfers</span></h2>
+<p data-lang="he">אנו פועלים מישראל. ספקי השירות שלנו (למשל PayPal, טלגרם, Cloudflare ו-GitHub) עשויים לעבד מידע בשרתים בארצות הברית, באיחוד האירופי או במדינות אחרות. מידע מועבר מחוץ לישראל בהתאם לתקנות הגנת הפרטיות (העברת מידע אל מאגרי מידע שמחוץ לגבולות המדינה), התשס"א-2001. לגבי משתמשים באיחוד האירופי: הנציבות האירופית קבעה שישראל מעניקה רמת הגנה נאותה למידע אישי, והעברות הלאה מתבצעות על בסיס מנגנונים מוכרים, כגון החלטות הלימות או סעיפים חוזיים תקניים (SCC) של הספקים.</p>
+<p data-lang="en">We operate from Israel. Our providers (for example PayPal, Telegram, Cloudflare and GitHub) may process data on servers in the United States, the EU or elsewhere. Transfers out of Israel follow the Privacy Protection (Transfer of Data to Databases Abroad) Regulations, 5761-2001. For EU users: the European Commission has recognised Israel as providing an adequate level of protection, and onward transfers rely on recognised mechanisms such as adequacy decisions or the providers' Standard Contractual Clauses.</p>
+</section>
+<section id="rights">
+<h2><span class="num">10.</span> <span data-lang="he">הזכויות שלכם</span><span data-lang="en">Your rights</span></h2>
+<p data-lang="he">בכפוף לדין החל עליכם, יש לכם זכות:</p>
+<p data-lang="en">Subject to the law that applies to you, you have the right to:</p>
+<div data-lang="he"><ul><li><b>לעיין</b> במידע שמוחזק עליכם ולקבל עותק שלו (סעיף 13 לחוק הגנת הפרטיות; סעיף 15 ל-GDPR);</li><li><b>לתקן</b> מידע שגוי, לא שלם או לא מעודכן (סעיף 14 לחוק; סעיף 16 ל-GDPR);</li><li><b>למחוק</b> מידע, כאשר אין חובה או צורך לגיטימי להמשיך להחזיקו (סעיף 17 ל-GDPR);</li><li><b>להגביל</b> עיבוד, <b>להתנגד</b> לעיבוד המבוסס על אינטרס לגיטימי, ולקבל את המידע <b>בפורמט נייד</b> (סעיפים 18, 20 ו-21 ל-GDPR);</li><li><b>לבטל הסכמה</b> בכל עת, כאשר העיבוד מבוסס על הסכמה, בלי לפגוע בחוקיות העיבוד שלפני הביטול;</li><li><b>להגיש תלונה</b> לרשות להגנת הפרטיות במשרד המשפטים (<a href="https://www.gov.il/he/departments/the_privacy_protection_authority" target="_blank" rel="noopener">gov.il</a>) או לרשות הפיקוח על הגנת מידע במדינתכם באיחוד האירופי.</li><li>תושבי מדינות בארצות הברית שבהן חלים חוקי פרטיות (כגון קליפורניה) רשאים לבקש לדעת, לתקן ולמחוק מידע, ולא יופלו לרעה בשל מימוש זכויותיהם.</li></ul></div>
+<div data-lang="en"><ul><li><b>access</b> the data we hold about you and get a copy (section 13 of the Israeli Privacy Law; Article 15 GDPR);</li><li><b>correct</b> inaccurate, incomplete or outdated data (section 14; Article 16 GDPR);</li><li><b>erase</b> data where we have no legal duty or legitimate need to keep it (Article 17 GDPR);</li><li><b>restrict</b> processing, <b>object</b> to processing based on legitimate interests, and receive your data in a <b>portable</b> format (Articles 18, 20 and 21 GDPR);</li><li><b>withdraw consent</b> at any time where processing is based on consent, without affecting processing before the withdrawal;</li><li><b>complain</b> to the Israeli Privacy Protection Authority (<a href="https://www.gov.il/en/departments/the_privacy_protection_authority" target="_blank" rel="noopener">gov.il</a>) or to your EU data-protection supervisory authority.</li><li>Residents of US states with privacy laws (such as California) may ask to know, correct and delete their personal information, and will not be discriminated against for doing so.</li></ul></div>
+<p data-lang="he">כדי לממש זכות, פנו אלינו בדוא"ל <a href="mailto:il90il90@gmail.com" class="ltr">il90il90@gmail.com</a>. ייתכן שנבקש פרטים סבירים לאימות זהותכם (למשל מפתח הרישיון או פרטי התשלום) לפני מסירת מידע או מחיקתו. רוב המידע של האפליקציה נשמר אצלכם במכשיר בלבד, ואתם יכולים למחוק אותו בעצמכם בכל רגע דרך ההגדרות של אנדרואיד ("ניקוי נתונים") או בהסרת האפליקציה.</p>
+<p data-lang="en">To exercise a right, email <a href="mailto:il90il90@gmail.com" class="ltr">il90il90@gmail.com</a>. We may ask for reasonable details to verify your identity (for example your licence key or payment details) before we hand over or delete data. Most of the app's data lives only on your device, and you can delete it yourself at any time from Android settings ("Clear data") or by uninstalling the app.</p>
+</section>
+<section id="children">
+<h2><span class="num">11.</span> <span data-lang="he">ילדים</span><span data-lang="en">Children</span></h2>
+<p data-lang="he">האפליקציה והרכישה מיועדות לבגירים (מגיל 18) ואינן מכוונות לילדים. איננו אוספים ביודעין מידע אישי מילדים מתחת לגיל 16. אם נודע לכם שילד מסר לנו מידע, פנו אלינו ונמחק אותו.</p>
+<p data-lang="en">The app and its purchase are intended for adults (18+) and are not directed at children. We do not knowingly collect personal data from children under 16. If you believe a child has given us information, contact us and we will delete it.</p>
+</section>
+<section id="security">
+<h2><span class="num">12.</span> <span data-lang="he">אבטחת מידע</span><span data-lang="en">Security</span></h2>
+<p data-lang="he">אנו נוקטים אמצעים סבירים ומקובלים להגנה על המידע, בהתאם לתקנות הגנת הפרטיות (אבטחת מידע), התשע"ז-2017: הצפנה בתעבורה (HTTPS/TLS), צמצום המידע שנאסף למינימום הנדרש, הגבלת הגישה למידע לנו בלבד, ושמירת רוב המידע במכשיר שלכם. פרטי הרישיון נשמרים במכשיר מוצפנים, ותקשורת הרישוי מוצפנת וחתומה. עם זאת, אף מערכת אינה חסינה לחלוטין. אם יתרחש אירוע אבטחה חמור הנוגע למידע שלכם, נודיע לרשות להגנת הפרטיות ולכם ככל שהדין מחייב.</p>
+<p data-lang="en">We use reasonable, industry-standard measures to protect information, in line with the Israeli Privacy Protection (Data Security) Regulations, 5777-2017: encryption in transit (HTTPS/TLS), collecting only the minimum we need, limiting access to ourselves, and keeping most data on your own device. Licence details are stored encrypted on the device, and licensing traffic is encrypted and signed. No system is completely secure, though. If a serious security incident affects your data, we will notify the Privacy Protection Authority and you as the law requires.</p>
+</section>
+<section id="website">
+<h2><span class="num">13.</span> <span data-lang="he">האתר trustapk.app</span><span data-lang="en">The trustapk.app website</span></h2>
+<p data-lang="he">האתר מתארח ב-GitHub Pages וטוען גופנים מ-Google Fonts; שני השירותים רואים את כתובת ה-IP של המבקרים. האתר שומר בדפדפן שלכם (localStorage) רק את בחירת ערכת הצבעים. אין באתר עוגיות מעקב, אנליטיקה או פרסום, ולכן אין צורך בהסכמה לעוגיות.</p>
+<p data-lang="en">The site is hosted on GitHub Pages and loads fonts from Google Fonts; both see visitors' IP addresses. The site stores only your colour-theme choice in your browser (localStorage). There are no tracking cookies, analytics or ads, so no cookie consent is needed.</p>
+</section>
+<section id="changes">
+<h2><span class="num">14.</span> <span data-lang="he">שינויים</span><span data-lang="en">Changes</span></h2>
+<p data-lang="he">אנו עשויים לעדכן את מדיניות זו כאשר האפליקציה או הדין משתנים. התאריך שבראש הדף יעודכן, ועל שינוי מהותי נודיע מראש באתר, בערוץ העדכונים או באפליקציה. המשך השימוש אחרי שהשינוי נכנס לתוקף מהווה הסכמה לנוסח המעודכן; אם אינכם מסכימים, תוכלו להפסיק את השימוש ולמחוק את המידע כמתואר לעיל.</p>
+<p data-lang="en">We may update this policy when the app or the law changes. The date at the top will change, and for material changes we will give advance notice on the website, in the release notes or in the app. Continuing to use the app after a change takes effect means you accept the updated version; if you don't, you can stop using the app and delete your data as described above.</p>
+<p data-lang="he">נוסח זה מתפרסם בעברית ובאנגלית ושני הנוסחים מחייבים במידה שווה. במקרה של סתירה ביניהם יחול הנוסח המיטיב עם המשתמש.</p>
+<p data-lang="en">This document is published in Hebrew and English, and both versions are equally binding. If they conflict, the version more favourable to the user applies.</p>
+</section>
+<div class="chips"><a class="chip" href="/terms/"><span data-lang="he">תנאי שימוש ורישיון</span><span data-lang="en">Terms of Use and Licence</span></a><a class="chip" href="/"><span data-lang="he">לאתר TrustAPK</span><span data-lang="en">TrustAPK home</span></a></div>
+<footer>Trust<b>APK</b> · <a href="/">trustapk.app</a></footer>
+</main>
+</body>
+</html>

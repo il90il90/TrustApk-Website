@@ -35,6 +35,13 @@ export default function Download() {
             <p className="mt-4 text-muted-c leading-relaxed">
               The signed APK is free to download from GitHub Releases and the in-app updater keeps it
               current. Using it requires a paid license - message the developer on Telegram to get a key.
+              Licenses are one-time payments, with no subscription and no automatic renewal.
+            </p>
+            <p className="mt-3 text-sm text-muted-c">
+              By buying or using TrustAPK you agree to the{' '}
+              <a href="./terms/" className="text-brand hover:underline">Terms of Use</a> (including the{' '}
+              <a href="./terms/#refunds" className="text-brand hover:underline">refund policy</a>) and the{' '}
+              <a href="./privacy/" className="text-brand hover:underline">Privacy Policy</a>.
             </p>
 
             <div className="mt-7 flex flex-col sm:flex-row gap-3">

@@ -40,6 +40,8 @@ export default function Footer() {
               <a href="#faq" className="hover:text-base-c">FAQ</a>
               <a href="#download" className="hover:text-base-c">Download</a>
               <a href="#contact" className="hover:text-base-c">Contact</a>
+              <a href="./privacy/" className="hover:text-base-c">Privacy</a>
+              <a href="./terms/" className="hover:text-base-c">Terms</a>
             </div>
           </div>
         </div>
